@@ -1,0 +1,148 @@
+% !TeX program = pdflatex
+\documentclass[12pt,a4paper,oneside]{extarticle}
+\input{auxiliares/preambulo}
+
+\begin{document}
+\input{auxiliares/cabecalho}
+
+\begin{abstract}
+Este relatório apresenta o desenvolvimento de um modelo matemático e a respectiva implementação em \texttt{Python}/\texttt{turtle}, com vista à representação de uma concha do náutilus encontrada na natureza. São descritos os objectivos, a metodologia seguida e os principais resultados obtidos. 
+\end{abstract}
+
+\section{Introdução}
+Neste capítulo apresenta-se o enquadramento teórico do trabalho, incluindo o modelo matemático de base e o modelo específico implementado no código.
+
+\subsection{Modelo Matemático da Espiral Logarítmica (1.1)}
+A concha do náutilus segue uma espiral logarítmica, também conhecida como espiral de crescimento ou espiral equiangular. Esta curva é representada pela equação polar:
+
+\begin{equation}
+r(\theta) = a \cdot e^{b \cdot \theta}
+\label{eq:espiral}
+\end{equation}
+
+\noindent onde:
+\begin{itemize}
+    \item $r$ é o raio da espiral (distância do ponto à origem)
+    \item $\theta$ é o ângulo em radianos (parâmetro angular)
+    \item $a$ é o raio inicial (constante de escala que determina o tamanho inicial)
+    \item $b$ é a taxa de crescimento (controla a "abertura" ou "fechamento" da espiral)
+    \item $e$ é a base do logaritmo natural ($e \approx 2.71828$)
+\end{itemize}
+
+\subsection{Propriedades Matemáticas Fundamentais (1.2)}
+A espiral logarítmica possui propriedades matemáticas notáveis que explicam sua prevalência na natureza:
+
+\begin{itemize}
+    \item \textbf{Auto-similaridade}: A forma mantém-se invariante sob transformações de escala. Isto significa que qualquer secção da espiral é geometricamente similar à espiral completa.
+    
+    \item \textbf{Ângulo constante}: O ângulo $\alpha$ entre o raio vetor e a tangente à curva é constante em todos os pontos, satisfazendo a relação $\cot(\alpha) = b$.
+    
+    \item \textbf{Crescimento exponencial}: O raio cresce exponencialmente com o ângulo, o que corresponde a uma taxa de crescimento proporcional ao tamanho atual.
+    
+    \item \textbf{Propriedade de crescimento isomórfico}: A forma da espiral mantém-se constante durante o crescimento, o que é energeticamente eficiente para organismos vivos.
+\end{itemize}
+
+\subsection{Implementação Computacional (1.3)}
+No script \texttt{Python/turtle}, a equação~\ref{eq:espiral} é implementada através da conversão de coordenadas polares para cartesianas:
+
+\begin{equation}
+x = r(\theta) \cdot \cos(\theta), \quad y = r(\theta) \cdot \sin(\theta)
+\label{eq:cartesianas}
+\end{equation}
+
+Para criar a forma tridimensional da concha, utilizou-se o conceito de faixa espiral, onde uma segunda espiral com raio $r_2(\theta) = r_1(\theta) + d(\theta)$ é desenhada, sendo $d(\theta)$ uma função que define a largura da concha.
+
+\subsection{Formulação por Equações Diferenciais (1.4)}
+A espiral logarítmica surge naturalmente de sistemas dinâmicos. Considerando o sistema:
+
+\begin{equation}
+\begin{cases}
+\dot{x} - \dot{y} = \ddot{x}\sqrt{\dot{x}^2 + \dot{y}^2} \\
+\dot{x} + \dot{y} = \ddot{y}\sqrt{\dot{x}^2 + \dot{y}^2}
+\end{cases}
+\label{eq:diferencial}
+\end{equation}
+
+A solução em coordenadas polares conduz ao sistema:
+
+\begin{equation}
+\dot{r} = 1, \quad \dot{\theta} = \frac{1}{r}
+\end{equation}
+
+cuja solução é a espiral logarítmica $r = c_0 \cdot e^\theta$, demonstrando como padrões naturais emergem de leis dinâmicas simples.
+
+\subsection{Propriedade de Inversão (1.5)}
+A inversão da espiral logarítmica no círculo unitário, dada por $r_{inv}(\theta) = 1/r(\theta)$, produz outra espiral logarítmica. Esta propriedade é particularmente relevante em transformações geométricas e mapeamentos conformes.
+
+\subsection{Cálculo de Áreas na Concha (1.6)}
+A área de uma secção da concha pode ser calculada através da integral:
+
+\begin{equation}
+A = \frac{1}{2}\int_{\theta_1}^{\theta_2} r^2 d\theta = \frac{1}{2}\int_{\theta_1}^{\theta_2} a^2 e^{2b\theta} d\theta = \frac{a^2}{4b}(e^{2b\theta_2} - e^{2b\theta_1})
+\label{eq:area}
+\end{equation}
+
+Para a concha do náutilus, consideramos normalmente $\theta_1 = 6\pi$ e $\theta_2 = 8\pi$ para a última revolução, resultando numa área que cresce exponencialmente com cada volta.
+
+\subsection{Modelo de Faixa Espiral para Conchas (1.7)}
+Para representar a concha 3D, utilizou-se o modelo de faixa espiral com duas espirais concêntricas:
+
+\begin{equation}
+\begin{cases}
+r_1(\theta) = a \cdot e^{b\theta} & \text{(espiral interna)} \\
+r_2(\theta) = r_1(\theta) + d(\theta) & \text{(espiral externa)}
+\end{cases}
+\label{eq:faixa}
+\end{equation}
+
+onde $d(\theta)$ representa a largura da concha. A área da secção transversal da última revolução é dada por:
+
+\begin{equation}
+A_{seccao} = \frac{1}{2}\int_{6\pi}^{8\pi} [r_2^2(\theta) - r_1^2(\theta)] d\theta
+\label{eq:area_seccao}
+\end{equation}
+
+No caso de uma concha real, $d(\theta)$ tipicamente aumenta com $\theta$ para acomodar o crescimento do organismo.
+
+\subsection{Parâmetros e Ajuste}
+Os parâmetros $a$ e $b$ foram ajustados empiricamente para aproximar a forma de uma concha real:
+\begin{itemize}
+    \item $a = 2.0$: Define o tamanho inicial da concha
+    \item $b = 0.22$: Controla a taxa de abertura da espiral
+    \item $\theta \in [0, 8\pi]$: Permite 4 voltas completas da espiral
+    \item $d(\theta) = 0.4 \cdot r(\theta)$: Largura proporcional ao raio atual
+\end{itemize}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figuras/nautilus.png}
+    \caption{Concha do Náutilus - modelo matemático implementado em Python/turtle.}
+    \label{fig:referencia}
+\end{figure}
+
+\section{Parte Experimental}
+A componente experimental deste trabalho corresponde à elaboração e explicação do código.  
+Tal como num procedimento laboratorial, importa detalhar a lógica implementada, os algoritmos utilizados e as opções tomadas em cada etapa, de forma a permitir a replicação do processo.  
+
+\section{Discussão dos Resultados}
+Apresentam-se e analisam-se, nesta secção, as imagens geradas automaticamente pelo código.  
+Não foram utilizadas capturas de ecrã, mas sim exportações directas produzidas pelo programa.  
+Discutem-se as semelhanças e diferenças entre os resultados e a imagem de referência, identificando as causas dos desvios e avaliando a qualidade da aproximação obtida.  
+
+\section{Conclusões}
+As conclusões são redigidas a partir da análise dos resultados.  
+Evitam-se afirmações superficiais ou subjectivas; privilegiam-se observações fundamentadas, como, por exemplo:  
+\begin{itemize}
+    \item O modelo reproduz com fidelidade parcial a forma natural seleccionada.  
+    \item As limitações decorrem de aproximações matemáticas ou restrições do ambiente de programação.  
+    \item Futuras melhorias poderão incluir optimizações algorítmicas ou refinamentos gráficos.  
+\end{itemize}
+
+\section{Bibliografia}
+\begin{thebibliography}{9}
+\bibitem{carvalho} Carvalho, J. (2021). \emph{Práticas de Programação em Python}. Editora XYZ.
+\bibitem{martins} Martins, A. e Silva, M. (2015). \emph{Programação Científica com Python}. Editora ABC.
+\bibitem{mathstackexchange_nautilus_2019} Math Stack Exchange. (2019). \emph{Deriving the Nautilus shell spiral equation}.
+\end{thebibliography}
+
+\end{document}
