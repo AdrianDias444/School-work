@@ -75,7 +75,7 @@ Repository dedicated to my academic work in IT Applications (AIB) and Physics su
 - **Languages:** Python, LaTeX
 - **Python Libraries:** turtle, math
 - **Mathematical Concepts:** Differential equations, integrals, polar coordinates, exponential growth
-- **Tools:** Git, GitHub, Visual Studio Code
+- **Tools:** Git, GitHub, Vim
 
 ## 🎯 Developed Skills
 
