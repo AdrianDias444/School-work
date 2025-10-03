@@ -119,10 +119,107 @@ Os parâmetros $a$ e $b$ foram ajustados empiricamente para aproximar a forma de
     \caption{Concha do Náutilus - modelo matemático implementado em Python/turtle.}
     \label{fig:referencia}
 \end{figure}
-
+  
 \section{Parte Experimental}
-A componente experimental deste trabalho corresponde à elaboração e explicação do código.  
-Tal como num procedimento laboratorial, importa detalhar a lógica implementada, os algoritmos utilizados e as opções tomadas em cada etapa, de forma a permitir a replicação do processo.  
+A componente experimental deste trabalho corresponde à elaboração e explicação do código em \texttt{Python} com a biblioteca \texttt{turtle}. Tal como num procedimento laboratorial, importa detalhar a lógica implementada, os algoritmos utilizados e as opções tomadas em cada etapa, de forma a permitir a replicação do processo.
+
+\subsection{Arquitetura do Código}
+O script foi estruturado em funções modulares para facilitar a compreensão e manutenção:
+
+\begin{itemize}
+    \item \texttt{espiral\_logaritmica(a, b, theta)}: Calcula pontos na espiral
+    \item \texttt{desenhar\_concha\_realista()}: Função principal de desenho
+    \item \texttt{desenhar\_camaras(pontos)}: Adiciona divisórias internas
+    \item \texttt{desenhar\_estrias()}: Cria linhas de crescimento
+\end{itemize}
+
+\subsection{Implementação da Espiral Logarítmica}
+A equação fundamental $r(\theta) = a \cdot e^{b\theta}$ foi implementada da seguinte forma:
+
+\begin{verbatim}
+def espiral_logaritmica(a, b, theta):
+    r = a * math.exp(b * theta)
+    x = r * math.cos(theta)
+    y = r * math.sin(theta)
+    return x, y, r
+\end{verbatim}
+
+\subsection{Conversão Coordenadas Polares-Cartesianas}
+Para compatibilidade com o sistema \texttt{turtle}, as coordenadas polares são convertidas:
+
+\begin{equation}
+x = r \cdot \cos(\theta), \quad y = r \cdot \sin(\theta)
+\end{equation}
+
+O incremento angular $\Delta\theta = 0.01$ radianos garante suavidade na curva.
+
+\subsection{Modelo de Faixa Espiral}
+Para criar a espessura da concha, implementou-se o conceito de faixa espiral com duas curvas:
+
+\begin{verbatim}
+# Espiral interna
+r1 = a * math.exp(b * theta)
+# Espiral externa  
+r2 = r1 + 0.4 * r1  # Largura proporcional
+\end{verbatim}
+
+\subsection{Parâmetros Ajustados}
+Através de testes iterativos, determinou-se os parâmetros ótimos:
+
+\begin{itemize}
+    \item \textbf{a = 2.0}: Tamanho inicial que equilibra visualização e detalhe
+    \item \textbf{b = 0.22}: Taxa de crescimento que produz forma realista
+    \item \textbf{Ângulo total}: $8\pi$ radianos (4 voltas completas)
+    \item \textbf{Resolução}: 800 pontos para suavidade adequada
+\end{itemize}
+
+\subsection{Algoritmo de Desenho}
+O desenho segue a sequência:
+
+\begin{enumerate}
+    \item Inicialização do ambiente \texttt{turtle}
+    \item Desenho da espiral interna (do centro para fora)
+    \item Desenho da espiral externa (retorno)
+    \item Preenchimento da área entre espirais
+    \item Adição de elementos detalhados (câmaras, estrias)
+\end{enumerate}
+
+\subsection{Otimizações Implementadas}
+Para melhor performance e qualidade visual:
+
+\begin{itemize}
+    \item \textbf{Velocidade máxima}: \texttt{turtle.speed(0)}
+    \item \textbf{Preenchimento inteligente}: Uso de \texttt{begin\_fill()/end\_fill()}
+    \item \textbf{Ocultação do cursor}: \texttt{turtle.hideturtle()}
+    \item \textbf{Gestão de cores}: Gradientes para realismo
+\end{itemize}
+
+\subsection{Tratamento de Erros}
+O código inclui verificações para:
+
+\begin{itemize}
+    \item Existência de diretórios de saída
+    \item Parâmetros dentro de intervalos válidos
+    \item Finalização graciosa com \texttt{screen.bye()}
+\end{itemize}
+
+\subsection{Metodologia de Testes}
+O desenvolvimento seguiu uma abordagem iterativa:
+
+\begin{enumerate}
+    \item Implementação básica da espiral simples
+    \item Adição progressiva de complexidade (faixa espiral)
+    \item Refinamento visual (cores, texturas)
+    \item Otimização de parâmetros
+    \item Validação contra referências visuais
+\end{enumerate}
+
+Este processo permitiu alcançar um equilíbrio entre fidelidade matemática e apelo visual, resultando numa representação convincente da concha do náutilus.
+
+
+
+
+
 
 \section{Discussão dos Resultados}
 Apresentam-se e analisam-se, nesta secção, as imagens geradas automaticamente pelo código.  
