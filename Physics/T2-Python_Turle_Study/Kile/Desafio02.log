@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.10.6)  6 OCT 2025 20:28
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.10.6)  6 OCT 2025 21:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1413,33 +1413,41 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 6.6pt on input line 9.
 )
-File: figuras/220853406-snake.png Graphic file (type bmp)
-<figuras/220853406-snake.png>
-
-
-LaTeX Warning: Citation 'carvalho2021praticas' on page 1 undefined on input lin
-e 32.
-
-
-LaTeX Warning: Citation 'martins2015programacao' on page 1 undefined on input l
-ine 33.
-
-
 
 [1
 
 ]
-Underfull \hbox (badness 1097) in paragraph at lines 49--50
+
+[2]
+Underfull \hbox (badness 1472) in paragraph at lines 105--106
+[]\TU/lmr/m/n/12 onde $\OML/ntxmi/m/it/12 N[]$ \TU/lmr/m/n/12 representa o núme
+ro de hexágonos na camada $\OML/ntxmi/m/it/12 k$\TU/lmr/m/n/12 -ésima, garantin
+do
+ []
+
+
+
+[3]
+
+LaTeX Warning: Citation 'carvalho2021praticas' on page 4 undefined on input lin
+e 118.
+
+
+LaTeX Warning: Citation 'martins2015programacao' on page 4 undefined on input l
+ine 119.
+
+
+Underfull \hbox (badness 1097) in paragraph at lines 135--136
 []\TU/lmr/m/n/12 Futuras melhorias poderão incluir optimizações algorítmicas ou
  refinamentos
  []
 
 
-LaTeX Warning: Empty bibliography on input line 53.
+LaTeX Warning: Empty bibliography on input line 139.
 
 
 
-[2] (./Desafio02.aux)
+[4] (./Desafio02.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1448,8 +1456,11 @@ L3 programming layer <2025-01-18>
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `Desafio02.out' has not changed.
-(rerunfilecheck)             Checksum: 49C951A6BB74BA49E9C7DF2A1379BCE6;666.
+(rerunfilecheck)             Checksum: 5BDA04CB1F2970800A6698CFA38FCE9D;2611.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                Desafio02
@@ -1460,12 +1471,12 @@ Package logreq Info: Writing requests to 'Desafio02.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41424 strings out of 475848
- 871150 string characters out of 5776013
- 1721533 words of memory out of 5000000
- 63786 multiletter control sequences out of 15000+600000
- 577846 words of font info for 71 fonts, out of 8000000 for 9000
+ 41420 strings out of 475848
+ 871125 string characters out of 5776013
+ 1723983 words of memory out of 5000000
+ 63781 multiletter control sequences out of 15000+600000
+ 577862 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 92i,6n,120p,698b,3742s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 92i,10n,120p,698b,3742s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Desafio02.pdf (2 pages).
+Output written on Desafio02.pdf (4 pages).
