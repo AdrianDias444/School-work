@@ -18,37 +18,32 @@ Repository dedicated to my academic work in IT Applications (AIB) and Physics su
 
 **Mathematical Modeling and Scientific Reports**
 
-#### 📁 Assignment 2 - Nautilus Modeling
+#### 📁 Assignment 2 - Honeycomb Structure Modeling
 
-**"Mathematical Modeling of a Nautilus Shell using Python/turtle"**
+**"Mathematical Modeling of Honeycomb Structure using Python/turtle"**
 
 **Developed Content:**
 
-- 📄 **`relatorio_nautilus.pdf`** - Complete scientific report
-- 🐢 **`nautilus_model.py`** - Python/turtle implementation
+- 📄 **`relatorio_favos_mel.pdf`** - Complete scientific report
+- 🐢 **`favos_mel.py`** - Python/turtle implementation
 
 **Report Chapters:**
 
 1. **Introduction** - ✅ **Complete**
-   - 1.1 Mathematical Model of the Logarithmic Spiral
-   - 1.2 Fundamental Mathematical Properties
-   - 1.3 Computational Implementation
-   - 1.4 Formulation through Differential Equations
-   - 1.5 Inversion Property
-   - 1.6 Area Calculations in the Shell
-   - 1.7 Spiral Strip Model for Shells
-   - 1.8 Parameters and Adjustment
+   - 1.1 Honeycomb Conjecture and Perimeter-Area Optimization
+   - 1.2 Geometric Limitations of Hexagonal Patterns
+   - 1.3 Exclusivity of Regular Tessellations in Euclidean Plane
+   - 1.4 Mathematical Proof of Hexagonal Efficiency
+   - 1.5 Hierarchical Subdivision Constraints
+   - 1.6 Comparison with Alternative Geometric Patterns
 
 2. **Experimental Section** - ✅ **Complete**
-   - 2.1 Code Architecture and Modular Functions
-   - 2.2 Logarithmic Spiral Implementation
-   - 2.3 Polar-Cartesian Coordinates Conversion
-   - 2.4 Spiral Strip Model
-   - 2.5 Optimized Parameters (a=2.0, b=0.22, θ=8π)
-   - 2.6 Drawing Algorithm
-   - 2.7 Performance Optimizations
-   - 2.8 Error Handling
-   - 2.9 Testing Methodology
+   - 2.1 Hexagonal Grid Generation Algorithms
+   - 2.2 Mathematical Position Calculation
+   - 2.3 Progressive Construction Simulation
+   - 2.4 Color Gradient Implementation
+   - 2.5 Realistic Honeycomb Texture Rendering
+   - 2.6 Performance Optimization Techniques
 
 3. **Results Discussion** - 🟡 In development
 4. **Conclusions** - 🟡 In development
@@ -56,44 +51,44 @@ Repository dedicated to my academic work in IT Applications (AIB) and Physics su
 
 ## 🧮 Key Mathematical Implementations
 
-### 📈 Core Equations Implemented:
+### 📈 Core Mathematical Concepts:
 
-- **Logarithmic Spiral**: `r(θ) = a · e^(b·θ)`
-- **Coordinate Conversion**: `x = r·cos(θ)`, `y = r·sin(θ)`
-- **Spiral Strip Model**: `r₂(θ) = r₁(θ) + 0.4·r₁(θ)`
-- **Area Calculation**: `A = ½∫r²dθ`
+- **Honeycomb Conjecture**: Perimeter/Area ratio optimization with ∜12 optimal value
+- **Regular Tessellations**: Proof that only triangles, squares, and hexagons tile the plane perfectly
+- **Hexagonal Grid Mathematics**: Position calculation using radial coordinates and 60° symmetry
+- **Geometric Optimization**: Mathematical demonstration of hexagon efficiency over other polygons
 
 ### 🔧 Technical Specifications:
 
-- **Angular Resolution**: Δθ = 0.01 radians
-- **Total Rotation**: 8π radians (4 complete turns)
-- **Point Density**: 800 points for smooth rendering
-- **Performance**: Maximum turtle speed, hidden cursor
+- **Hexagonal Geometry**: Perfect 60° angles and equal side lengths
+- **Radial Expansion**: Concentric layer growth pattern
+- **Color Algorithms**: Mathematical gradient based on position and distance
+- **Progressive Rendering**: 30-second construction simulation
 
 ## 🛠️ Technologies and Tools
 
 - **Languages:** Python, LaTeX
-- **Python Libraries:** turtle, math
-- **Mathematical Concepts:** Differential equations, integrals, polar coordinates, exponential growth
+- **Python Libraries:** turtle, math, random
+- **Mathematical Concepts:** Tessellation theory, geometric optimization, coordinate systems
 - **Tools:** Git, GitHub, Vim
 
 ## 🎯 Developed Skills
 
 ### 💻 Programming Excellence
 
-- Advanced Python programming with turtle graphics
-- Mathematical algorithm implementation
-- Code optimization and performance tuning
-- Modular software architecture
-- Error handling and testing methodologies
+- Advanced geometric algorithms implementation
+- Mathematical pattern generation
+- Real-time visualization techniques
+- Color theory and gradient applications
+- Performance optimization in graphical rendering
 
 ### 🔬 Scientific Research
 
-- Mathematical modeling of natural phenomena
-- Differential equations application
-- Experimental methodology documentation
-- Parameter optimization through iterative testing
-- Scientific report writing and documentation
+- Mathematical proof analysis and application
+- Natural pattern modeling and simulation
+- Optimization principle implementation
+- Experimental methodology in computational physics
+- Academic documentation and reporting
 
 ## 📊 Progress Status
 
@@ -101,18 +96,18 @@ Repository dedicated to my academic work in IT Applications (AIB) and Physics su
 | ------------------------------- | -------------- | ---------- |
 | **Mathematical Foundation**     | ✅ Complete    | 100%       |
 | **Experimental Implementation** | ✅ Complete    | 100%       |
-| **Code Optimization**           | ✅ Complete    | 100%       |
+| **Visual Rendering**            | ✅ Complete    | 100%       |
 | **Results Analysis**            | 🟡 In Progress | 60%        |
 | **Final Conclusions**           | 🟡 Pending     | 20%        |
 | **Bibliography**                | 🟡 In Progress | 70%        |
 
 ## 🚀 Project Achievements
 
-✅ **Complete mathematical modeling** of logarithmic spiral  
-✅ **Full Python/turtle implementation** with optimized parameters  
-✅ **Advanced graphics rendering** with spiral strip model  
-✅ **Professional documentation** of experimental process  
-✅ **Performance-optimized code** with error handling
+✅ **Complete mathematical modeling** of honeycomb structure  
+✅ **Advanced hexagonal grid generation** with mathematical precision  
+✅ **Realistic progressive construction** simulation  
+✅ **Mathematical color gradient** implementation  
+✅ **Professional geometric visualization** with turtle graphics
 
 ## 👨‍💻 Author
 
@@ -123,8 +118,8 @@ Repository dedicated to my academic work in IT Applications (AIB) and Physics su
 
 ## 📝 Academic Notes
 
-_This project demonstrates advanced integration of mathematical theory with computational implementation. The nautilus shell modeling successfully combines differential equations, coordinate transformations, and computer graphics to recreate natural patterns._
+_This project demonstrates the application of advanced geometric principles and optimization mathematics to model natural structures. The honeycomb modeling successfully combines tessellation theory, mathematical proofs, and computational implementation to recreate one of nature's most efficient architectural designs._
 
 ---
 
-**Last update:** October 2025 | **Current focus:** Completing Results Discussion section
+**Last update:** October 2025 | **Current focus:** Completing Results Analysis and Mathematical Discussion
