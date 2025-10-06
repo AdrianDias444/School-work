@@ -1,0 +1,56 @@
+%%
+%% UTF-8       UTF-8      UTF-8       UTF-8       UTF-8       UTF-8
+%% UTF-8       UTF-8      UTF-8       UTF-8       UTF-8       UTF-8
+%%
+%% XeLaTeX  XeLaTeX  XeLaTeX  XeLaTeX  XeLaTeX  XeLaTeX  XeLaTeX  XeLaTeX  
+
+% !TeX program = xelatex
+\lccode`\-=`\-
+%\defaulthyphenchar=127
+\documentclass[12pt,a4paper,oneside]{extarticle}
+\input{auxiliares/preambulo} % não é para alterar
+
+\begin{document}
+\input{auxiliares/cabecalho} % pode alterar o título, o nome o número etc.
+
+\begin{abstract}
+Este relatório apresenta o desenvolvimento de um modelo matemático e a respectiva implementação em \texttt{Python}/\texttt{turtle}, com vista à representação de uma curva ou forma encontrada na natureza. São descritos os objectivos, a metodologia seguida e os principais resultados obtidos. 
+\end{abstract}
+
+\section{Introdução}
+Neste capítulo apresenta-se o enquadramento teórico do trabalho, incluindo o modelo matemático de base e o modelo específico implementado no código.  
+De acordo com a proposta, seleccionou-se uma forma presente na natureza, representada na Figura~\ref{fig:referencia}, a qual serve de inspiração para a construção do script em \texttt{Python}/\texttt{turtle}.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figuras/220853406-snake.png}
+    \caption{Exemplo de forma natural utilizada como referência.}
+    \label{fig:referencia}
+\end{figure}
+
+\section{Parte Experimental}
+A componente experimental deste trabalho corresponde à elaboração e explicação do código\cite{carvalho2021praticas}.  
+Tal como num procedimento laboratorial, importa detalhar a lógica implementada\cite{martins2015programacao}, os algoritmos utilizados e as opções tomadas em cada etapa, de forma a permitir a replicação do processo.  
+
+%Isto está a dar imensos problemas!!! :( 
+
+
+\section{Discussão dos Resultados}
+Apresentam-se e analisam-se, nesta secção, as imagens geradas automaticamente pelo código.  
+Não foram utilizadas capturas de ecrã, mas sim exportações directas produzidas pelo programa.  
+Discutem-se as semelhanças e diferenças entre os resultados e a imagem de referência, identificando as causas dos desvios e avaliando a qualidade da aproximação obtida.  
+
+\section{Conclusões}
+As conclusões são redigidas a partir da análise dos resultados.  
+Evitam-se afirmações superficiais ou subjectivas; privilegiam-se observações fundamentadas, como, por exemplo:  
+\begin{itemize}
+    \item O modelo reproduz com fidelidade parcial a forma natural seleccionada.  
+    \item As limitações decorrem de aproximações matemáticas ou restrições do ambiente de programação.  
+    \item Futuras melhorias poderão incluir optimizações algorítmicas ou refinamentos gráficos.  
+\end{itemize}
+
+\section{Bibliografia}
+\printbibliography
+
+
+\label{fim}\end{document}
