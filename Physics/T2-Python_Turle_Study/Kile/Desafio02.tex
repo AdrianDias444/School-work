@@ -183,9 +183,82 @@ if __name__ == "__main__":
     generate_honeycomb(rows=8, cols=10, hex_size=20)
 \end{lstlisting}
 
+
 \section{Parte Experimental}
-A componente experimental deste trabalho corresponde à elaboração e explicação do código \cite{carvalho2021praticas}.  
-Tal como num procedimento laboratorial, importa detalhar a lógica implementada \cite{martins2015programacao}, os algoritmos utilizados e as opções tomadas em cada etapa, de forma a permitir a replicação do processo.
+
+\subsection{Contexto e Abordagem Metodológica}
+
+A componente experimental deste trabalho corresponde à elaboração e explicação do código para análise computacional da geometria hexagonal em favos de mel. Tal como num procedimento laboratorial, importa detalhar a lógica implementada, os algoritmos utilizados e as opções tomadas em cada etapa, de forma a permitir a replicação do processo.
+
+A investigação parte da \textbf{Honeycomb Conjecture}, que estabelece o padrão hexagonal como a forma mais eficiente para particionar o plano em regiões de igual área com menor perímetro total. Esta fundamentação teórica justifica a escolha do hexágono regular como objeto central de estudo.
+
+\subsection{Implementação Computacional}
+
+A implementação foi realizada utilizando a biblioteca \texttt{turtle} do Python, escolhida pela sua capacidade de produzir representações gráficas bidimensionais de maneira simples e eficaz. O desenvolvimento seguiu uma abordagem baseada em tesselações \cite{mathstackexchange_tiling_notations_2022}, considerando notações padronizadas para empacotamento de polígonos.
+
+\subsubsection{Algoritmo Principal}
+
+O algoritmo central, implementado na função \texttt{generate\_honeycomb}, organiza uma estrutura hexagonal que reflete os padrões naturais dos favos de mel. A lógica de posicionamento utiliza um sistema de coordenadas baseado em deslocamentos regulares, assegurando uma disposição simétrica e contínua das células:
+
+\begin{equation}
+x_{\text{offset}} = \sqrt{3} \times \text{hex\_size} \times \text{col}
+\end{equation}
+
+\begin{equation}
+y_{\text{offset}} = 1.5 \times \text{hex\_size} \times \text{row}
+\end{equation}
+
+Esta abordagem considera as propriedades de subpavimentação com hexágonos \cite{mathstackexchange_hexagon_subpaving_2023}, garantindo cobertura total do plano sem sobreposições.
+
+\subsubsection{Desenho de Hexágonos Individuais}
+
+A função \texttt{draw\_hexagon} foi desenvolvida para traçar cada hexágono individual, incorporando um elemento interno menor com um fator de profundidade de $0,3$, visando simular a tridimensionalidade observada na natureza. A generalização para outros polígonos regulares foi considerada com base em estudos sobre tesselações com pentágonos \cite{mathstackexchange_pentagon_tiling_2023}.
+
+\subsection{Parâmetros e Configurações}
+
+Foram estabelecidos parâmetros específicos para otimização da visualização:
+
+\begin{itemize}
+    \item Número de linhas: $\mathrm{rows} = 8$
+    \item Número de colunas: $\mathrm{cols} = 10$  
+    \item Tamanho do hexágono: $\mathrm{hex\_size} = 20$
+    \item Cores: Preenchimento dourado (\textcolor[HTML]{FFD700}{\texttt{\#FFD700}}) e bordas em bege (\textcolor[HTML]{DAA520}{\texttt{\#DAA520}})
+    \item Espessura das bordas: $\mathrm{pensize} = 2$
+\end{itemize}
+
+\subsection{Processo de Construção e Validação}
+
+O processo de construção segue uma abordagem iterativa, simulando um crescimento progressivo a partir de um ponto central. A centralização da grade é assegurada por deslocamentos proporcionais às dimensões totais da estrutura:
+
+\begin{equation}
+x_{\text{start}} = -\frac{\text{cols} \times \sqrt{3} \times \text{hex\_size}}{2}
+\end{equation}
+
+\begin{equation}
+y_{\text{start}} = -\frac{\text{rows} \times 1.5 \times \text{hex\_size}}{2}
+\end{equation}
+
+A validação geométrica considerou também aspectos de tesselações hiperbólicas \cite{mathstackexchange_hyperbolic_tessellations_2013}, embora o foco tenha permanecido no plano euclidiano.
+
+\subsection{Replicabilidade e Extensões}
+
+Esta metodologia permite que o código seja replicado em qualquer ambiente Python com a biblioteca \texttt{turtle} devidamente instalada. A arquitetura modular do sistema permite futuras extensões para:
+\begin{itemize}
+    \item Análise de eficiência de empacotamento
+    \item Simulação de deformações estruturais
+    \item Estudo de transições para outros polígonos regulares
+    \item Aplicação em contextos de geometria hiperbólica
+\end{itemize}
+
+A implementação serve assim como ferramenta versátil para exploração computacional de padrões geométricos na natureza.
+
+
+
+
+
+
+
+
 
 \section{Discussão dos Resultados}
 Apresentam-se e analisam-se, nesta secção, as imagens geradas automaticamente pelo código.  

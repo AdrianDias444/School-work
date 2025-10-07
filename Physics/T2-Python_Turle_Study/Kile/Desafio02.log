@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.10.6)  7 OCT 2025 13:10
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.10.6)  7 OCT 2025 22:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1240,6 +1240,13 @@ File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
 (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+
+Package polyglossia Info: Default language is portuguese
+
+
+(/usr/share/texmf-dist/tex/latex/natbib/bibentry.sty
+Package: bibentry 2007/10/30 1.5 (PWD)
 ))
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'polyglossia' package.
@@ -1484,27 +1491,52 @@ File: lstlang1.sty 2024/09/23 1.10c listings language file
 
 [5]
 
-LaTeX Warning: Citation 'carvalho2021praticas' on page 6 undefined on input lin
-e 187.
-
-
-LaTeX Warning: Citation 'martins2015programacao' on page 6 undefined on input l
-ine 188.
+LaTeX Warning: Citation 'mathstackexchange_tiling_notations_2022' on page 6 und
+efined on input line 197.
 
 
 
 [6]
-Underfull \hbox (badness 1097) in paragraph at lines 201--202
+
+LaTeX Warning: Citation 'mathstackexchange_hexagon_subpaving_2023' on page 7 un
+defined on input line 211.
+
+
+LaTeX Warning: Citation 'mathstackexchange_pentagon_tiling_2023' on page 7 unde
+fined on input line 215.
+
+
+Underfull \hbox (badness 1831) in paragraph at lines 215--216
+\TU/lmr/m/n/12 A função \TU/lmtt/m/n/12 draw_hexagon \TU/lmr/m/n/12 foi desenvo
+lvida para traçar cada hexágono individual,
+ []
+
+
+
+[7]
+
+LaTeX Warning: Citation 'mathstackexchange_hyperbolic_tessellations_2013' on pa
+ge 8 undefined on input line 241.
+
+
+Underfull \hbox (badness 5954) in paragraph at lines 241--242
+\TU/lmr/m/n/12 [[]], embora o foco tenha
+ []
+
+
+
+[8]
+Underfull \hbox (badness 1097) in paragraph at lines 274--275
 []\TU/lmr/m/n/12 Futuras melhorias poderão incluir optimizações algorítmicas ou
  refinamentos
  []
 
 
-LaTeX Warning: Empty bibliography on input line 205.
+LaTeX Warning: Empty bibliography on input line 278.
 
 
 
-[7] (./Desafio02.aux)
+[9] (./Desafio02.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1513,11 +1545,8 @@ L3 programming layer <2025-01-18>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `Desafio02.out' has not changed.
-(rerunfilecheck)             Checksum: 5B7E12DA29A392268E9B82159A34C61C;3426.
+(rerunfilecheck)             Checksum: 2DDD34EBB4AF9282F58BE462595B6905;5100.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                Desafio02
@@ -1528,12 +1557,12 @@ Package logreq Info: Writing requests to 'Desafio02.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 42829 strings out of 475848
- 891856 string characters out of 5776013
- 1910029 words of memory out of 5000000
- 65171 multiletter control sequences out of 15000+600000
+ 42866 strings out of 475848
+ 892608 string characters out of 5776013
+ 1912834 words of memory out of 5000000
+ 65204 multiletter control sequences out of 15000+600000
  577862 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  92i,10n,120p,698b,3742s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Desafio02.pdf (7 pages).
+Output written on Desafio02.pdf (9 pages).
