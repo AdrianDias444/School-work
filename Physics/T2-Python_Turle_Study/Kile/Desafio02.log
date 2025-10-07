@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.10.6)  7 OCT 2025 12:41
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.10.6)  7 OCT 2025 13:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1449,42 +1449,62 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 6.6pt on input line 9.
 )
-Excluding 'comment' comment.
+Underfull \hbox (badness 1048) in paragraph at lines 17--18
+\TU/lmr/m/n/10.95 a respectiva implementação computacional em \TU/lmtt/m/n/10.9
+5 Python\TU/lmr/m/n/10.95 /\TU/lmtt/m/n/10.95 turtle\TU/lmr/m/n/10.95 , com vis
+ta à
+ []
+
+
+Underfull \hbox (badness 2726) in paragraph at lines 22--23
+\TU/lmr/m/n/12 O presente trabalho tem como objectivo principal a modelação mat
+emática e
+ []
+
+
 
 [1
 
 ]
 
 [2]
-Underfull \hbox (badness 1472) in paragraph at lines 184--185
+
+[3]
+Underfull \hbox (badness 1472) in paragraph at lines 111--112
 []\TU/lmr/m/n/12 onde $\OML/ntxmi/m/it/12 N[]$ \TU/lmr/m/n/12 representa o núme
 ro de hexágonos na camada $\OML/ntxmi/m/it/12 k$\TU/lmr/m/n/12 -ésima, garantin
 do
  []
 
+(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+
+[4]
+
+[5]
+
+LaTeX Warning: Citation 'carvalho2021praticas' on page 6 undefined on input lin
+e 187.
 
 
-[3]
-
-LaTeX Warning: Citation 'carvalho2021praticas' on page 4 undefined on input lin
-e 197.
+LaTeX Warning: Citation 'martins2015programacao' on page 6 undefined on input l
+ine 188.
 
 
-LaTeX Warning: Citation 'martins2015programacao' on page 4 undefined on input l
-ine 198.
 
-
-Underfull \hbox (badness 1097) in paragraph at lines 214--215
+[6]
+Underfull \hbox (badness 1097) in paragraph at lines 201--202
 []\TU/lmr/m/n/12 Futuras melhorias poderão incluir optimizações algorítmicas ou
  refinamentos
  []
 
 
-LaTeX Warning: Empty bibliography on input line 218.
+LaTeX Warning: Empty bibliography on input line 205.
 
 
 
-[4] (./Desafio02.aux)
+[7] (./Desafio02.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1497,7 +1517,7 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package rerunfilecheck Info: File `Desafio02.out' has not changed.
-(rerunfilecheck)             Checksum: 5BDA04CB1F2970800A6698CFA38FCE9D;2611.
+(rerunfilecheck)             Checksum: 5B7E12DA29A392268E9B82159A34C61C;3426.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                Desafio02
@@ -1508,12 +1528,12 @@ Package logreq Info: Writing requests to 'Desafio02.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 42649 strings out of 475848
- 889817 string characters out of 5776013
- 1745181 words of memory out of 5000000
- 64993 multiletter control sequences out of 15000+600000
+ 42829 strings out of 475848
+ 891856 string characters out of 5776013
+ 1910029 words of memory out of 5000000
+ 65171 multiletter control sequences out of 15000+600000
  577862 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  92i,10n,120p,698b,3742s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Desafio02.pdf (4 pages).
+Output written on Desafio02.pdf (7 pages).
