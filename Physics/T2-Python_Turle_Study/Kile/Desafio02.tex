@@ -56,7 +56,7 @@ A condição matemática necessária e suficiente para tesselação regular é e
 \label{eq:tessellation_condition}
 \end{equation}
 
-onde $m$ e $n$ são inteiros que satisfazem a equação para os três casos mencionados.
+where $m$ and $n$ are integers that satisfy the equation for the three cases mentioned.
 
 \subsubsection{Limitações ao Refinamento Hierárquico}
 Os hexágonos regulares apresentam constrangimentos matemáticos inerentes no que concerne a sistemas de múltiplas escalas. A impossibilidade de subdivisão hierárquica perfeita decorre de três axiomas fundamentais:
@@ -69,9 +69,9 @@ Os hexágonos regulares apresentam constrangimentos matemáticos inerentes no qu
 
 Estes princípios matemáticos explicam a preferência evolutiva por favos de dimensão uniforme em detrimento de sistemas com múltiplas escalas.
 
-\section{Modelo Computacional Implementado}
+\subsection{Modelo Computacional Implementado}
 
-\subsection{Arquitetura do Sistema de Coordenadas}
+\subsubsection{Arquitetura do Sistema de Coordenadas}
 No script \texttt{Python/turtle}, a estrutura hexagonal é implementada através de um sistema de coordenadas baseado em vectores de rede hexagonal. A posição de cada hexágono é determinada por:
 
 \begin{equation}
@@ -89,7 +89,7 @@ onde os vectores base da rede hexagonal são definidos como:
 
 sendo $s$ o comprimento do lado do hexágono.
 
-\subsection{Especificações e Parâmetros do Modelo}
+\subsubsection{Especificações e Parâmetros do Modelo}
 Para a implementação computacional, foram estabelecidos os seguintes parâmetros matemáticos:
 
 \begin{itemize}
@@ -100,7 +100,7 @@ Para a implementação computacional, foram estabelecidos os seguintes parâmetr
     \item \textbf{Área individual}: $A_{\text{hex}} = \frac{3\sqrt{3}}{2}s^2$
 \end{itemize}
 
-\subsection{Algoritmo de Construção Progressiva}
+\subsubsection{Algoritmo de Construção Progressiva}
 O modelo implementado simula o processo de construção natural através de um algoritmo de expansão radial, iniciando em pontos centrais e expandindo concentricamente. A progressão obedece à sequência:
 
 \begin{equation}
@@ -110,7 +110,7 @@ N_k = 6k \quad \text{para} \quad k = 1, 2, \ldots, n
 
 onde $N_k$ representa o número de hexágonos na camada $k$-ésima, garantindo crescimento simétrico e geometricamente consistente.
 
-\subsection{Implementação Computacional}
+\subsubsection{Implementação Computacional}
 
 \begin{lstlisting}[language=python]
 import turtle
@@ -183,7 +183,6 @@ if __name__ == "__main__":
     generate_honeycomb(rows=8, cols=10, hex_size=20)
 \end{lstlisting}
 
-
 \section{Parte Experimental}
 
 \subsection{Contexto e Abordagem Metodológica}
@@ -194,7 +193,7 @@ A investigação parte da \textbf{Honeycomb Conjecture}, que estabelece o padrã
 
 \subsection{Implementação Computacional}
 
-A implementação foi realizada utilizando a biblioteca \texttt{turtle} do Python, escolhida pela sua capacidade de produzir representações gráficas bidimensionais de maneira simples e eficaz. O desenvolvimento seguiu uma abordagem baseada em tesselações \cite{mathstackexchange_tiling_notations_2022}, considerando notações padronizadas para empacotamento de polígonos.
+A implementação foi realizada utilizando a biblioteca \texttt{turtle} do Python, escolhida pela sua capacidade de produzir representações gráficas bidimensionais de maneira simples e eficaz. O desenvolvimento seguiu uma abordagem baseada em tesselações, considerando notações padronizadas para empacotamento de polígonos.
 
 \subsubsection{Algoritmo Principal}
 
@@ -208,11 +207,11 @@ x_{\text{offset}} = \sqrt{3} \times \text{hex\_size} \times \text{col}
 y_{\text{offset}} = 1.5 \times \text{hex\_size} \times \text{row}
 \end{equation}
 
-Esta abordagem considera as propriedades de subpavimentação com hexágonos \cite{mathstackexchange_hexagon_subpaving_2023}, garantindo cobertura total do plano sem sobreposições.
+Esta abordagem considera as propriedades de subpavimentação com hexágonos, garantindo cobertura total do plano sem sobreposições.
 
 \subsubsection{Desenho de Hexágonos Individuais}
 
-A função \texttt{draw\_hexagon} foi desenvolvida para traçar cada hexágono individual, incorporando um elemento interno menor com um fator de profundidade de $0,3$, visando simular a tridimensionalidade observada na natureza. A generalização para outros polígonos regulares foi considerada com base em estudos sobre tesselações com pentágonos \cite{mathstackexchange_pentagon_tiling_2023}.
+A função \texttt{draw\_hexagon} foi desenvolvida para traçar cada hexágono individual, incorporando um elemento interno menor com um fator de profundidade de $0,3$, visando simular a tridimensionalidade observada na natureza. A generalização para outros polígonos regulares foi considerada com base em estudos sobre tesselações com pentágonos.
 
 \subsection{Parâmetros e Configurações}
 
@@ -238,7 +237,7 @@ x_{\text{start}} = -\frac{\text{cols} \times \sqrt{3} \times \text{hex\_size}}{2
 y_{\text{start}} = -\frac{\text{rows} \times 1.5 \times \text{hex\_size}}{2}
 \end{equation}
 
-A validação geométrica considerou também aspectos de tesselações hiperbólicas \cite{mathstackexchange_hyperbolic_tessellations_2013}, embora o foco tenha permanecido no plano euclidiano.
+A validação geométrica considerou também aspectos de tesselações hiperbólicas, embora o foco tenha permanecido no plano euclidiano.
 
 \subsection{Replicabilidade e Extensões}
 
@@ -251,14 +250,6 @@ Esta metodologia permite que o código seja replicado em qualquer ambiente Pytho
 \end{itemize}
 
 A implementação serve assim como ferramenta versátil para exploração computacional de padrões geométricos na natureza.
-
-
-
-
-
-
-
-
 
 \section{Discussão dos Resultados}
 Apresentam-se e analisam-se, nesta secção, as imagens geradas automaticamente pelo código.  

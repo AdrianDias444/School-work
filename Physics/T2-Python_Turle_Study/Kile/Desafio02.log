@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.10.6)  7 OCT 2025 22:13
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.10.6)  7 OCT 2025 22:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1491,22 +1491,8 @@ File: lstlang1.sty 2024/09/23 1.10c listings language file
 
 [5]
 
-LaTeX Warning: Citation 'mathstackexchange_tiling_notations_2022' on page 6 und
-efined on input line 197.
-
-
-
 [6]
-
-LaTeX Warning: Citation 'mathstackexchange_hexagon_subpaving_2023' on page 7 un
-defined on input line 211.
-
-
-LaTeX Warning: Citation 'mathstackexchange_pentagon_tiling_2023' on page 7 unde
-fined on input line 215.
-
-
-Underfull \hbox (badness 1831) in paragraph at lines 215--216
+Underfull \hbox (badness 1831) in paragraph at lines 214--215
 \TU/lmr/m/n/12 A função \TU/lmtt/m/n/12 draw_hexagon \TU/lmr/m/n/12 foi desenvo
 lvida para traçar cada hexágono individual,
  []
@@ -1515,24 +1501,14 @@ lvida para traçar cada hexágono individual,
 
 [7]
 
-LaTeX Warning: Citation 'mathstackexchange_hyperbolic_tessellations_2013' on pa
-ge 8 undefined on input line 241.
-
-
-Underfull \hbox (badness 5954) in paragraph at lines 241--242
-\TU/lmr/m/n/12 [[]], embora o foco tenha
- []
-
-
-
 [8]
-Underfull \hbox (badness 1097) in paragraph at lines 274--275
+Underfull \hbox (badness 1097) in paragraph at lines 265--266
 []\TU/lmr/m/n/12 Futuras melhorias poderão incluir optimizações algorítmicas ou
  refinamentos
  []
 
 
-LaTeX Warning: Empty bibliography on input line 278.
+LaTeX Warning: Empty bibliography on input line 269.
 
 
 
@@ -1546,7 +1522,7 @@ L3 programming layer <2025-01-18>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Desafio02.out' has not changed.
-(rerunfilecheck)             Checksum: 2DDD34EBB4AF9282F58BE462595B6905;5100.
+(rerunfilecheck)             Checksum: D4BB81F806AC78E47825D6AD2B57275E;5204.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                Desafio02
@@ -1557,10 +1533,10 @@ Package logreq Info: Writing requests to 'Desafio02.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 42866 strings out of 475848
- 892608 string characters out of 5776013
- 1912834 words of memory out of 5000000
- 65204 multiletter control sequences out of 15000+600000
+ 42680 strings out of 475848
+ 888887 string characters out of 5776013
+ 1912909 words of memory out of 5000000
+ 65018 multiletter control sequences out of 15000+600000
  577862 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  92i,10n,120p,698b,3742s stack positions out of 10000i,1000n,20000p,200000b,200000s
