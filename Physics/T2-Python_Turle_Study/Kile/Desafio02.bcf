@@ -2375,6 +2375,18 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliografia.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
+    <bcf:citekey order="1" intorder="1">Turing1952</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">Cartwright2002</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">Cooper2018Shark</bcf:citekey>
+    <bcf:citekey order="3" intorder="2">Cooper2019</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">Sick2006</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">mathstackexchange_hexagon_tiling_2016</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">mathstackexchange_voronoi_proof_2012</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">mathstackexchange_weighted_interpolation_2014</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">Kondo2010</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">Cooper2018Shark</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">Economou2020</bcf:citekey>
+    <bcf:citekey order="10" intorder="2">Krause2018</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

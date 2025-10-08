@@ -1,0 +1,31 @@
+Conceitos Fundamentais:
+
+    "tessellation algorithms python"
+
+    "Voronoi diagrams implementation turtle"
+
+    "reaction-diffusion cellular automata python"
+
+    "hexagonal tiling pattern generation"
+
+    "wave function collapse pattern generation"
+
+Matemática Específica:
+
+    "parametric equations scale patterns"
+
+    "affine transformations pattern design"
+
+    "stochastic processes pattern formation"
+
+    "L-systems biological patterns"
+
+    "perlin noise organic patterns"
+
+Implementação:
+
+    "Python turtle geometric patterns"
+
+    "recursive patterns turtle graphics"
+
+    "matrix transformations turtle python"

@@ -1,0 +1,9 @@
+@misc{mathstackexchange_voronoi_proof_2012,
+  title = {Voronoi Diagrams Proof},
+  author = {John Smith and A.Schulz and MvG},
+  howpublished = {Mathematics Stack Exchange},
+  year = {2012},
+  month = {Nov},
+  url = {https://math.stackexchange.com/questions/238133/voronoi-diagrams-proof},
+  note = {Acessado em: 2025-10-02}
+}
