@@ -36,7 +36,6 @@ O presente trabalho tem como objectivo principal a modelação matemática e imp
 
 A abordagem adoptada integra conceitos de geometria euclidiana, teoria de tesselações e algoritmos computacionais, visando não apenas a reprodução gráfica da forma, mas também a compreensão dos princípios matemáticos que governam a sua estrutura.
 
-\needspace{0\baselineskip}
 \subsection{Fundamentos Matemáticos dos Favos de Mel}
 
 \subsubsection{Conjectura do Favo de Mel e Princípios de Optimização}
@@ -84,7 +83,6 @@ Os hexágonos regulares apresentam constrangimentos matemáticos inerentes no qu
 
 Estes princípios matemáticos explicam a preferência evolutiva por favos de dimensão uniforme em detrimentode sistemas com múltiplas escalas.
 
-\needspace{12\baselineskip}
 \subsection{Modelo Computacional Implementado}
 
 
@@ -155,7 +153,6 @@ def draw_hexagon(t, size, depth=0.3):
     t.penup()
     t.goto(t.xcor() - size * depth, t.ycor())
     t.setheading(t.heading() - 30)
-
 def generate_honeycomb(rows=8, cols=10, hex_size=20):
     t = turtle.Turtle()
     t.speed(0)
@@ -186,10 +183,9 @@ if __name__ == "__main__":
     generate_honeycomb(rows=8, cols=10, hex_size=20)
 \end{lstlisting}
 
-
+\needspace{7\baselineskip}
 \section{Parte Experimental}
 
-\needspace{8\baselineskip}
 \subsection{Contexto e Abordagem Metodológica}
 
 A componente experimental deste trabalho corresponde à elaboração e explicação do código para análise computacional da geometria hexagonal em favos de mel. Tal como num procedimento laboratorial, importa detalhar a lógica implementada, os algoritmos utilizados e as opções tomadas em cada etapa, de forma a permitir a replicação do processo.
@@ -247,7 +243,7 @@ y_{\text{start}} = -\frac{\text{rows} \times 1.5 \times \text{hex\_size}}{2}
 
 A validação geométrica considerou também aspectos de tesselações hiperbólicas, embora o foco tenha permanecido no plano euclidiano.
 
-\needspace{8\baselineskip}
+\needspace{7\baselineskip}
 \subsection{Replicabilidade e Extensões}
 
 Esta metodologia permite que o código seja replicado em qualquer ambiente Python com a biblioteca \texttt{turtle} devidamente instalada. A arquitetura modular do sistema permite futuras extensões para:
