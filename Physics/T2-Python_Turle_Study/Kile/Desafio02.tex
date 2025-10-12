@@ -173,7 +173,7 @@ def generate_honeycomb(rows=8, cols=10, hex_size=20):
             x_offset = (col * hex_width) + (row % 2) * (hex_width / 2)
             
             t.penup()
-            t.goto(x_offset - (cols * hex_width / 2), -y - (rows * hex_height / 4))  # Centraliza
+            t.goto(x_offset - (cols * hex_width / 2), -y - (rows * hex_height / 4))
             t.pendown()
         
             t.begin_fill()
