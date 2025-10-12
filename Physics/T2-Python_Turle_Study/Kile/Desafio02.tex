@@ -21,7 +21,13 @@
 Este relatório apresenta o desenvolvimento de um modelo matemático e a respectiva implementação computacional em \texttt{Python}/\texttt{turtle}, com vista à representação de uma forma geométrica presente na natureza. Seleccionou-se como objeto de estudo a estrutura hexagonal dos favos de mel, dada a sua relevância matemática e propriedades de optimização. São descritos os fundamentos teóricos, a metodologia de implementação e os principais resultados obtidos, com particular ênfase na modelação matemática subjacente.
 \end{abstract}
 
-\clearpage
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\linewidth]{real.png}
+\caption{Estrutura real de favos de mel, ilustrando o padrão hexagonal natural.}
+\label{fig:real}
+\end{figure}
+
 
 \section{Introdução}
 
@@ -48,7 +54,6 @@ onde $P$ representa o perímetro e $A$ a área. Para o hexágono regular com lad
 \label{eq:hexagon_ratio}
 \end{equation}
 
-\clearpage
 
 \subsubsection{Tesselações Regulares do Plano}
 A geometria euclidiana impõe restrições rigorosas às tesselações regulares do plano. Conforme demonstrado matematicamente, apenas três polígonos regulares preenchem completamente o espaço bidimensional sem sobreposições ou espaços vazios:
@@ -81,6 +86,8 @@ Estes princípios matemáticos explicam a preferência evolutiva por favos de di
 
 \needspace{12\baselineskip}
 \subsection{Modelo Computacional Implementado}
+
+
 
 \subsubsection{Arquitetura do Sistema de Coordenadas}
 No script \texttt{Python/turtle}, a estrutura hexagonal é implementada através de um sistema de coordenadas baseado em vectores de rede hexagonal. A posição de cada hexágono é determinada por:
@@ -124,7 +131,6 @@ N_k = 6k \quad \text{para} \quad k = 1, 2, \ldots, n
 onde $N_k$ representa o número de hexágonos na camada $k$-ésima, garantindo crescimento simétrico e geometricamente consistente.
 
 % Forçar nova página antes do código para melhor visualização
-\clearpage
 
 \subsubsection{Implementação Computacional}
 
@@ -133,60 +139,43 @@ import turtle
 import math
 
 def draw_hexagon(t, size, depth=0.3):
-    """Desenha um hexágono com Turtle, simulando profundidade."""
-    t.pensize(2)  # Bordas mais grossas como na imagem
+    t.pensize(2)
     for _ in range(6):
         t.forward(size)
         t.left(60)
     
-    # Simula profundidade desenhando um hexágono interno menor
     t.penup()
-    t.forward(size * depth)  # Move para dentro
-    t.left(30)  # Ajusta para alinhar com o centro
+    t.forward(size * depth)
+    t.left(30)
     t.pendown()
-    t.pensize(1)  # Bordas internas mais finas
+    t.pensize(1)
     for _ in range(6):
         t.forward(size * (1 - depth))
         t.left(60)
     t.penup()
-    t.goto(t.xcor() - size * depth, t.ycor())  # Volta ao ponto inicial
-    t.setheading(t.heading() - 30)  # Corrige orientação
+    t.goto(t.xcor() - size * depth, t.ycor())
+    t.setheading(t.heading() - 30)
 
 def generate_honeycomb(rows=8, cols=10, hex_size=20):
-    """
-    Gera uma estrutura de favos de mel hexagonal usando Turtle.
-    
-    Parâmetros:
-    - rows: Número de linhas de hexágonos.
-    - cols: Número de colunas de hexágonos.
-    - hex_size: Tamanho do lado do hexágono.
-    
-    Baseado na tesselação {6,3} (Schläfli) e otimizado para parecer com a imagem.
-    """
     t = turtle.Turtle()
-    t.speed(0)  # Máxima velocidade
-    t.hideturtle()  # Esconde o Turtle para melhor visualização
+    t.speed(0)
+    t.hideturtle()
     
-    # Configurações de cor baseadas na imagem (tons de mel)
-    t.fillcolor("#FFD700")  # Dourado mel
-    t.pencolor("#DAA520")  # Bege acastanhado para bordas
+    t.fillcolor("#FFD700")
+    t.pencolor("#DAA520")
     
-    # Distâncias para posicionamento hexagonal
     hex_width = math.sqrt(3) * hex_size
     hex_height = 2 * hex_size
     
     for row in range(rows):
-        y = row * (3/2 * hex_size)  # Offset vertical
+        y = row * (3/2 * hex_size)
         for col in range(cols):
-            # Offset horizontal para linhas pares/ímpar
             x_offset = (col * hex_width) + (row % 2) * (hex_width / 2)
             
-            # Move para a posição inicial
             t.penup()
             t.goto(x_offset - (cols * hex_width / 2), -y - (rows * hex_height / 4))  # Centraliza
             t.pendown()
         
-            # Desenha e preenche o hexágono
             t.begin_fill()
             draw_hexagon(t, hex_size, depth=0.3)
             t.end_fill()
@@ -197,7 +186,6 @@ if __name__ == "__main__":
     generate_honeycomb(rows=8, cols=10, hex_size=20)
 \end{lstlisting}
 
-\clearpage
 
 \section{Parte Experimental}
 
@@ -272,12 +260,20 @@ Esta metodologia permite que o código seja replicado em qualquer ambiente Pytho
 
 A implementação serve assim como ferramenta versátil para exploração computacional de padrões geométricos na natureza.
 
-\clearpage
 
 \section{Discussão dos Resultados}
 
 \needspace{8\baselineskip}
 \subsection{Análise da Representação Gráfica Obtida}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\linewidth]{produzida.png}
+\caption{Estrutura hexagonal produzida pelo script Python/turtle.}
+\label{fig:produzida}
+\end{figure}
+
 
 A implementação computacional produziu uma estrutura hexagonal que replica os padrões geométricos observados em favos de mel naturais. A imagem gerada automaticamente pelo código, demonstra a eficácia do modelo matemático implementado.
 
@@ -315,7 +311,6 @@ A estrutura implementada satisfaz plenamente os princípios matemáticos da Conj
 
 A precisão do posicionamento, garantida pelos vetores base $\vec{a}_1 = (1.5s, 0)$ e $\vec{a}_2 = (0.75s, \frac{\sqrt{3}}{2}s)$, assegura que não ocorrem distorções geométricas ou desalinhamentos progressivos, mesmo em escalas maiores.
 
-\clearpage
 
 \section{Conclusões}
 
@@ -355,7 +350,6 @@ Futuras melhorias poderão incluir optimizações algorítmicas para permitir ma
 
 A arquitectura modular do sistema desenvolvido permite que estas evoluções sejam implementadas de forma incremental, mantendo a solidez conceptual e matemática que caracteriza o presente trabalho.
 
-\clearpage
 
 \section{Bibliografia}
 
