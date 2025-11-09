@@ -1,0 +1,9 @@
+@misc{mathstackexchange_tiling_notations_2022,
+  title = {Clarifying the meaning of the tiling/tessellation notations},
+  author = {M. Rumpy},
+  howpublished = {Mathematics Stack Exchange},
+  year = {2022},
+  month = {Jan},
+  url = {https://math.stackexchange.com/questions/4356006/clarifying-the-meaning-of-the-tiling-tessellation-notations/4360239#4360239},
+  note = {Acessado em: 2025-10-02}
+}
