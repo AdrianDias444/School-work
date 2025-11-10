@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.10.6)  9 NOV 2025 22:03
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.10.6)  10 NOV 2025 13:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1273,6 +1273,34 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \WF@everypar=\toks48
 Package: wrapfig 2003/01/31  v 3.6
 )
+(/usr/share/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2025/02/11 v3.2a Micro-typographical refinements (RS)
+\MT@toks=\toks49
+\MT@tempbox=\box108
+\MT@count=\count499
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1087.
+LaTeX Info: Redefining \leftprotrusion on input line 1088.
+\MT@prot@toks=\toks50
+LaTeX Info: Redefining \rightprotrusion on input line 1107.
+LaTeX Info: Redefining \textls on input line 1449.
+\MT@outer@kern=\dimen296
+LaTeX Info: Redefining \microtypecontext on input line 2053.
+LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
+\MT@listname@count=\count500
+
+(/usr/share/texmf-dist/tex/latex/microtype/microtype-xetex.def
+File: microtype-xetex.def 2025/02/11 v3.2a Definitions specific to xetex (RS)
+LaTeX Info: Redefining \lsstyle on input line 443.
+LaTeX Info: Redefining \lslig on input line 451.
+\MT@outer@space=\skip93
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+
+(/usr/share/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2025/02/11 v3.2a microtype main configuration file (RS)
+)
+LaTeX Info: Redefining \microtypesetup on input line 3065.
+)
 (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
@@ -1283,56 +1311,56 @@ Package csquotes Info: Redefining alias 'default' -> 'portuges'.
  (./Desafio02.aux)
 \openout1 = `Desafio02.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 39.
+LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 40.
 LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line
- 39.
+ 40.
 
 (/usr/share/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 40.
 LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 
-39.
+40.
 
 (/usr/share/texmf-dist/tex/latex/newtx/untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 40.
 LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line
- 39.
+ 40.
 
 (/usr/share/texmf-dist/tex/latex/newtx/lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 40.
 LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input lin
-e 39.
+e 40.
 
 (/usr/share/texmf-dist/tex/latex/newtx/lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Info: Command `\dddot' is already robust on input line 39.
-LaTeX Info: Command `\ddddot' is already robust on input line 39.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Info: Command `\dddot' is already robust on input line 40.
+LaTeX Info: Command `\ddddot' is already robust on input line 40.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -1374,13 +1402,13 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 39.
+Package hyperref Info: Link coloring ON on input line 40.
 (./Desafio02.out) (./Desafio02.out)
 \@outlinefile=\write6
 \openout6 = `Desafio02.out'.
 
 Package translations Info: no dictionary file `translations-basic-dictionary-po
-rtuges.trsl' found. on input line 39.
+rtuges.trsl' found. on input line 40.
 Package biblatex Info: Trying to load language 'portuges'...
 Package biblatex Info: ... file 'portuges.lbx' found.
 
@@ -1408,9 +1436,27 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Desafio02.bbl' not found.
 
 No file Desafio02.bbl.
-Package biblatex Info: Reference section=0 on input line 39.
-Package biblatex Info: Reference segment=0 on input line 39.
-\c@lstlisting=\count499
+Package biblatex Info: Reference section=0 on input line 40.
+Package biblatex Info: Reference segment=0 on input line 40.
+\c@lstlisting=\count501
+LaTeX Info: Redefining \microtypecontext on input line 40.
+Package microtype Info: Applying patch `item' on input line 40.
+Package microtype Info: Applying patch `toc' on input line 40.
+Package microtype Info: Applying patch `eqnum' on input line 40.
+
+Package microtype Warning: Unable to apply patch `footnote' on input line 40.
+
+Package microtype Info: Applying patch `verbatim' on input line 40.
+LaTeX Info: Redefining \microtypesetup on input line 40.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of spacing.
+Package microtype Info: No adjustment of kerning.
+(/usr/share/texmf-dist/tex/latex/microtype/mt-LatinModernRoman.cfg
+File: mt-LatinModernRoman.cfg 2021/02/21 v1.1 microtype config. file: Latin Mod
+ern Roman (RS)
+)
 
 Package polyglossia Warning: No hyphenation patterns were loaded for
 (polyglossia)                `\portuguese@variant '
@@ -1425,6 +1471,10 @@ LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 9
  (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmr' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
 (Font)              scaled to size 12.0pt on input line 9.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
@@ -1486,9 +1536,26 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 6.6pt on input line 9.
 )
-Underfull \hbox (badness 2591) in paragraph at lines 43--44
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+Underfull \hbox (badness 2799) in paragraph at lines 44--45
 \TU/lmr/m/n/10.95 com resolução de 30 metros. A implementação combina dados SRT
 M,
+ []
+
+
+Underfull \hbox (badness 1253) in paragraph at lines 49--50
+\TU/lmr/m/n/12 O presente trabalho visa desenvolver uma visualização tridimensi
+onal realista da
+ []
+
+
+Underfull \hbox (badness 2134) in paragraph at lines 51--52
+\TU/lmr/m/n/12 caracterizado por montanhas íngremes e baías, como também demons
+tra como
  []
 
 
@@ -1499,149 +1566,166 @@ M,
 File: imagem3.png Graphic file (type bmp)
 <imagem3.png>
 
-Underfull \hbox (badness 2913) in paragraph at lines 74--74
+Underfull \hbox (badness 3029) in paragraph at lines 70--70
 \TU/lmr/m/n/10.95 WGS 84, com eixos X, Y, Z e
  []
 
 
 
 [2]
+File: imagem5.jpg Graphic file (type bmp)
+<imagem5.jpg>
 
-[3]
-File: imagem1.png Graphic file (type bmp)
-<imagem1.png>
-
-Underfull \hbox (badness 4132) in paragraph at lines 113--113
-[][]|\TU/lmr/m/n/10.95 Exemplo de visualização 3D com
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 113--113
-\TU/lmr/m/n/10.95 contornos e mapa 2D ao lado,
- []
-
-
-Underfull \hbox (badness 3240) in paragraph at lines 113--113
-\TU/lmr/m/n/10.95 ilustrando o efeito da perspectiva
- []
-
-
-Underfull \hbox (badness 4378) in paragraph at lines 113--113
-\TU/lmr/m/n/10.95 azimutal em terrenos triangulados
- []
-
-File: imagem5.png Graphic file (type bmp)
-<imagem5.png>
-
-Underfull \hbox (badness 7451) in paragraph at lines 120--120
+Underfull \hbox (badness 7451) in paragraph at lines 92--92
 [][]|\TU/lmr/m/n/10.95 Exemplo de visualização 3D em
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--120
+Underfull \hbox (badness 10000) in paragraph at lines 92--92
 \TU/lmr/m/n/10.95 perspectiva azimutal de uma
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--120
+Underfull \hbox (badness 10000) in paragraph at lines 92--92
 \TU/lmr/m/n/10.95 região costeira, com escala de
  []
 
 
-Underfull \hbox (badness 5847) in paragraph at lines 120--120
+Underfull \hbox (badness 5847) in paragraph at lines 92--92
 \TU/lmr/m/n/10.95 geográficas (adaptado de exemplo
  []
 
 
 
+[3]
+
 [4]
+Underfull \hbox (badness 1052) in paragraph at lines 114--115
+[]\TU/lmr/m/n/12 Oferecer uma visão clássica do relevo carioca (Pão de Açúcar, 
+Corcovado),
+ []
+
+File: imagem1.png Graphic file (type bmp)
+<imagem1.png>
+
+Underfull \hbox (badness 4132) in paragraph at lines 122--122
+[][]|\TU/lmr/m/n/10.95 Exemplo de visualização 3D com
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--122
+\TU/lmr/m/n/10.95 contornos e mapa 2D ao lado,
+ []
+
+
+Underfull \hbox (badness 3240) in paragraph at lines 122--122
+\TU/lmr/m/n/10.95 ilustrando o efeito da perspectiva
+ []
+
+
+Underfull \hbox (badness 4378) in paragraph at lines 122--122
+\TU/lmr/m/n/10.95 azimutal em terrenos triangulados
+ []
+
+
 
 [5]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 138.
+nput line 146.
 
 
 [6]
 
 [7]
 
-LaTeX Warning: Citation 'f5' on page 8 undefined on input line 206.
+LaTeX Warning: Citation 'f5' on page 8 undefined on input line 214.
 
 
-LaTeX Warning: Citation 'f4' on page 8 undefined on input line 206.
+LaTeX Warning: Citation 'f4' on page 8 undefined on input line 214.
 
 
-Underfull \hbox (badness 1845) in paragraph at lines 206--207
+Underfull \hbox (badness 1845) in paragraph at lines 214--215
 \TU/lmr/m/n/12 a complexa topografia da região metropolitana do Rio de Janeiro,
  abrangendo
  []
 
 
-LaTeX Warning: Citation 'f5' on page 8 undefined on input line 210.
+LaTeX Warning: Citation 'f5' on page 8 undefined on input line 218.
 
+
+
+[8]
 File: mapatopografico.png Graphic file (type bmp)
 <mapatopografico.png>
 
 
-[8]
-
-LaTeX Warning: Citation 'f5' on page 9 undefined on input line 221.
+LaTeX Warning: Citation 'f5' on page 9 undefined on input line 229.
 
 
-LaTeX Warning: Citation 'f6' on page 9 undefined on input line 229.
-
-
-LaTeX Warning: Citation 'f4' on page 9 undefined on input line 233.
+LaTeX Warning: Citation 'f6' on page 9 undefined on input line 234.
 
 
 
 [9]
-Underfull \hbox (badness 3568) in paragraph at lines 246--247
+
+LaTeX Warning: Citation 'f4' on page 10 undefined on input line 241.
+
+
+Underfull \hbox (badness 1014) in paragraph at lines 255--256
+[]\TU/lmr/bx/n/12 Fronteiras administrativas\TU/lmr/m/n/12 : traçadas em cinza 
+(\TU/lmtt/m/n/12 borders="1/0.6p,gray"\TU/lmr/m/n/12 ),
+ []
+
+
+Underfull \hbox (badness 3635) in paragraph at lines 256--257
 []\TU/lmr/bx/n/12 Título e legenda\TU/lmr/m/n/12 : posicionados de forma não ob
 strutiva, com fundo
  []
 
 
-LaTeX Warning: Citation 'f6' on page 10 undefined on input line 257.
-
-
-Underfull \hbox (badness 1292) in paragraph at lines 257--258
-\TU/lmr/m/n/12 A integração bem-- sucedida dos conceitos de \TU/lmr/bx/n/12 WGS
- 84\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 perspectiva azimutal\TU/lmr/m/n/12 ,
- []
+LaTeX Warning: Citation 'f5' on page 10 undefined on input line 259.
 
 
 
 [10]
 
-LaTeX Warning: Citation 'f3' on page 11 undefined on input line 261.
+LaTeX Warning: Citation 'f6' on page 11 undefined on input line 269.
 
 
-Underfull \hbox (badness 1226) in paragraph at lines 261--262
+Underfull \hbox (badness 1484) in paragraph at lines 269--270
+\TU/lmr/m/n/12 A integração bem-- sucedida dos conceitos de \TU/lmr/bx/n/12 WGS
+ 84\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 perspectiva azimutal\TU/lmr/m/n/12 ,
+ []
+
+
+LaTeX Warning: Citation 'f3' on page 11 undefined on input line 273.
+
+
+Underfull \hbox (badness 1226) in paragraph at lines 273--274
 \TU/lmr/m/n/12 de massa da Terra, eixos alinhados ao IERS Reference Pole (IRP) 
 e ao IERS
  []
 
 
-LaTeX Warning: Citation 'f4' on page 11 undefined on input line 265.
-
-
-LaTeX Warning: Citation 'f5' on page 11 undefined on input line 269.
-
-
-LaTeX Warning: Citation 'f6' on page 11 undefined on input line 269.
+LaTeX Warning: Citation 'f4' on page 11 undefined on input line 277.
 
 
 
 [11]
 
-LaTeX Warning: Citation 'f7' on page 12 undefined on input line 273.
+LaTeX Warning: Citation 'f5' on page 12 undefined on input line 281.
 
 
-LaTeX Warning: Citation 'f7' on page 12 undefined on input line 273.
+LaTeX Warning: Citation 'f6' on page 12 undefined on input line 281.
 
 
-Underfull \hbox (badness 3557) in paragraph at lines 273--274
+LaTeX Warning: Citation 'f7' on page 12 undefined on input line 285.
+
+
+LaTeX Warning: Citation 'f7' on page 12 undefined on input line 285.
+
+
+Underfull \hbox (badness 3557) in paragraph at lines 285--286
 \TU/lmr/m/n/12 a mera representação bidimensional, aproximando-- se de técnicas
  avançadas de
  []
@@ -1650,7 +1734,9 @@ Underfull \hbox (badness 3557) in paragraph at lines 273--274
 
 [12]
 
-[13] (./Desafio02.aux)
+[13]
+
+[14] (./Desafio02.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1659,17 +1745,8 @@ L3 programming layer <2025-01-18>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `Desafio02.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Desafio02.out':
-(rerunfilecheck)             Before: 9F3A32B68CD2A32C959A48AF9ED93E4E;3221
-(rerunfilecheck)             After:  3996920D6640E84BEEDAFA9611FE3B79;4567.
+Package rerunfilecheck Info: File `Desafio02.out' has not changed.
+(rerunfilecheck)             Checksum: 3996920D6640E84BEEDAFA9611FE3B79;4567.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                Desafio02
@@ -1680,12 +1757,12 @@ Package logreq Info: Writing requests to 'Desafio02.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 43091 strings out of 475848
- 896568 string characters out of 5776013
- 1880454 words of memory out of 5000000
- 65409 multiletter control sequences out of 15000+600000
+ 44829 strings out of 475848
+ 929433 string characters out of 5776013
+ 1941151 words of memory out of 5000000
+ 67121 multiletter control sequences out of 15000+600000
  577862 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 92i,6n,120p,817b,3742s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 92i,6n,120p,1006b,3742s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Desafio02.pdf (13 pages).
+Output written on Desafio02.pdf (14 pages).
