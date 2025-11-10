@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.10.6)  10 NOV 2025 13:09
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.10.6)  10 NOV 2025 22:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1433,9 +1433,8 @@ Package biblatex Info: Automatic encoding selection.
 \openout5 = `Desafio02.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'Desafio02.bbl' not found.
-
-No file Desafio02.bbl.
+Package biblatex Info: ... file 'Desafio02.bbl' found.
+ (./Desafio02.bbl)
 Package biblatex Info: Reference section=0 on input line 40.
 Package biblatex Info: Reference segment=0 on input line 40.
 \c@lstlisting=\count501
@@ -1443,6 +1442,7 @@ LaTeX Info: Redefining \microtypecontext on input line 40.
 Package microtype Info: Applying patch `item' on input line 40.
 Package microtype Info: Applying patch `toc' on input line 40.
 Package microtype Info: Applying patch `eqnum' on input line 40.
+
 
 Package microtype Warning: Unable to apply patch `footnote' on input line 40.
 
@@ -1573,34 +1573,9 @@ Underfull \hbox (badness 3029) in paragraph at lines 70--70
 
 
 [2]
-File: imagem5.jpg Graphic file (type bmp)
-<imagem5.jpg>
-
-Underfull \hbox (badness 7451) in paragraph at lines 92--92
-[][]|\TU/lmr/m/n/10.95 Exemplo de visualização 3D em
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 92--92
-\TU/lmr/m/n/10.95 perspectiva azimutal de uma
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 92--92
-\TU/lmr/m/n/10.95 região costeira, com escala de
- []
-
-
-Underfull \hbox (badness 5847) in paragraph at lines 92--92
-\TU/lmr/m/n/10.95 geográficas (adaptado de exemplo
- []
-
-
 
 [3]
-
-[4]
-Underfull \hbox (badness 1052) in paragraph at lines 114--115
+Underfull \hbox (badness 1052) in paragraph at lines 101--102
 []\TU/lmr/m/n/12 Oferecer uma visão clássica do relevo carioca (Pão de Açúcar, 
 Corcovado),
  []
@@ -1608,135 +1583,158 @@ Corcovado),
 File: imagem1.png Graphic file (type bmp)
 <imagem1.png>
 
-Underfull \hbox (badness 4132) in paragraph at lines 122--122
+Underfull \hbox (badness 4132) in paragraph at lines 109--109
 [][]|\TU/lmr/m/n/10.95 Exemplo de visualização 3D com
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--122
+Underfull \hbox (badness 10000) in paragraph at lines 109--109
 \TU/lmr/m/n/10.95 contornos e mapa 2D ao lado,
  []
 
 
-Underfull \hbox (badness 3240) in paragraph at lines 122--122
+Underfull \hbox (badness 3240) in paragraph at lines 109--109
 \TU/lmr/m/n/10.95 ilustrando o efeito da perspectiva
  []
 
 
-Underfull \hbox (badness 4378) in paragraph at lines 122--122
+Underfull \hbox (badness 4378) in paragraph at lines 109--109
 \TU/lmr/m/n/10.95 azimutal em terrenos triangulados
+ []
+
+File: imagem5.png Graphic file (type bmp)
+<imagem5.png>
+
+Underfull \hbox (badness 7451) in paragraph at lines 117--117
+[][]|\TU/lmr/m/n/10.95 Exemplo de visualização 3D em
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--117
+\TU/lmr/m/n/10.95 perspectiva azimutal de uma
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--117
+\TU/lmr/m/n/10.95 região costeira, com escala de
+ []
+
+
+Underfull \hbox (badness 5847) in paragraph at lines 117--117
+\TU/lmr/m/n/10.95 geográficas (adaptado de exemplo
+ []
+
+
+
+[4]
+File: imagem6.png Graphic file (type bmp)
+<imagem6.png>
+
+Underfull \hbox (badness 2326) in paragraph at lines 128--128
+\TU/lmr/m/n/10.95 referenciado ao elipsoide WGS 84,
  []
 
 
 
 [5]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 146.
-
 
 [6]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 154.
+
 
 [7]
 
-LaTeX Warning: Citation 'f5' on page 8 undefined on input line 214.
+[8]
+
+LaTeX Warning: Citation 'f5' on page 9 undefined on input line 222.
 
 
-LaTeX Warning: Citation 'f4' on page 8 undefined on input line 214.
+LaTeX Warning: Citation 'f4' on page 9 undefined on input line 222.
 
 
-Underfull \hbox (badness 1845) in paragraph at lines 214--215
+Underfull \hbox (badness 1845) in paragraph at lines 222--223
 \TU/lmr/m/n/12 a complexa topografia da região metropolitana do Rio de Janeiro,
  abrangendo
  []
 
 
-LaTeX Warning: Citation 'f5' on page 8 undefined on input line 218.
+LaTeX Warning: Citation 'f5' on page 9 undefined on input line 226.
 
-
-
-[8]
 File: mapatopografico.png Graphic file (type bmp)
 <mapatopografico.png>
 
 
-LaTeX Warning: Citation 'f5' on page 9 undefined on input line 229.
-
-
-LaTeX Warning: Citation 'f6' on page 9 undefined on input line 234.
-
-
-
 [9]
 
-LaTeX Warning: Citation 'f4' on page 10 undefined on input line 241.
+LaTeX Warning: Citation 'f5' on page 10 undefined on input line 237.
 
 
-Underfull \hbox (badness 1014) in paragraph at lines 255--256
+LaTeX Warning: Citation 'f6' on page 10 undefined on input line 242.
+
+
+LaTeX Warning: Citation 'f4' on page 10 undefined on input line 249.
+
+
+
+[10]
+Underfull \hbox (badness 1014) in paragraph at lines 263--264
 []\TU/lmr/bx/n/12 Fronteiras administrativas\TU/lmr/m/n/12 : traçadas em cinza 
 (\TU/lmtt/m/n/12 borders="1/0.6p,gray"\TU/lmr/m/n/12 ),
  []
 
 
-Underfull \hbox (badness 3635) in paragraph at lines 256--257
+Underfull \hbox (badness 3635) in paragraph at lines 264--265
 []\TU/lmr/bx/n/12 Título e legenda\TU/lmr/m/n/12 : posicionados de forma não ob
 strutiva, com fundo
  []
 
 
-LaTeX Warning: Citation 'f5' on page 10 undefined on input line 259.
-
-
-
-[10]
-
-LaTeX Warning: Citation 'f6' on page 11 undefined on input line 269.
-
-
-Underfull \hbox (badness 1484) in paragraph at lines 269--270
-\TU/lmr/m/n/12 A integração bem-- sucedida dos conceitos de \TU/lmr/bx/n/12 WGS
- 84\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 perspectiva azimutal\TU/lmr/m/n/12 ,
- []
-
-
-LaTeX Warning: Citation 'f3' on page 11 undefined on input line 273.
-
-
-Underfull \hbox (badness 1226) in paragraph at lines 273--274
-\TU/lmr/m/n/12 de massa da Terra, eixos alinhados ao IERS Reference Pole (IRP) 
-e ao IERS
- []
-
-
-LaTeX Warning: Citation 'f4' on page 11 undefined on input line 277.
+LaTeX Warning: Citation 'f5' on page 11 undefined on input line 267.
 
 
 
 [11]
 
-LaTeX Warning: Citation 'f5' on page 12 undefined on input line 281.
+LaTeX Warning: Citation 'f6' on page 12 undefined on input line 277.
 
 
-LaTeX Warning: Citation 'f6' on page 12 undefined on input line 281.
+Underfull \hbox (badness 1484) in paragraph at lines 277--278
+\TU/lmr/m/n/12 A integração bem-- sucedida dos conceitos de \TU/lmr/bx/n/12 WGS
+ 84\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 perspectiva azimutal\TU/lmr/m/n/12 ,
+ []
 
 
-LaTeX Warning: Citation 'f7' on page 12 undefined on input line 285.
+LaTeX Warning: Citation 'f4' on page 12 undefined on input line 287.
 
 
-LaTeX Warning: Citation 'f7' on page 12 undefined on input line 285.
+
+[12]
+
+LaTeX Warning: Citation 'f5' on page 13 undefined on input line 291.
 
 
-Underfull \hbox (badness 3557) in paragraph at lines 285--286
+LaTeX Warning: Citation 'f6' on page 13 undefined on input line 291.
+
+
+LaTeX Warning: Citation 'f7' on page 13 undefined on input line 295.
+
+
+LaTeX Warning: Citation 'f7' on page 13 undefined on input line 295.
+
+
+Underfull \hbox (badness 3557) in paragraph at lines 295--296
 \TU/lmr/m/n/12 a mera representação bidimensional, aproximando-- se de técnicas
  avançadas de
  []
 
 
 
-[12]
-
 [13]
 
-[14] (./Desafio02.aux)
+[14]
+
+[15] (./Desafio02.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1746,7 +1744,7 @@ L3 programming layer <2025-01-18>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Desafio02.out' has not changed.
-(rerunfilecheck)             Checksum: 3996920D6640E84BEEDAFA9611FE3B79;4567.
+(rerunfilecheck)             Checksum: 77929A5D0C37FAFA279C7CB89AEB2C5B;4922.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                Desafio02
@@ -1757,12 +1755,12 @@ Package logreq Info: Writing requests to 'Desafio02.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 44829 strings out of 475848
- 929433 string characters out of 5776013
- 1941151 words of memory out of 5000000
- 67121 multiletter control sequences out of 15000+600000
+ 44841 strings out of 475848
+ 929648 string characters out of 5776013
+ 1939710 words of memory out of 5000000
+ 67131 multiletter control sequences out of 15000+600000
  577862 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  92i,6n,120p,1006b,3742s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Desafio02.pdf (14 pages).
+Output written on Desafio02.pdf (15 pages).

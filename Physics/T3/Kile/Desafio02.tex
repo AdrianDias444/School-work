@@ -81,19 +81,6 @@ A função \texttt{pygmt.datasets.load\_earth\_relief} assume automaticamente o 
 
 \subsection{Perspectiva Azimutal em Visualização 3D}
 
-\bigskip
-\bigskip
-\bigskip
-
-\begin{figure}[H]
-\centering
-\vspace{-1.5\baselineskip}
-\includegraphics[width=0.75\linewidth]{imagem5.jpg}
-\caption{Exemplo de visualização 3D em perspectiva azimutal de uma região costeira, com escala de elevação hipsométrica e coordenadas geográficas (adaptado de exemplo genérico).}
-\label{fig:exemplo_perspectiva}
-\end{figure}
-
-
 A \textbf{perspectiva azimutal} é definida por dois ângulos principais em visualizações cartográficas 3D, permitindo simular uma vista ``de lado'' do terreno, como se estivéssemos a observá-lo de um ponto elevado:
 
 \begin{itemize}
@@ -122,6 +109,27 @@ Um exemplo de aplicação é visto em algoritmos para contornos, onde curvas de 
 \caption{Exemplo de visualização 3D com contornos e mapa 2D ao lado, ilustrando o efeito da perspectiva azimutal em terrenos triangulados (extraído de F6.pdf, página 1).}
 \label{fig:perspectiva_contornos}
 \end{figure}
+
+\begin{figure}[H]
+\centering
+\vspace{-1.5\baselineskip}
+\includegraphics[width=0.75\linewidth]{imagem5.png}
+\caption{Exemplo de visualização 3D em perspectiva azimutal de uma região costeira, com escala de elevação hipsométrica e coordenadas geográficas (adaptado de exemplo genérico).}
+\label{fig:exemplo_perspectiva}
+\end{figure}
+
+\subsection{Diferenças entre o Geoide e o Elipsoide no WGS 84}
+
+O modelo WGS 84 utiliza um elipsoide como superfície de referência para cálculos geodésicos, mas as elevações reais são frequentemente medidas em relação ao geoide — uma superfície equipotencial que representa o nível médio do mar estendido por baixo dos continentes. A imagem seguinte ilustra as diferenças globais entre o geoide EGM96 e o elipsoide WGS 84, com contornos representando variações em metros.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\linewidth]{imagem6.png}
+\caption{Mapa de contornos do geoide EGM96 referenciado ao elipsoide WGS 84, mostrando variações globais em metros (extraído de F3.pdf, página 119).}
+\label{fig:geoide_wgs84}
+\end{figure}
+
+Esta representação é crucial para compreender por que dados de elevação como o SRTM são ajustados ao geoide: ela corrige as irregularidades gravimétricas da Terra, garantindo que as alturas reflitam o nível do mar real. No contexto do nosso script, esta distinção assegura que as representações 3D sejam não só precisas em coordenadas, mas também em elevações relativas, melhorando a análise topográfica da região do Rio de Janeiro.
 
 \section{Metodologia}
 
@@ -270,7 +278,9 @@ A integração bem-sucedida dos conceitos de \textbf{WGS 84}, \textbf{perspectiv
 
 \subsection{Precisão Geodésica com WGS 84}
 
-O \textbf{World Geodetic System 1984 (WGS 84)}, definido no documento técnico da NIMA \cite{f3}, estabelece um referencial geocêntrico global com origem no centro de massa da Terra, eixos alinhados ao IERS Reference Pole (IRP) e ao IERS Reference Meridian (IRM), e baseado num elipsoide de revolução com parâmetros $a = 6378137$\,m e $f = 1/298{,}257223563$. Este padrão é intrínseco aos dados SRTM e à biblioteca PyGMT, permitindo que a região de interesse — delimitada pelas coordenadas $[-43.35, -43.05, -23.05, -22.83]$ em longitude e latitude — seja corretamente georreferenciada sem necessidade de transformações adicionais de datum. Tal precisão posicional é essencial para aplicações em geomorfologia, planeamento urbano e modelação ambiental.
+O sistema WGS 84 revelou-se um alicerce de extraordinária robustez para a presente modelação, garantindo que cada feição topográfica do Rio de Janeiro emergisse com fidelidade cartográfica irrepreensível. Ao adotar este referencial geocêntrico global, o projeto beneficiou de uma coerência posicional que eliminou discrepâncias entre os dados SRTM e a biblioteca PyGMT, permitindo que a delimitação da área de estudo — compreendida entre as coordenadas $[-43.35, -43.05, -23.05, -22.83]$ — se traduzisse diretamente em resultados visuais precisos e consistentes.
+
+A sua eficácia reside na capacidade de unificar, sob um único padrão, medições provenientes de fontes diversas, evitando os desalinhamentos que comprometeriam a integridade do mapa. Assim, o Pão de Açúcar, o Corcovado e a Baía de Guanabara surgem não apenas esteticamente convincentes, mas geograficamente corretos, reforçando a confiança na análise territorial. Esta precisão, alcançada sem ajustes manuais ou transformações adicionais, exemplifica como um sistema de referência bem estabelecido eleva a cartografia computacional a níveis de rigor científico inquestionável.
 
 \subsection{Otimização Visual com Perspectiva Azimutal}
 
