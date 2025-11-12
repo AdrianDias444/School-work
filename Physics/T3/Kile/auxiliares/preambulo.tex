@@ -1,54 +1,33 @@
-%\usepackage{xunicode} % https://ctan.org/pkg/xunicode
-%\usepackage{xltxtra} % https://ctan.org/pkg/xltxtra
-\usepackage{fontspec} % https://ctan.org/pkg/fontspec
-\usepackage{polyglossia} % https://ctan.org/pkg/polyglossia
+%\usepackage{xunicode}
+%\usepackage{xltxtra}
+\usepackage{fontspec}
+\usepackage{polyglossia}
 \setdefaultlanguage{portuges}
-%\setdefaultlanguage{portuguese}
-%\setdefaultlanguage[spelling=old]{portuguese}
 \usepackage{csquotes}
 \usepackage{needspace}
-
-%\usepackage{ebgaramond}%[RawFeature={+onum,+pnum,+ss06}]
+\usepackage{pythontex}
+\usepackage{ifthen}
 \usepackage[cmintegrals,cmbraces]{newtxmath}
-%\usepackage{ebgaramond-maths}
 
+% === BIBLIOGRAFIA (mantida a primeira carga) ===
+\usepackage[backend=biber, style=numeric]{biblatex}
+\addbibresource{referencias.bib}
+% ==============================================
 
 \usepackage[no-math]{fontspec}
-%\setmainfont{EBGaramond}[
-%  Extension=.otf,
-%  UprightFont=*-Regular,
-%  ItalicFont=*-Italic,
-%  BoldFont=*-Bold,
-%  BoldItalicFont=*-BoldItalic,
-%  Numbers={Proportional,OldStyle},
-%  Ligatures=TeX
-%]
-
-%\setmainfont{TeX Gyre Pagella}[
-%  Extension = .otf,
-%  UprightFont = *-Regular,
-%  ItalicFont = *-Italic,
-%  BoldFont = *-Bold,
-%  BoldItalicFont = *-BoldItalic,
-%  Ligatures = TeX
-%]
-
-
 
 \clubpenalty=100
 \linepenalty=100
 \widowpenalty=100
 
-%estética
-% \usepackage[hyphens]{url}
 \usepackage{xurl}
-\urlstyle{same} % URLs na mesma fonte do texto (Times New Roman)
+\urlstyle{same}
 \AtBeginDocument{%
-  \setlength{\Urlmuskip}{0mu plus 1mu} % Ajusta espaçamento entre caracteres em URLs
-  \setlength{\emergencystretch}{3em} % Permite maior flexibilidade na justificação
-  \def\UrlBreakPenalty{100} % Penalidade baixa para facilitar quebras
-  \def\UrlBigBreakPenalty{50} % Penalidade para quebras em caracteres como /
-  \sloppy % Relaxa a justificação para evitar ultrapassagem
+  \setlength{\Urlmuskip}{0mu plus 1mu}%
+  \setlength{\emergencystretch}{3em}%
+  \def\UrlBreakPenalty{100}%
+  \def\UrlBigBreakPenalty{50}%
+  \sloppy
 }
 
 \usepackage[hang,small,bf]{caption}
@@ -56,29 +35,28 @@
 \linespread{1.3}
 
 \usepackage[
-  xetex,                      % Driver para XeLaTeX
-  unicode=true,               % Suporte a caracteres Unicode (ex.: ç, ã)
-  bookmarks=true,             % Cria bookmarks no PDF
-  bookmarksopen=true,         % Bookmarks abertos por padrão
-  bookmarksnumbered=true,     % Numera os bookmarks (ex.: 1, 1.1, 1.2)
-  linktoc=all,                % Links clicáveis em sumário, figuras e citações
-  breaklinks=true,            % Permite quebra de links longos
-  colorlinks=true,            % Links com cor em vez de caixas
-  citecolor=black,            % Cor das citações (preto)
-  filecolor=black,            % Cor dos links de arquivos (preto)
-  linkcolor=black,            % Cor dos links internos (preto)
-  urlcolor=blue,              % URLs em azul
-  pdfpagelabels=true,         % Adiciona rótulos às páginas do PDF
-  plainpages=false,           % Diferencia numeração de páginas
+  xetex,
+  unicode=true,
+  bookmarks=true,
+  bookmarksopen=true,
+  bookmarksnumbered=true,
+  linktoc=all,
+  breaklinks=true,
+  colorlinks=true,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=blue,
+  pdfpagelabels=true,
+  plainpages=false,
   pdftitle={Desafios 12 ano},
-  pdfauthor={Desafios 12 ano}, % Nome do autor
+  pdfauthor={Desafios 12 ano},
   pdfsubject={Desafios 12 ano},
   pdfkeywords={Desafios 12 ano},
   pdfcreator={XeLaTeX com hyperref},
   pdfproducer={XeLaTeX}
 ]{hyperref}
 
-%% Definir um novo estilo de url
 \makeatletter
 \def\url@luisstyle{%
   \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
@@ -88,41 +66,25 @@
 \setlength{\captionmargin}{1.5in}
 \usepackage{fancyhdr}
 
-\renewcommand{\thefootnote}{\alph{footnote}} %modificar as letras de notas de rodapé%
+\renewcommand{\thefootnote}{\alph{footnote}}
 \makeatletter
 \renewcommand\@makefnmark{\@textsuperscript{\normalfont(\@thefnmark)}}
 \makeatother
-\renewcommand{\fboxrule}{2pt} %para alterar a expessura das caixas
-%\renewcommand{\fboxsep}{3ex} %para alterar a separação nas caixas
+\renewcommand{\fboxrule}{2pt}
 
-%para alterar a fonte dos items http://cnlart.web.cern.ch/cnlart/214/node68.html
-%\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
 \renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
-%\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
-%\renewcommand{\labelenumii}{\textbf{(\alph{enumii})}}
 \renewcommand{\labelenumii}{\textbf{(\arabic{enumii})}}
 
 \long\def\symbolfootnote[#1]#2{\begingroup\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{setspace}
-%\singlespacing
-%\onehalfspacing
-%\doublespacing
-
 \usepackage{comment}
 \usepackage{siunitx}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[x11names]{xcolor} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[x11names]{xcolor}
 \usepackage{relsize}
-%\newcommand\CC{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{+}}}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\relsize{-3}{\textbf{+}}}}
 \newcommand\CC{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{++}}}}
 
-%\usepackage{showframe}
-\usepackage{pgf,tikz}       % - Elementos gráficos
+\usepackage{pgf,tikz}
 \usepackage{tikzpagenodes}
 \usetikzlibrary{backgrounds,calc,positioning}
 \usetikzlibrary{positioning, shapes}
@@ -131,26 +93,13 @@
 \pgfdeclarelayer{foreground}
 \pgfsetlayers{background,main,foreground}
 
-\usepackage[
-    backend=biber,
-    style=numeric-comp,
-    language=auto,
-    natbib=false,
-    block=space,
-    isbn=false,
-    url=true, 
-    doi=true,
-    mcite=true,
-    eprint=false,
-    sorting=none,
-    maxnames=6
-]{biblatex} % https://ctan.org/pkg/biblatex
-\addbibresource{bibliografia.bib}
-
-
+% === REMOVIDO: segunda carga duplicada de biblatex ===
+% (causava o "option clash")
+% \usepackage[backend=biber, style=numeric-comp, ...]{biblatex}
+% \addbibresource{bibliografia.bib}
+% ===================================================
 
 \usepackage{listings}
-% Configuração listings para UTF-8 e Bash
 \lstset{
   basicstyle=\ttfamily\small,
   keywordstyle=\color{blue},
@@ -164,10 +113,9 @@
   literate={~}{{\textasciitilde}}1
 }
 
-
 \usepackage{polyglossia}
-\setmainlanguage[variant=portuguese]{portuguese} % Carrega padrões de hifenização para português
-\usepackage{amsmath} % Para equações matemáticas
-\usepackage{bibentry} % Para bibliografia
-\usepackage{listings} % Para código
-\usepackage{hyperref} % Para links (opcional)
+\setmainlanguage[variant=portuguese]{portuguese}
+\usepackage{amsmath}
+\usepackage{bibentry}
+\usepackage{listings}
+\usepackage{hyperref}

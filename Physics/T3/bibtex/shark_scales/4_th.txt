@@ -1,9 +1,0 @@
-@misc{mathstackexchange_hexagon_tiling_2016,
-  title = {Possible tiling patterns for equiangular hexagon with alternating side lengths},
-  author = {Stijn and Parcly Taxel},
-  howpublished = {Mathematics Stack Exchange},
-  year = {2016},
-  month = {Oct},
-  url = {https://math.stackexchange.com/questions/1957817/possible-tiling-patterns-for-equiangular-hexagon-with-alternating-side-lengths},
-  note = {Acessado em: 2025-10-02}
-}

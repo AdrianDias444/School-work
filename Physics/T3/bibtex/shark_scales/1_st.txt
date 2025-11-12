@@ -1,9 +1,0 @@
-@misc{mathstackexchange_weighted_interpolation_2014,
-  title = {Weighted Interpolation over Triangle},
-  author = {sadakatsu and ccorn},
-  howpublished = {Mathematics Stack Exchange},
-  year = {2014},
-  month = {Sep},
-  url = {https://math.stackexchange.com/questions/947842/weighted-interpolation-over-triangle},
-  note = {Acessado em: 2025-10-02}
-}

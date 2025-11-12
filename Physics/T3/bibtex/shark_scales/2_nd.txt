@@ -1,9 +1,0 @@
-@misc{mathstackexchange_sphere_tessellation_2020,
-  title = {Algorithm for Triangle Tessellation of a Sphere},
-  author = {KGS and David G. Stork},
-  howpublished = {Mathematics Stack Exchange},
-  year = {2020},
-  month = {Jan},
-  url = {https://math.stackexchange.com/questions/3520138/algorithm-for-triangle-tessellation-of-a-sphere},
-  note = {Acessado em: 2025-10-02}
-}

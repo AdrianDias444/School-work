@@ -52,9 +52,30 @@ Esta abordagem não só facilita a compreensão do relevo complexo da região, c
 
 \section{Conceitos Fundamentais}
 
+\subsection{Dados SRTM}
+
+O \textbf{SRTM} (\textit{Shuttle Radar Topography Mission}) é um conjunto de dados de elevação da superfície terrestre obtido em 2000 pela NASA e pela NGA durante uma missão do vaivém espacial \textit{Endeavour}. Utilizando radar, mediu a altura do terreno em quase toda a área entre 60° N e 56° S, com uma célula de aproximadamente 30 metros de lado — ou seja, cada ponto representa a altitude média de uma área de 30 × 30 metros.
+
+No presente trabalho, esses dados são carregados diretamente com o comando \texttt{pygmt.datasets.load\_earth\_relief(resolution="01s")}, fornecendo a base altimétrica para a construção do modelo 3D do relevo da região metropolitana do Rio de Janeiro.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\linewidth]{figuras/imagem3.png}
+\caption{Esquema do sistema de coordenadas WGS 84, com eixos X, Y, Z e referências IERS (extraído de F3.pdf – NIMA TR8350.2, página 24).}
+\label{fig:wgs84}
+\end{figure}
+
+No script, o grid SRTM é carregado com:
+
+\begin{lstlisting}
+grid = pygmt.datasets.load_earth_relief(resolution="01s", region=region)
+\end{lstlisting}
+
+Esta função garante que os dados estejam corretamente georreferenciados em WGS 84, base para toda a análise topográfica.
+
 \subsection{O Sistema de Coordenadas WGS 84}
 
-O \textbf{World Geodetic System 1984 (WGS 84)} constitui o referencial geocêntrico padrão adotado globalmente, com origem no centro de massa da Terra e eixos alinhados ao \textit{International Earth Rotation and Reference Systems Service} (IERS). Em termos simples, este sistema define uma ``grelha'' global para posicionar pontos na Terra de forma precisa, como se fosse um mapa universal. Ele especifica:
+O \textbf{World Geodetic System 1984 (WGS 84)} constitui o referencial geocêntrico padrão adotado globalmente, com origem no centro de massa da Terra e eixos alinhados ao \textit{International Earth Rotation and Reference Systems Service} (IERS). Este sistema, definido em detalhe por \cite{f1}, especifica:
 
 \begin{itemize}
     \item \textbf{Eixo Z}: alinhado ao polo de referência IERS (IRP), apontando para o norte.
@@ -62,69 +83,52 @@ O \textbf{World Geodetic System 1984 (WGS 84)} constitui o referencial geocêntr
     \item \textbf{Eixo Y}: completa o sistema ortogonal à direita, formando um sistema cartesiano direito.
 \end{itemize}
 
-O WGS 84 baseia-se num elipsoide de revolução com semi-eixo maior $a = 6378137$\,m e achatamento $f = 1/298{,}257223563$, o que significa que modela a Terra como uma esfera ligeiramente achatada nos polos. Esta definição garante compatibilidade com sistemas de posicionamento global como o GPS e é essencial para dados SRTM, que são referenciados a este datum. Sem ele, discrepâncias em posições poderiam ocorrer ao integrar dados de fontes diversas, comprometendo a precisão do mapa gerado.
+O WGS 84 baseia-se num elipsoide de revolução com semi-eixo maior $a = 6378137$\,m e achatamento $f = 1/298{,}257223563$. Esta definição é crucial para os dados SRTM, que são georreferenciados a este datum, evitando discrepâncias posicionais.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\linewidth]{imagem3.png}
-\caption{Definição do sistema de coordenadas WGS 84, com eixos X, Y, Z e referências IERS (extraído de F3.pdf – NIMA TR8350.2, página 24).}
-\label{fig:wgs84}
-\end{figure}
-
-No script, a região de estudo é definida em coordenadas WGS 84:
+No script, a região de estudo é delimitada em coordenadas WGS 84:
 
 \begin{lstlisting}
 region = [-43.35, -43.05, -23.05, -22.83]  # longitude, latitude em graus
 \end{lstlisting}
 
-A função \texttt{pygmt.datasets.load\_earth\_relief} assume automaticamente o WGS 84, garantindo que o grid SRTM esteja corretamente georreferenciado. Esta ligação direta entre o conceito teórico e a implementação prática facilita a compreensão de como a precisão geodésica se traduz em resultados visuais concretos.
-
 \subsection{Perspectiva Azimutal em Visualização 3D}
 
-A \textbf{perspectiva azimutal} é definida por dois ângulos principais em visualizações cartográficas 3D, permitindo simular uma vista ``de lado'' do terreno, como se estivéssemos a observá-lo de um ponto elevado:
+A \textbf{perspectiva azimutal} é definida por dois ângulos principais em visualizações cartográficas 3D:
 
 \begin{itemize}
-    \item \textbf{Azimute}: Medido em graus a partir do norte geográfico no sentido horário, representa a direção horizontal da câmara. No script, utiliza-se 135° (sudeste), que simula uma vista oblíqua do Rio de Janeiro, destacando feições como montanhas costeiras.
-    \item \textbf{Elevação}: Ângulo vertical acima do horizonte, aqui 30°, balanceando visão ampla com detalhe do relevo, evitando distorções excessivas.
+    \item \textbf{Azimute}: direção horizontal da câmara (135° — sudeste).
+    \item \textbf{Elevação}: ângulo vertical acima do horizonte (30°).
 \end{itemize}
 
-No PyGMT, isso é configurado via:
+Configurada via:
 
 \begin{lstlisting}
-perspective = [135, 30]  # [azimute, elevação]
+perspective = [135, 30]
 \end{lstlisting}
 
-Esta configuração foi escolhida para:
-\begin{itemize}
-    \item Maximizar o contraste de sombreamento (\texttt{shading="+a45+nt0.8"}), simulando iluminação de 45° azimute com intensidade normalizada de 0.8.
-    \item Evitar sombras planas em encostas paralelas à luz, comum em azimutes de 0° ou 180°.
-    \item Oferecer uma visão clássica do relevo carioca (Pão de Açúcar, Corcovado), facilitando análise topográfica.
-\end{itemize}
-
-Um exemplo de aplicação é visto em algoritmos para contornos, onde curvas de nível são renderizadas em 3D ao lado de mapas 2D para comparação, destacando como a perspectiva azimutal realça estruturas como picos e vales. Esta técnica conecta-se diretamente aos resultados, onde o sombreamento e a vista oblíqua permitem identificar padrões topográficos de forma intuitiva.
+Esta escolha maximiza o contraste de sombreamento e destaca feições como o Corcovado. A técnica de visualização 3D com perspectiva é exemplificada em \cite{f3}, que demonstra renderização com sombreamento e contornos.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\linewidth]{imagem1.png}
-\caption{Exemplo de visualização 3D com contornos e mapa 2D ao lado, ilustrando o efeito da perspectiva azimutal em terrenos triangulados (extraído de F6.pdf, página 1).}
+\includegraphics[width=0.9\linewidth]{figuras/imagem1.png}
+\caption{Exemplo de visualização 3D com contornos e mapa 2D ao lado (extraído de F6.pdf, página 1).}
 \label{fig:perspectiva_contornos}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \vspace{-1.5\baselineskip}
-\includegraphics[width=0.75\linewidth]{imagem5.png}
-\caption{Exemplo de visualização 3D em perspectiva azimutal de uma região costeira, com escala de elevação hipsométrica e coordenadas geográficas (adaptado de exemplo genérico).}
+\includegraphics[width=0.75\linewidth]{figuras/imagem5.png}
+\caption{Exemplo de visualização 3D em perspectiva azimutal de uma região costeira.}
 \label{fig:exemplo_perspectiva}
 \end{figure}
-
 \subsection{Diferenças entre o Geoide e o Elipsoide no WGS 84}
 
 O modelo WGS 84 utiliza um elipsoide como superfície de referência para cálculos geodésicos, mas as elevações reais são frequentemente medidas em relação ao geoide — uma superfície equipotencial que representa o nível médio do mar estendido por baixo dos continentes. A imagem seguinte ilustra as diferenças globais entre o geoide EGM96 e o elipsoide WGS 84, com contornos representando variações em metros.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\linewidth]{imagem6.png}
+\includegraphics[width=0.8\linewidth]{figuras/imagem6.png}
 \caption{Mapa de contornos do geoide EGM96 referenciado ao elipsoide WGS 84, mostrando variações globais em metros (extraído de F3.pdf, página 119).}
 \label{fig:geoide_wgs84}
 \end{figure}
@@ -212,7 +216,7 @@ fig.text(
     fill="black@90"
 )
 
-fig.savefig("mapatopografico.png", dpi=600)
+fig.savefig("figuras/mapatopografico.png", dpi=600)
 print("Mapa 3D salvo como 'mapatopografico.png'")
 fig.show()
 \end{lstlisting}
@@ -225,12 +229,27 @@ O mapa topográfico 3D gerado (\texttt{mapatopografico.png}) representa com alta
 
 O grid SRTM de 1 segundo de arco (~30 m) foi renderizado com uma escala vertical exagerada (\texttt{zsize="4c"}), permitindo uma percepção clara das variações altimétricas de 0 a 3500 m. A barra de cores (\texttt{cmap="geo"}) utiliza uma paleta hipsométrica que varia de tons azuis (baixas elevações, áreas costeiras e baía de Guanabara) a verdes, amarelos e marrons (elevações intermediárias e altas, como o maciço da Tijuca). Esta escala segue recomendações do USGS para mapas topográficos \cite{f5}, onde cores são associadas a intervalos de altitude para facilitar a leitura. Em termos práticos, isto significa que o leitor pode identificar rapidamente zonas baixas (ex.: praias) e altas (ex.: montanhas), conectando-se à precisão do WGS 84 na definição das coordenadas.
 
+
+
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.95\linewidth]{mapatopografico.png}
+\IfFileExists{figuras/mapatopografico.png}{
+    \includegraphics[width=0.95\linewidth]{figuras/mapatopografico.png}
+}{
+    \fbox{
+        \begin{minipage}{0.8\textwidth}
+            \centering
+            \textbf{ERRO: Imagem mapatopografico.png não encontrada}\\
+            Execute \texttt{pythontex Desafio02.tex} para gerar a imagem\\
+            O mapa 3D será gerado automaticamente com o script Python
+        \end{minipage}
+    }
+}
 \caption{Mapa topográfico 3D do Rio de Janeiro gerado pelo script. Resolução: 30 m; perspectiva: 135°/30°; sombreamento direcional de 45°.}
 \label{fig:resultado_final}
 \end{figure}
+
+
 
 \subsection{Curvas de Nível e Análise Topográfica}
 
@@ -270,6 +289,107 @@ Estes elementos, inspirados em símbolos topográficos padrão \cite{f5}, tornam
 
 A visualização resultante foi validada visualmente contra mapas topográficos oficiais (IBGE, USGS) e imagens de satélite (Google Earth). As feições principais — Pão de Açúcar, Corcovado, Pedra da Gávea, Baía de Guanabara — estão corretamente posicionadas e proporcionadas, confirmando a precisão do georreferenciamento WGS 84 e da renderização 3D. Esta validação reforça a coesão entre conceitos, metodologia e resultados, demonstrando a fiabilidade do processo.
 
+
+% Adicione esta seção antes da Conclusão
+\section{Geração Automática do Mapa}
+
+O mapa topográfico é gerado automaticamente através do seguinte script Python, que utiliza a biblioteca PyGMT para processar dados SRTM e criar a visualização 3D:
+
+\begin{pycode}
+import pygmt
+import sys
+import os
+
+print("=== INICIANDO GERAÇÃO DO MAPA 3D ===", file=sys.stderr)
+
+try:
+    # Garantir que a pasta figuras existe
+    os.makedirs("figuras", exist_ok=True)
+    
+    # 1. Definir região
+    region = [-43.35, -43.05, -23.05, -22.83]  # ~30x25 km
+    print(f"Região definida: {region}", file=sys.stderr)
+    
+    # 2. Carregar dados SRTM
+    print("Baixando grid SRTM 1s (~30m)...", file=sys.stderr)
+    grid = pygmt.datasets.load_earth_relief(
+        resolution="01s", 
+        region=region, 
+        registration="gridline"
+    )
+    print("✓ Grid SRTM carregado com sucesso", file=sys.stderr)
+    
+    # 3. Criar figura
+    fig = pygmt.Figure()
+    perspective = [135, 30]  # Vista clássica do Rio
+    
+    # 4. Configurar visualização 3D
+    fig.grdview(
+        grid=grid,
+        region=region + [0, 3500],
+        projection="M18c",
+        perspective=perspective,
+        frame=["a", "z500f100"],
+        zsize="4c",
+        surftype="i",
+        shading="+a45+nt0.8",
+        cmap="geo",
+        contourpen="0.3p,gray30",
+    )
+    
+    # 5. Adicionar contornos
+    fig.grdcontour(
+        grid=grid,
+        levels=100,
+        annotation="500",
+        pen="0.4p,gray10",
+        perspective=perspective,
+    )
+    
+    # 6. Adicionar elementos costeiros
+    fig.coast(
+        resolution="f",
+        shorelines=True,
+        water="lightblue@80",
+        borders="1/0.6p,gray",
+        perspective=perspective,
+    )
+    
+    # 7. Adicionar barra de cores
+    fig.colorbar(
+        perspective=perspective,
+        frame=["a500f100", "x+lElevação (m)", "y+lm"],
+        position="JBC+o0c/1c+w14c/0.8c+h",
+    )
+    
+    # 8. Adicionar título
+    fig.text(
+        text="Rio de Janeiro - Topografia 3D (30 m)",
+        position="TC",
+        font="18p,Helvetica-Bold,white",
+        offset="0/0.8c",
+        perspective=perspective,
+        fill="black@90",
+    )
+    
+    # 9. SALVAR IMAGEM NA PASTA CORRETA
+    output_path = "figuras/mapatopografico.png"
+    print(f"Salvando imagem em: {output_path}", file=sys.stderr)
+    fig.savefig(output_path, dpi=600)
+    
+    # 10. Verificar se a imagem foi criada
+    if os.path.exists(output_path):
+        file_size = os.path.getsize(output_path)
+        print(f"✓ IMAGEM GERADA COM SUCESSO: '{output_path}' ({file_size} bytes)", file=sys.stderr)
+        print(f"Mapa 3D gerado com sucesso: '{output_path}' (600 DPI)")
+    else:
+        print(f"✗ ERRO: Imagem não foi criada em {output_path}", file=sys.stderr)
+        
+except Exception as e:
+    print(f"✗ ERRO DURANTE EXECUÇÃO: {e}", file=sys.stderr)
+    import traceback
+    traceback.print_exc(file=sys.stderr)
+\end{pycode}
 \section{Conclusão}
 
 \subsection{Síntese da Integração de Conceitos}
@@ -310,20 +430,7 @@ Assim, o projeto não só cumpre os objetivos propostos, como estabelece uma bas
 
 \newpage
 
-\begin{thebibliography}{9}
+\nocite{*}  % Garante que TODAS as entradas do .bib aparecem na bibliografia
 
-\bibitem{f1} \textit{3D Perspective Visualization with TNTmips}. MicroImages, 2008. (F1.pdf)
-
-\bibitem{f3} \textit{Department of Defense World Geodetic System 1984}. NIMA TR8350.2, 2000. (F3.pdf)
-
-\bibitem{f4} Kennelly, P. J. \textit{Hill-shading Techniques to Enhance Terrain Maps}. C.W. Post Campus, 2009. (F4.pdf)
-
-\bibitem{f5} \textit{Topographic Map Symbols}. U.S. Geological Survey, 2020. (F5.pdf)
-
-\bibitem{f6} Agarwal, P. K. et al. \textit{I/O-Efficient Algorithms for Computing Contour Maps on Terrains}. Duke University, 2010. (F6.pdf)
-
-\bibitem{f7} Kwan, M.-P.; Lee, J. \textit{Geovisualization of Human Activity Patterns Using 3D GIS}. Oxford University Press, 2003. (F7.pdf)
-
-\end{thebibliography}
-
+\printbibliography[title=Referências]
 \end{document}
