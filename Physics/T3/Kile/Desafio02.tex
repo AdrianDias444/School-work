@@ -46,17 +46,33 @@ Este trabalho apresenta a modelação e visualização 3D da topografia da regi�
 
 \section{Introdução}
 
-O presente trabalho visa desenvolver uma visualização tridimensional realista da topografia da região metropolitana do Rio de Janeiro, integrando conceitos fundamentais de geodésia e cartografia computacional. Para tal, dois pilares técnicos são fundamentais: o sistema de coordenadas WGS 84, que assegura a precisão posicional, e a perspectiva azimutal, que otimiza a percepção visual do relevo. Estes elementos são aplicados num script em Python com a biblioteca PyGMT, resultando numa representação precisa e acessível, mesmo para quem não possui conhecimentos aprofundados na área.
-
-Esta abordagem não só facilita a compreensão do relevo complexo da região, caracterizado por montanhas íngremes e baías, como também demonstra como ferramentas modernas de processamento geoespacial podem ser utilizadas para análises académicas e científicas. Ao longo do texto, os conceitos serão explicados de forma gradual, ligando-os ao fluxo do trabalho, para que o leitor perceba o processo como um todo coerente.
+O presente trabalho visa desenvolver uma visualização tridimensional realista da topografia da região metropolitana do Rio de Janeiro, integrando conceitos fundamentais de geodésia e cartografia computacional. Para tal, dois pilares técnicos são fundamentais: o sistema de coordenadas WGS 84, que assegura a precisão posicional, e a perspectiva azimutal, que optimiza a percepção visual do relevo. Estes elementos são aplicados num script em Python com a biblioteca PyGMT.
 
 \section{Conceitos Fundamentais}
 
 \subsection{Dados SRTM}
 
-O \textbf{SRTM} (\textit{Shuttle Radar Topography Mission}) é um conjunto de dados de elevação da superfície terrestre obtido em 2000 pela NASA e pela NGA durante uma missão do vaivém espacial \textit{Endeavour}. Utilizando radar, mediu a altura do terreno em quase toda a área entre 60° N e 56° S, com uma célula de aproximadamente 30 metros de lado — ou seja, cada ponto representa a altitude média de uma área de 30 × 30 metros.
+O \textbf{SRTM} (\textit{Shuttle Radar Topography Mission}) é um conjunto de dados de elevação da superfície terrestre obtido em 2000 pela NASA e pela NGA durante uma missão espacial \textit{Endeavour}. Utilizando radar, mediu a altura do terreno em quase toda a área entre 60° N e 56° S, com uma célula de aproximadamente 30 metros de lado — ou seja, cada ponto representa a altitude média de uma área de 30 × 30 metros.
 
-No presente trabalho, esses dados são carregados diretamente com o comando \texttt{pygmt.datasets.load\_earth\_relief(resolution="01s")}, fornecendo a base altimétrica para a construção do modelo 3D do relevo da região metropolitana do Rio de Janeiro.
+No presente trabalho, esses dados são carregados directamente com o comando \texttt{pygmt.datasets.load\_earth\_relief(resolution="01s")}, fornecendo a base altimétrica para a construção do modelo 3D do relevo da região metropolitana do Rio de Janeiro.
+
+No script, a grelha SRTM é carregada com:
+
+\begin{lstlisting}
+grid = pygmt.datasets.load_earth_relief(resolution="01s", region=region)
+\end{lstlisting}
+
+Esta função garante que os dados estejam correctamente georreferenciados em WGS 84, base para toda a análise topográfica.
+
+\subsection{O Sistema de Coordenadas WGS 84}
+
+O \textbf{World Geodetic System 1984 (WGS 84)} constitui o referencial geocêntrico padrão adoptado globalmente, com origem no centro de massa da Terra e eixos alinhados ao \textit{International Earth Rotation and Reference Systems Service} (IERS). Este sistema, definido em detalhe por \cite{f1}, especifica:
+
+\begin{itemize}
+    \item \textbf{Eixo Z}: alinhado ao polo de referência IERS (IRP), apontando para o norte.
+    \item \textbf{Eixo X}: intersecção do meridiano de referência IERS (IRM) com o plano equatorial, definindo o meridiano principal.
+    \item \textbf{Eixo Y}: completa o sistema ortogonal à direita, formando um sistema cartesiano direito.
+\end{itemize}
 
 \begin{figure}[H]
 \centering
@@ -64,26 +80,6 @@ No presente trabalho, esses dados são carregados diretamente com o comando \tex
 \caption{Esquema do sistema de coordenadas WGS 84, com eixos X, Y, Z e referências IERS (extraído de F3.pdf – NIMA TR8350.2, página 24).}
 \label{fig:wgs84}
 \end{figure}
-
-No script, o grid SRTM é carregado com:
-
-\begin{lstlisting}
-grid = pygmt.datasets.load_earth_relief(resolution="01s", region=region)
-\end{lstlisting}
-
-Esta função garante que os dados estejam corretamente georreferenciados em WGS 84, base para toda a análise topográfica.
-
-\subsection{O Sistema de Coordenadas WGS 84}
-
-O \textbf{World Geodetic System 1984 (WGS 84)} constitui o referencial geocêntrico padrão adotado globalmente, com origem no centro de massa da Terra e eixos alinhados ao \textit{International Earth Rotation and Reference Systems Service} (IERS). Este sistema, definido em detalhe por \cite{f1}, especifica:
-
-\begin{itemize}
-    \item \textbf{Eixo Z}: alinhado ao polo de referência IERS (IRP), apontando para o norte.
-    \item \textbf{Eixo X}: interseção do meridiano de referência IERS (IRM) com o plano equatorial, definindo o meridiano principal.
-    \item \textbf{Eixo Y}: completa o sistema ortogonal à direita, formando um sistema cartesiano direito.
-\end{itemize}
-
-O WGS 84 baseia-se num elipsoide de revolução com semi-eixo maior $a = 6378137$\,m e achatamento $f = 1/298{,}257223563$. Esta definição é crucial para os dados SRTM, que são georreferenciados a este datum, evitando discrepâncias posicionais.
 
 No script, a região de estudo é delimitada em coordenadas WGS 84:
 
@@ -96,7 +92,7 @@ region = [-43.35, -43.05, -23.05, -22.83]  # longitude, latitude em graus
 A \textbf{perspectiva azimutal} é definida por dois ângulos principais em visualizações cartográficas 3D:
 
 \begin{itemize}
-    \item \textbf{Azimute}: direção horizontal da câmara (135° — sudeste).
+    \item \textbf{Azimute}: direcção horizontal da câmara (135° — sudeste).
     \item \textbf{Elevação}: ângulo vertical acima do horizonte (30°).
 \end{itemize}
 
@@ -122,9 +118,10 @@ Esta escolha maximiza o contraste de sombreamento e destaca feições como o Cor
 \caption{Exemplo de visualização 3D em perspectiva azimutal de uma região costeira.}
 \label{fig:exemplo_perspectiva}
 \end{figure}
+
 \subsection{Diferenças entre o Geoide e o Elipsoide no WGS 84}
 
-O modelo WGS 84 utiliza um elipsoide como superfície de referência para cálculos geodésicos, mas as elevações reais são frequentemente medidas em relação ao geoide — uma superfície equipotencial que representa o nível médio do mar estendido por baixo dos continentes. A imagem seguinte ilustra as diferenças globais entre o geoide EGM96 e o elipsoide WGS 84, com contornos representando variações em metros.
+O modelo WGS 84 utiliza um elipsoide (superfície matemática que aproxima a forma da Terra) como superfície de referência para cálculos geodésicos, mas as elevações reais são frequentemente medidas em relação ao geoide (modelo físico do nível médio do mar) — uma superfície equipotencial que representa o nível médio do mar estendido por baixo dos continentes. A imagem seguinte ilustra as diferenças globais entre o geoide EGM96 e o elipsoide WGS 84, com contornos representando variações em metros.
 
 \begin{figure}[H]
 \centering
@@ -133,18 +130,18 @@ O modelo WGS 84 utiliza um elipsoide como superfície de referência para cálcu
 \label{fig:geoide_wgs84}
 \end{figure}
 
-Esta representação é crucial para compreender por que dados de elevação como o SRTM são ajustados ao geoide: ela corrige as irregularidades gravimétricas da Terra, garantindo que as alturas reflitam o nível do mar real. No contexto do nosso script, esta distinção assegura que as representações 3D sejam não só precisas em coordenadas, mas também em elevações relativas, melhorando a análise topográfica da região do Rio de Janeiro.
+Esta representação é crucial para compreender por que razão dados de elevação como o SRTM são ajustados ao geoide: ela corrige as irregularidades gravimétricas da Terra, garantindo que as alturas reflitam o nível do mar real. No contexto do nosso script, esta distinção assegura que as representações 3D sejam não só precisas em coordenadas, mas também em elevações relativas, melhorando a análise topográfica da região do Rio de Janeiro.
 
 \section{Metodologia}
 
-Para alcançar os objetivos propostos, adotou-se um fluxo de trabalho sistemático que liga os conceitos teóricos à implementação prática, permitindo que o leitor siga o processo passo a passo.
+Para alcançar os objectivos propostos, adoptou-se um fluxo de trabalho sistemático que liga os conceitos teóricos à implementação prática, permitindo que o leitor siga o processo passo a passo.
 
 \subsection{Fluxo de Trabalho}
 
 \begin{enumerate}
     \item \textbf{Definição da região}: Utilizando coordenadas no sistema WGS 84 para delimitar a área de estudo.
-    \item \textbf{Aquisição do grid SRTM}: Carregamento de dados de elevação com resolução de 1 segundo de arco (~30 m).
-    \item \textbf{Configuração da perspectiva}: Definição do azimute e elevação para uma vista otimizada.
+    \item \textbf{Aquisição da grelha SRTM}: Carregamento de dados de elevação com resolução de 1 segundo de arco (~30 m).
+    \item \textbf{Configuração da perspectiva}: Definição do azimute e elevação para uma vista optimizada.
     \item \textbf{Renderização 3D}: Aplicação de sombreamento, curvas de nível e elementos costeiros.
     \item \textbf{Exportação}: Geração de imagem em alta resolução (600 DPI) para análise visual.
 \end{enumerate}
@@ -161,7 +158,7 @@ import pygmt
 # 1. Região em WGS 84
 region = [-43.35, -43.05, -23.05, -22.83]  # ~30x25 km
 
-print("Baixando grid SRTM 1s (~30m) - pode demorar 30-60s na primeira vez...")
+print("Baixando grelha SRTM 1s (~30m) - pode demorar 30-60s na primeira vez...")
 grid = pygmt.datasets.load_earth_relief(
     resolution="01s",
     region=region,
@@ -223,13 +220,11 @@ fig.show()
 
 \section{Resultados}
 
-O mapa topográfico 3D gerado (\texttt{mapatopografico.png}) representa com alta fidelidade a complexa topografia da região metropolitana do Rio de Janeiro, abrangendo aproximadamente 30 × 25 km, com resolução espacial de 30 metros. A seguir, detalham-se os principais elementos visuais e suas implicações técnicas e cartográficas, conforme princípios estabelecidos pelo USGS para mapas topográficos \cite{f5} e técnicas de sombreamento descritas por Kennelly para realçar o relevo \cite{f4}. Esta análise visa conectar os resultados aos conceitos anteriores, mostrando como cada elemento contribui para uma compreensão clara do terreno.
+O mapa topográfico 3D gerado (\texttt{mapatopografico.png}) representa com alta fidelidade a complexa topografia da região metropolitana do Rio de Janeiro, abrangendo aproximadamente 30 × 25 km, com resolução espacial de 30 metros. A seguir, detalham-se os principais elementos visuais e suas implicações técnicas e cartográficas, conforme princípios estabelecidos pelo USGS para mapas topográficos \cite{f5} e técnicas de sombreamento descritas por Kennelly para realçar o relevo \cite{f4}. Esta análise visa ligar os resultados aos conceitos anteriores, mostrando como cada elemento contribui para uma compreensão clara do terreno.
 
 \subsection{Resolução e Escala de Elevação}
 
-O grid SRTM de 1 segundo de arco (~30 m) foi renderizado com uma escala vertical exagerada (\texttt{zsize="4c"}), permitindo uma percepção clara das variações altimétricas de 0 a 3500 m. A barra de cores (\texttt{cmap="geo"}) utiliza uma paleta hipsométrica que varia de tons azuis (baixas elevações, áreas costeiras e baía de Guanabara) a verdes, amarelos e marrons (elevações intermediárias e altas, como o maciço da Tijuca). Esta escala segue recomendações do USGS para mapas topográficos \cite{f5}, onde cores são associadas a intervalos de altitude para facilitar a leitura. Em termos práticos, isto significa que o leitor pode identificar rapidamente zonas baixas (ex.: praias) e altas (ex.: montanhas), conectando-se à precisão do WGS 84 na definição das coordenadas.
-
-
+A grelha SRTM de 1 segundo de arco (~30 m) foi renderizada com uma escala vertical exagerada (\texttt{zsize="4c"}), permitindo uma percepção clara das variações altimétricas de 0 a 3500 m. A barra de cores (\texttt{cmap="geo"}) utiliza uma paleta hipsométrica que varia de tons azuis (baixas elevações, áreas costeiras e baía de Guanabara) a verdes, amarelos e castanhos (elevações intermédias e altas, como o maciço da Tijuca). Esta escala segue recomendações do USGS para mapas topográficos \cite{f5}, onde cores são associadas a intervalos de altitude para facilitar a leitura. Em termos práticos, isto significa que o leitor pode identificar rapidamente zonas baixas (ex.: praias) e altas (ex.: montanhas), ligando-se à precisão do WGS 84 na definição das coordenadas.
 
 \begin{figure}[H]
 \centering
@@ -245,32 +240,29 @@ O grid SRTM de 1 segundo de arco (~30 m) foi renderizado com uma escala vertical
         \end{minipage}
     }
 }
-\caption{Mapa topográfico 3D do Rio de Janeiro gerado pelo script. Resolução: 30 m; perspectiva: 135°/30°; sombreamento direcional de 45°.}
+\caption{Mapa topográfico 3D do Rio de Janeiro gerado pelo script. Resolução: 30 m; perspectiva: 135°/30°; sombreamento direccional de 45°.}
 \label{fig:resultado_final}
 \end{figure}
-
-
 
 \subsection{Curvas de Nível e Análise Topográfica}
 
 As curvas de nível são traçadas a intervalos de 100 m (\texttt{levels=100}) e anotadas a cada 500 m (\texttt{annotation="500"}), seguindo o padrão cartográfico clássico descrito no documento \textit{Topographic Map Symbols} \cite{f5}. Este intervalo permite:
 
 \begin{itemize}
-    \item Identificação clara de feições como o \textbf{Pão de Açúcar} (~400 m), \textbf{Corcovado} (~710 m) e o \textbf{Pico da Tijuca} (~1021 m).
     \item Análise de gradientes de inclinação: encostas íngremes (ex.: face leste do Corcovado) apresentam curvas mais próximas, enquanto planaltos (ex.: interior da Tijuca) mostram espaçamento maior.
     \item Reconhecimento de formas de relevo: vales fluviais, cristas e depressões são facilmente perceptíveis, ligando-se aos algoritmos de contorno I/O-eficientes \cite{f6} que inspiraram a implementação ordenada das curvas.
 \end{itemize}
 
-Esta representação facilita a compreensão de como o relevo influencia o ambiente urbano, como o escoamento de águas ou o planeamento de infraestruturas.
+Esta representação facilita a compreensão de como o relevo influencia o ambiente urbano, como o escoamento de águas ou o planeamento de infra-estruturas.
 
 \subsection{Sombreamento Hipsométrico e Iluminação}
 
-O sombreamento direcional (\texttt{shading="+a45+nt0.8"}) simula uma fonte de luz a 45° de azimute e intensidade normalizada de 0.8, conforme técnicas de \textit{hill-shading} descritas por Kennelly \cite{f4}. Este método:
+O sombreamento direccional (\texttt{shading="+a45+nt0.8"}) simula uma fonte de luz a 45° de azimute e intensidade normalizada de 0.8, conforme técnicas de \textit{hill-shading} descritas por Kennelly \cite{f4}. Este método:
 
 \begin{itemize}
     \item \textbf{Realça micro-relevos}: encostas voltadas para a luz (noroeste) aparecem mais claras, enquanto as opostas (sudeste) ficam sombreadas, criando um efeito de profundidade.
     \item \textbf{Evita artefactos}: o azimute de 45° evita sombras planas em encostas paralelas à luz, um problema comum em iluminações de 0° ou 90°.
-    \item \textbf{Combina com a perspectiva}: o ponto de vista de 135°/30° foi escolhido para maximizar o contraste de sombreamento, oferecendo uma visão clássica e informativa do relevo carioca, conectando-se à perspectiva azimutal explicada anteriormente.
+    \item \textbf{Combina com a perspectiva}: o ponto de vista de 135°/30° foi escolhido para maximizar o contraste de sombreamento, oferecendo uma visão clássica e informativa do relevo carioca, ligando-se à perspectiva azimutal explicada anteriormente.
 \end{itemize}
 
 O resultado é uma imagem que simula uma vista natural, ajudando o leitor a ``sentir'' a tridimensionalidade do terreno.
@@ -285,12 +277,6 @@ O resultado é uma imagem que simula uma vista natural, ajudando o leitor a ``se
 
 Estes elementos, inspirados em símbolos topográficos padrão \cite{f5}, tornam o mapa acessível, ligando a teoria cartográfica aos resultados práticos.
 
-\subsection{Validação Visual e Precisão}
-
-A visualização resultante foi validada visualmente contra mapas topográficos oficiais (IBGE, USGS) e imagens de satélite (Google Earth). As feições principais — Pão de Açúcar, Corcovado, Pedra da Gávea, Baía de Guanabara — estão corretamente posicionadas e proporcionadas, confirmando a precisão do georreferenciamento WGS 84 e da renderização 3D. Esta validação reforça a coesão entre conceitos, metodologia e resultados, demonstrando a fiabilidade do processo.
-
-
-% Adicione esta seção antes da Conclusão
 \section{Geração Automática do Mapa}
 
 O mapa topográfico é gerado automaticamente através do seguinte script Python, que utiliza a biblioteca PyGMT para processar dados SRTM e criar a visualização 3D:
@@ -311,13 +297,13 @@ try:
     print(f"Região definida: {region}", file=sys.stderr)
     
     # 2. Carregar dados SRTM
-    print("Baixando grid SRTM 1s (~30m)...", file=sys.stderr)
+    print("Baixando grelha SRTM 1s (~30m)...", file=sys.stderr)
     grid = pygmt.datasets.load_earth_relief(
         resolution="01s", 
         region=region, 
         registration="gridline"
     )
-    print("✓ Grid SRTM carregado com sucesso", file=sys.stderr)
+    print("✓ Grelha SRTM carregada com sucesso", file=sys.stderr)
     
     # 3. Criar figura
     fig = pygmt.Figure()
@@ -372,7 +358,7 @@ try:
         fill="black@90",
     )
     
-    # 9. SALVAR IMAGEM NA PASTA CORRETA
+    # 9. SALVAR IMAGEM NA PASTA CORRECTA
     output_path = "figuras/mapatopografico.png"
     print(f"Salvando imagem em: {output_path}", file=sys.stderr)
     fig.savefig(output_path, dpi=600)
@@ -390,6 +376,7 @@ except Exception as e:
     import traceback
     traceback.print_exc(file=sys.stderr)
 \end{pycode}
+
 \section{Conclusão}
 
 \subsection{Síntese da Integração de Conceitos}
@@ -398,21 +385,15 @@ A integração bem-sucedida dos conceitos de \textbf{WGS 84}, \textbf{perspectiv
 
 \subsection{Precisão Geodésica com WGS 84}
 
-O sistema WGS 84 revelou-se um alicerce de extraordinária robustez para a presente modelação, garantindo que cada feição topográfica do Rio de Janeiro emergisse com fidelidade cartográfica irrepreensível. Ao adotar este referencial geocêntrico global, o projeto beneficiou de uma coerência posicional que eliminou discrepâncias entre os dados SRTM e a biblioteca PyGMT, permitindo que a delimitação da área de estudo — compreendida entre as coordenadas $[-43.35, -43.05, -23.05, -22.83]$ — se traduzisse diretamente em resultados visuais precisos e consistentes.
+O sistema WGS 84 revelou-se um alicerce de extraordinária robustez para a presente modelação, garantindo que cada feição topográfica do Rio de Janeiro emergisse com fidelidade cartográfica irrepreensível. Ao adoptar este referencial geocêntrico global, o projecto beneficiou de uma coerência posicional que eliminou discrepâncias entre os dados SRTM e a biblioteca PyGMT, permitindo que a delimitação da área de estudo — compreendida entre as coordenadas $[-43.35, -43.05, -23.05, -22.83]$ — se traduzisse directamente em resultados visuais precisos e consistentes.
 
-A sua eficácia reside na capacidade de unificar, sob um único padrão, medições provenientes de fontes diversas, evitando os desalinhamentos que comprometeriam a integridade do mapa. Assim, o Pão de Açúcar, o Corcovado e a Baía de Guanabara surgem não apenas esteticamente convincentes, mas geograficamente corretos, reforçando a confiança na análise territorial. Esta precisão, alcançada sem ajustes manuais ou transformações adicionais, exemplifica como um sistema de referência bem estabelecido eleva a cartografia computacional a níveis de rigor científico inquestionável.
+\subsection{Optimização Visual com Perspectiva Azimutal}
 
-\subsection{Otimização Visual com Perspectiva Azimutal}
-
-A \textbf{perspectiva azimutal}, configurada como \texttt{[135, 30]} (azimute de 135° a partir do norte, elevação de 30° acima do horizonte), foi estrategicamente escolhida para otimizar a percepção tridimensional do relevo. Este ângulo de visão, combinado com o sombreamento direcional (\texttt{shading="+a45+nt0.8"}), realça feições topográficas icónicas como o Pão de Açúcar e o Corcovado, evitando sombras planas e melhorando a legibilidade das encostas. A técnica de \textbf{hill-shading} discutida por Kennelly \cite{f4} — que varia intensidade luminosa com base em direção e inclinação — foi implementada de forma computacional, reforçando o contraste entre vales e picos.
+A \textbf{perspectiva azimutal}, configurada como \texttt{[135, 30]} (azimute de 135° a partir do norte, elevação de 30° acima do horizonte), foi estrategicamente escolhida para optimizar a percepção tridimensional do relevo. Este ângulo de visão, combinado com o sombreamento direccional (\texttt{shading="+a45+nt0.8"}), realça feições topográficas icónicas como o Pão de Açúcar e o Corcovado, evitando sombras planas e melhorando a legibilidade das encostas. A técnica de \textbf{hill-shading} discutida por Kennelly \cite{f4} — que varia intensidade luminosa com base em direcção e inclinação — foi implementada de forma computacional, reforçando o contraste entre vales e picos.
 
 \subsection{Precisão Cartográfica com Curvas de Nível}
 
 As \textbf{curvas de nível}, geradas a cada 100 m e anotadas a 500 m, seguem princípios cartográficos consolidados pelo USGS \cite{f5}, representando isolinhas de igual elevação com precisão. Inspirado em algoritmos I/O-eficientes para contornos em terrenos triangulados \cite{f6}, o script utiliza \texttt{fig.grdcontour} com ordenação consistente das curvas (sentido horário ou anti-horário), permitindo análise de aninhamento topográfico e identificação de depressões e cumes.
-
-\subsection{Potencial de Extensão e Geovisualização 3D}
-
-A \textbf{geovisualização 3D} resultante, exemplificada em \texttt{mapatopografico.png}, transcende a mera representação bidimensional, aproximando-se de técnicas avançadas de visualização espaço-temporal descritas por Kwan e Lee \cite{f7}. Embora o foco tenha sido topográfico, a estrutura do script permite futuras extensões para drapear dados de atividades humanas (como mobilidade urbana) sobre o relevo, conforme ilustrado em \cite{f7}, abrindo caminho para estudos integrados de interação homem-ambiente.
 
 \subsection{Contribuição e Perspectivas Futuras}
 
@@ -420,13 +401,10 @@ Em suma, este trabalho demonstra que a combinação rigorosa de \textbf{geodési
 
 Futuras evoluções incluem:
 \begin{itemize}
-    \item Animações de rotação azimutais para exploração interativa.
-    \item Integração com dados vetoriais urbanos (ruas, edifícios, transportes).
-    \item Exportação para formatos 3D interativos (WebGL, VR).
+    \item Animações de rotação azimutais para exploração interactiva.
+    \item Integração com dados vectoriais urbanos (ruas, edifícios, transportes).
     \item Aplicação de algoritmos de contorno em tempo real para grandes áreas.
 \end{itemize}
-
-Assim, o projeto não só cumpre os objetivos propostos, como estabelece uma base sólida para avanços em geovisualização científica.
 
 \newpage
 
