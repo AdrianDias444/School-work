@@ -1,0 +1,161 @@
+\usepackage{xunicode} % https://ctan.org/pkg/xunicode
+\usepackage{xltxtra} % https://ctan.org/pkg/xltxtra
+\usepackage{fontspec} % https://ctan.org/pkg/fontspec
+\usepackage{polyglossia} % https://ctan.org/pkg/polyglossia
+\setdefaultlanguage{portuges}
+\usepackage{csquotes}
+
+% Compilar com XeLaTeX
+\usepackage{fontspec}
+%\setmainfont{LMRoman10-Regular}
+%\setsansfont{LMSans10-Regular}
+%\setmonofont{LMMono10-Regular}
+
+\clubpenalty=100
+\linepenalty=100
+\widowpenalty=100
+
+
+\usepackage[backend=biber, style=numeric]{biblatex} 
+\addbibresource{bibliografia.bib}
+
+%estética
+% \usepackage[hyphens]{url}
+\usepackage{xurl}
+\urlstyle{same} % URLs na mesma fonte do texto (Times New Roman)
+\AtBeginDocument{%
+  \setlength{\Urlmuskip}{0mu plus 1mu} % Ajusta espaçamento entre caracteres em URLs
+  \setlength{\emergencystretch}{3em} % Permite maior flexibilidade na justificação
+  \def\UrlBreakPenalty{100} % Penalidade baixa para facilitar quebras
+  \def\UrlBigBreakPenalty{50} % Penalidade para quebras em caracteres como /
+  \sloppy % Relaxa a justificação para evitar ultrapassagem
+}
+
+\usepackage[hang,small,bf]{caption}
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm,includehead,includefoot]{geometry}
+\linespread{1.3}
+
+\usepackage[
+  xetex,                      % Driver para XeLaTeX
+  unicode=true,               % Suporte a caracteres Unicode (ex.: ç, ã)
+  bookmarks=true,             % Cria bookmarks no PDF
+  bookmarksopen=true,         % Bookmarks abertos por padrão
+  bookmarksnumbered=true,     % Numera os bookmarks (ex.: 1, 1.1, 1.2)
+  linktoc=all,                % Links clicáveis em sumário, figuras e citações
+  breaklinks=true,            % Permite quebra de links longos
+  colorlinks=true,            % Links com cor em vez de caixas
+  citecolor=black,            % Cor das citações (preto)
+  filecolor=black,            % Cor dos links de arquivos (preto)
+  linkcolor=black,            % Cor dos links internos (preto)
+  urlcolor=blue,              % URLs em azul
+  pdfpagelabels=true,         % Adiciona rótulos às páginas do PDF
+  plainpages=false,           % Diferencia numeração de páginas
+  pdftitle={Instalação do Arch Linux com XFCE no Android},
+  pdfauthor={Luís A.V. Ferreira}, % Nome do autor
+  pdfsubject={Instalação do Arch Linux com XFCE no Android},
+  pdfkeywords={Arch Linux XFCE Android},
+  pdfcreator={XeLaTeX com hyperref},
+  pdfproducer={XeLaTeX}
+]{hyperref}
+
+%% Definir um novo estilo de url
+\makeatletter
+\def\url@luisstyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+\urlstyle{luis}
+
+\setlength{\captionmargin}{1.5in}
+\usepackage{fancyhdr}
+%\setlength{\headheight}{1in}
+
+\renewcommand{\thefootnote}{\alph{footnote}} %modificar as letras de notas de rodapé%
+\makeatletter
+\renewcommand\@makefnmark{\@textsuperscript{\normalfont(\@thefnmark)}}
+\makeatother
+\renewcommand{\fboxrule}{2pt} %para alterar a expessura das caixas
+%\renewcommand{\fboxsep}{3ex} %para alterar a separação nas caixas
+
+\long\def\symbolfootnote[#1]#2{\begingroup\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{setspace}
+%\singlespacing
+%\onehalfspacing
+%\doublespacing
+\usepackage{comment}
+\usepackage{siunitx}
+\usepackage{lettrine}
+\usepackage{GoudyIn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[x11names]{xcolor} 
+\renewcommand{\LettrineFontHook}{\color{VioletRed4}\GoudyInfamily{}}
+\LettrineTextFont{\itshape}
+\setcounter{DefaultLines}{3}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{relsize}
+%\newcommand\CC{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{+}}}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\relsize{-3}{\textbf{+}}}}
+\newcommand\CC{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{++}}}}
+
+%\usepackage{showframe}
+\usepackage{pgf,tikz}       % - Elementos gráficos
+\usepackage{tikzpagenodes}
+\usetikzlibrary{backgrounds,calc,positioning}
+\usetikzlibrary{positioning, shapes}
+
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+\addbibresource{bibliografia.bib}
+
+% \addbibresource{biblio.bib}
+% \addbibresource{legislacao.bib}
+
+
+\usepackage{listings}
+\usepackage{lstlinebgrd}
+
+% Definir cores personalizadas
+\definecolor{lightgray}{gray}{0.95}
+\definecolor{darkgray}{gray}{0.4}
+\definecolor{purple}{rgb}{0.58,0,0.82}
+
+% Traduzir o título "Listing" -> "Listagem"
+\renewcommand{\lstlistingname}{Listagem}
+\renewcommand{\lstlistlistingname}{Lista de Listagens}
+
+% Definição do estilo
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  stringstyle=\color{red!70!black},
+  commentstyle=\color{green!50!black},
+  breaklines=true,
+  showstringspaces=false,
+  upquote=true,
+  extendedchars=true,
+  literate={~}{{\textasciitilde}}1,
+  numbers=left,                     % numeração das linhas à esquerda
+  numberstyle=\tiny\color{darkgray},% estilo dos números
+  numbersep=8pt,                    % distância entre número e código
+  backgroundcolor=\color{lightgray},% cor de fundo base
+  frame=single,                     % moldura à volta do código
+  rulecolor=\color{black!30},       % cor da moldura
+  language=python,                  % linguagem predefinida
+  captionpos=t,                     % legenda em baixo
+  xleftmargin=2em,                  % margens adicionais para espaço
+  aboveskip=1em, belowskip=1em,
+  linebackgroundcolor={%
+        \ifodd\value{lstnumber}%
+            \color{LightYellow1}%
+        \else%
+            \color{DarkSeaGreen1}%
+        \fi}
+}
+% === Só isto resolve tudo (pythontex) ===
+\usepackage{pythontex}
+\setpythontexworkingdir{.}
+\usepackage{float}      % <--- esta linha resolve o erro do [H]

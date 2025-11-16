@@ -1,0 +1,119 @@
+=>PYTHONTEX#py#default#default#0#code#####285#
+import pygmt
+import sys
+import os
+
+print("=== INICIANDO GERAÇÃO DO MAPA 3D ===", file=sys.stderr)
+
+try:
+    # Garantir que a pasta figuras existe
+    os.makedirs("figuras", exist_ok=True)
+
+    # 1. Definir região
+    region = [-43.35, -43.05, -23.05, -22.83]  # ~30x25 km
+    print(f"Região definida: {region}", file=sys.stderr)
+
+    # 2. Carregar dados SRTM
+    print("Baixando grelha SRTM 1s (~30m)...", file=sys.stderr)
+    grid = pygmt.datasets.load_earth_relief(
+        resolution="01s",
+        region=region,
+        registration="gridline"
+    )
+    print("✓ Grelha SRTM carregada com sucesso", file=sys.stderr)
+
+    # 3. Criar figura
+    fig = pygmt.Figure()
+    perspective = [135, 30]  # Vista clássica do Rio
+
+    # 4. Configurar visualização 3D
+    fig.grdview(
+        grid=grid,
+        region=region + [0, 3500],
+        projection="M18c",
+        perspective=perspective,
+        frame=["a", "z500f100"],
+        zsize="4c",
+        surftype="i",
+        shading="+a45+nt0.8",
+        cmap="geo",
+        contourpen="0.3p,gray30",
+    )
+
+    # 5. Adicionar contornos
+    fig.grdcontour(
+        grid=grid,
+        levels=100,
+        annotation="500",
+        pen="0.4p,gray10",
+        perspective=perspective,
+    )
+
+    # 6. Adicionar elementos costeiros
+    fig.coast(
+        resolution="f",
+        shorelines=True,
+        water="lightblue@80",
+        borders="1/0.6p,gray",
+        perspective=perspective,
+    )
+
+    # 7. Adicionar barra de cores
+    fig.colorbar(
+        perspective=perspective,
+        frame=["a500f100", "x+lElevação (m)", "y+lm"],
+        position="JBC+o0c/1c+w14c/0.8c+h",
+    )
+
+    # 8. Adicionar título
+    fig.text(
+        text="Rio de Janeiro - Topografia 3D (30 m)",
+        position="TC",
+        font="18p,Helvetica-Bold,white",
+        offset="0/0.8c",
+        perspective=perspective,
+        fill="black@90",
+    )
+
+    # 9. SALVAR IMAGEM NA PASTA CORRECTA
+    output_path = "figuras/mapatopografico.png"
+    print(f"Salvando imagem em: {output_path}", file=sys.stderr)
+    fig.savefig(output_path, dpi=600)
+
+    # 10. Verificar se a imagem foi criada
+    if os.path.exists(output_path):
+        file_size = os.path.getsize(output_path)
+        print(f"✓ IMAGEM GERADA COM SUCESSO: '{output_path}' ({file_size} bytes)", file=sys.stderr)
+        print(f"Mapa 3D gerado com sucesso: '{output_path}' (600 DPI)")
+    else:
+        print(f"✗ ERRO: Imagem não foi criada em {output_path}", file=sys.stderr)
+
+except Exception as e:
+    print(f"✗ ERRO DURANTE EXECUÇÃO: {e}", file=sys.stderr)
+    import traceback
+    traceback.print_exc(file=sys.stderr)
+=>PYTHONTEX:SETTINGS#
+version=0.18
+outputdir=pythontex-files-Desafio02
+workingdir=.
+workingdirset=false
+gobble=none
+rerun=default
+hashdependencies=default
+makestderr=false
+stderrfilename=full
+keeptemps=none
+pyfuture=default
+pyconfuture=none
+pygments=true
+pygglobal=:GLOBAL||
+fvextfile=-1
+pyconbanner=none
+pyconfilename=stdin
+depythontex=false
+pygfamily=py|python3|
+pygfamily=pycon|pycon|
+pygfamily=sympy|python3|
+pygfamily=sympycon|pycon|
+pygfamily=pylab|python3|
+pygfamily=pylabcon|pycon|
