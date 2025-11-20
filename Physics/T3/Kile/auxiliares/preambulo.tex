@@ -1,39 +1,90 @@
-%\usepackage{xunicode}
-%\usepackage{xltxtra}
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\setdefaultlanguage{portuges}
-\usepackage{csquotes}
-\usepackage{needspace}
-\usepackage{pythontex}
-\usepackage{ifthen}
-\usepackage[cmintegrals,cmbraces]{newtxmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                        COMPILAÇÃO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Compilar sempre com: XeLaTeX + Biber
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% === BIBLIOGRAFIA (mantida a primeira carga) ===
-\usepackage[backend=biber, style=numeric]{biblatex}
-\addbibresource{referencias.bib}
-% ==============================================
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Língua e Tipografia
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fontspec}          % Suporte a Unicode + fontes OpenType
+\usepackage{polyglossia}       % Idioma com XeLaTeX
+\setdefaultlanguage{portuges}  % Português (variante europeia antiga)
 
-\usepackage[no-math]{fontspec}
+% Exemplos de selecção de fontes:
+% \setmainfont{EBGaramond}[ ... ]
+% \setmainfont{TeX Gyre Pagella}[ ... ]
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Estética de Parágrafos / Quebras
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clubpenalty=100
 \linepenalty=100
 \widowpenalty=100
+\linespread{1.3}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% URL e Quebras
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{xurl}
 \urlstyle{same}
+
 \AtBeginDocument{%
-  \setlength{\Urlmuskip}{0mu plus 1mu}%
-  \setlength{\emergencystretch}{3em}%
-  \def\UrlBreakPenalty{100}%
-  \def\UrlBigBreakPenalty{50}%
+  \setlength{\Urlmuskip}{0mu plus 1mu}
+  \setlength{\emergencystretch}{3em}
+  \def\UrlBreakPenalty{100}
+  \def\UrlBigBreakPenalty{50}
   \sloppy
 }
 
-\usepackage[hang,small,bf]{caption}
-\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm,includehead,includefoot]{geometry}
-\linespread{1.3}
+% Novo estilo para URLs
+\makeatletter
+\def\url@luisstyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+\urlstyle{luis}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Legendas
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[hang,small,bf]{caption}
+\setlength{\captionmargin}{1.5in}
+
+% Subfiguras (compatível com caption e XeLaTeX)
+\usepackage{subcaption}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Geometria da Página
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[
+  a4paper,
+  left=2.5cm, right=2.5cm,
+  top=2.5cm, bottom=2.5cm,
+  includehead, includefoot
+]{geometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliografia
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[
+    backend=biber,
+    style=numeric-comp,
+    language=auto,
+    natbib=false,
+    block=space,
+    isbn=false,
+    url=true,
+    doi=true,
+    mcite=true,
+    eprint=false,
+    sorting=none,
+    maxnames=6
+]{biblatex}
+\addbibresource{bibliografia.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hyperref (usar após quase tudo)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[
   xetex,
   unicode=true,
@@ -57,65 +108,111 @@
   pdfproducer={XeLaTeX}
 ]{hyperref}
 
-\makeatletter
-\def\url@luisstyle{%
-  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
-\makeatother
-\urlstyle{luis}
-
-\setlength{\captionmargin}{1.5in}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Notas de rodapé
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{fancyhdr}
 
 \renewcommand{\thefootnote}{\alph{footnote}}
 \makeatletter
 \renewcommand\@makefnmark{\@textsuperscript{\normalfont(\@thefnmark)}}
 \makeatother
+
+\long\def\symbolfootnote[#1]#2{%
+  \begingroup
+  \def\thefootnote{\fnsymbol{footnote}}%
+  \footnote[#1]{#2}%
+  \endgroup
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Caixas e estilo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\fboxrule}{2pt}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Estilo das listas
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
 \renewcommand{\labelenumii}{\textbf{(\arabic{enumii})}}
 
-\long\def\symbolfootnote[#1]#2{\begingroup\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Espaçamento (opcional)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{setspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pacotes gerais
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{comment}
 \usepackage{siunitx}
 \usepackage[x11names]{xcolor}
 \usepackage{relsize}
+
+% Comando CC++
 \newcommand\CC{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{++}}}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Listagens de código
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+\usepackage{lstlinebgrd}
+
+% Definir cores personalizadas
+\definecolor{lightgray}{gray}{0.95}
+\definecolor{darkgray}{gray}{0.4}
+\definecolor{purple}{rgb}{0.58,0,0.82}
+
+% Traduzir o título "Listing" -> "Listagem"
+\renewcommand{\lstlistingname}{Listagem}
+\renewcommand{\lstlistlistingname}{Lista de Listagens}
+
+% Definição do estilo
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  stringstyle=\color{red!70!black},
+  commentstyle=\color{green!50!black},
+  breaklines=true,
+  showstringspaces=false,
+  upquote=true,
+  extendedchars=true,
+  literate={~}{{\textasciitilde}}1,
+  numbers=left,
+  numberstyle=\tiny\color{darkgray},
+  numbersep=8pt,
+  backgroundcolor=\color{lightgray},
+  frame=single,
+  rulecolor=\color{black!30},
+  language=python,
+  captionpos=t,
+  xleftmargin=2em,
+  aboveskip=1em, belowskip=1em,
+  linebackgroundcolor={
+        \ifodd\value{lstnumber}
+            \color{LightYellow1}
+        \else
+            \color{DarkSeaGreen1}
+        \fi}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TikZ e gráficos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{pgf,tikz}
 \usepackage{tikzpagenodes}
-\usetikzlibrary{backgrounds,calc,positioning}
-\usetikzlibrary{positioning, shapes}
+\usetikzlibrary{backgrounds,calc,positioning,shapes}
 
 \pgfdeclarelayer{background}
 \pgfdeclarelayer{foreground}
 \pgfsetlayers{background,main,foreground}
 
-% === REMOVIDO: segunda carga duplicada de biblatex ===
-% (causava o "option clash")
-% \usepackage[backend=biber, style=numeric-comp, ...]{biblatex}
-% \addbibresource{bibliografia.bib}
-% ===================================================
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PythonTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pythontex}
 
-\usepackage{listings}
-\lstset{
-  basicstyle=\ttfamily\small,
-  keywordstyle=\color{blue},
-  stringstyle=\color{red},
-  commentstyle=\color{green!50!black},
-  breaklines=true,
-  showstringspaces=false,
-  language=bash,
-  upquote=true,
-  extendedchars=true,
-  literate={~}{{\textasciitilde}}1
-}
-
-\usepackage{polyglossia}
-\setmainlanguage[variant=portuguese]{portuguese}
-\usepackage{amsmath}
-\usepackage{bibentry}
-\usepackage{listings}
-\usepackage{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Citações
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{csquotes}

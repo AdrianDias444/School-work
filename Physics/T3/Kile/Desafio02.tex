@@ -1,4 +1,4 @@
-%%
+%
 %% UTF-8       UTF-8      UTF-8       UTF-8       UTF-8       UTF-8
 %% UTF-8       UTF-8      UTF-8       UTF-8       UTF-8       UTF-8
 %%
@@ -78,7 +78,7 @@ O \textbf{World Geodetic System 1984 (WGS 84)} constitui o referencial geocêntr
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\linewidth]{figuras/imagem3.png}
-\caption{Esquema do sistema de coordenadas WGS 84, com eixos X, Y, Z e referências IERS (extraído de F3.pdf – NIMA TR8350.2, página 24).}
+\caption{Esquema do sistema de coordenadas WGS 84, com eixos X, Y, Z e referências IERS.}
 \label{fig:wgs84}
 \end{figure}
 
@@ -108,7 +108,7 @@ Esta escolha maximiza o contraste de sombreamento e destaca feições como o Cor
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\linewidth]{figuras/imagem1.png}
-\caption{Exemplo de visualização 3D com contornos e mapa 2D ao lado (extraído de F6.pdf, página 1).}
+\caption{Exemplo de visualização 3D com contornos e mapa 2D ao lado.}
 \label{fig:perspectiva_contornos}
 \end{figure}
 
@@ -127,7 +127,7 @@ O modelo WGS 84 utiliza um elipsoide (superfície matemática que aproxima a for
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\linewidth]{figuras/imagem6.png}
-\caption{Mapa de contornos do geoide EGM96 referenciado ao elipsoide WGS 84, mostrando variações globais em metros (extraído de F3.pdf, página 119).}
+\caption{Mapa de contornos do geoide EGM96 referenciado ao elipsoide WGS 84, mostrando variações globais em metros.}
 \label{fig:geoide_wgs84}
 \end{figure}
 
@@ -225,7 +225,7 @@ O mapa topográfico 3D gerado (\texttt{mapatopografico.png}) representa com alta
 
 \subsection{Resolução e Escala de Elevação}
 
-A grelha SRTM de 1 segundo de arco (~30 m) foi renderizada com uma escala vertical exagerada (\texttt{zsize="4c"}), permitindo uma percepção clara das variações altimétricas de 0 a 3500 m. A barra de cores (\texttt{cmap="geo"}) utiliza uma paleta hipsométrica que varia de tons azuis (baixas elevações, áreas costeiras e baía de Guanabara) a verdes, amarelos e castanhos (elevações intermédias e altas, como o maciço da Tijuca). Esta escala segue recomendações do USGS para mapas topográficos \cite{f5}, onde cores são associadas a intervalos de altitude para facilitar a leitura. Em termos práticos, isto significa que o leitor pode identificar rapidamente zonas baixas (ex.: praias) e altas (ex.: montanhas), ligando-se à precisão do WGS 84 na definição das coordenadas.
+A grelha SRTM de 1 segundo de arco (~30 m) foi renderizada com uma escala vertical (\texttt{zsize="4c"}), permitindo uma percepção clara das variações altimétricas de 0 a 3500 m. A barra de cores (\texttt{cmap="geo"}) utiliza uma paleta hipsométrica que varia de tons azuis (baixas elevações, áreas costeiras e baía de Guanabara) a verdes, amarelos e castanhos (elevações intermédias e altas, como o maciço da Tijuca). Esta escala segue recomendações do USGS para mapas topográficos \cite{f5}, onde cores são associadas a intervalos de altitude para facilitar a leitura. Em termos práticos, isto significa que o leitor pode identificar rapidamente zonas baixas (ex.: praias) e altas (ex.: montanhas), ligando-se à precisão do WGS 84 na definição das coordenadas.
 
 \begin{figure}[H]
 \centering
@@ -251,7 +251,7 @@ As curvas de nível são traçadas a intervalos de 100 m (\texttt{levels=100}) e
 
 \begin{itemize}
     \item Análise de gradientes de inclinação: encostas íngremes (ex.: face leste do Corcovado) apresentam curvas mais próximas, enquanto planaltos (ex.: interior da Tijuca) mostram espaçamento maior.
-    \item Reconhecimento de formas de relevo: vales fluviais, cristas e depressões são facilmente perceptíveis, ligando-se aos algoritmos de contorno I/O-eficientes \cite{f6} que inspiraram a implementação ordenada das curvas.
+    \item Reconhecimento de formas de relevo: vales fluviais, cristas e depressões são facilmente perceptíveis, ligando-se aos algoritmos de contorno eficientes \cite{f6} que inspiraram a implementação ordenada das curvas.
 \end{itemize}
 
 Esta representação facilita a compreensão de como o relevo influencia o ambiente urbano, como o escoamento de águas ou o planeamento de infra-estruturas.
@@ -382,7 +382,7 @@ except Exception as e:
 
 \subsection{Síntese da Integração de Conceitos}
 
-A integração bem-sucedida dos conceitos de \textbf{WGS 84}, \textbf{perspectiva azimutal}, \textbf{curvas de nível}, \textbf{sombreamento hipsométrico} e \textbf{algoritmos I/O-eficientes para contornos} (conforme \cite{f6}) foi fundamental para a geração de uma visualização topográfica 3D precisa, cientificamente rigorosa e esteticamente clara da região metropolitana do Rio de Janeiro.
+A integração bem-sucedida dos conceitos de \textbf{WGS 84}, \textbf{perspectiva azimutal}, \textbf{curvas de nível}, \textbf{sombreamento hipsométrico} e \textbf{algoritmos eficientes para contornos} (conforme \cite{f6}) foi fundamental para a geração de uma visualização topográfica 3D precisa, cientificamente rigorosa e esteticamente clara da região metropolitana do Rio de Janeiro.
 
 \subsection{Precisão Geodésica com WGS 84}
 
@@ -394,11 +394,11 @@ A \textbf{perspectiva azimutal}, configurada como \texttt{[135, 30]} (azimute de
 
 \subsection{Precisão Cartográfica com Curvas de Nível}
 
-As \textbf{curvas de nível}, geradas a cada 100 m e anotadas a 500 m, seguem princípios cartográficos consolidados pelo USGS \cite{f5}, representando isolinhas de igual elevação com precisão. Inspirado em algoritmos I/O-eficientes para contornos em terrenos triangulados \cite{f6}, o script utiliza \texttt{fig.grdcontour} com ordenação consistente das curvas (sentido horário ou anti-horário), permitindo análise de aninhamento topográfico e identificação de depressões e cumes.
+As \textbf{curvas de nível}, geradas a cada 100 m e anotadas a 500 m, seguem princípios cartográficos consolidados pelo USGS \cite{f5}, representando isolinhas de igual elevação com precisão. Inspirado em algoritmos eficientes para contornos em terrenos triangulados \cite{f6}, o script utiliza \texttt{fig.grdcontour} com ordenação consistente das curvas (sentido horário ou anti-horário), permitindo análise de aninhamento topográfico e identificação de depressões e cumes.
 
 \subsection{Contribuição e Perspectivas Futuras}
 
-Em suma, este trabalho demonstra que a combinação rigorosa de \textbf{geodésia (WGS 84)}, \textbf{cartografia computacional (PyGMT)}, \textbf{algoritmos de contorno (F6)}, \textbf{técnicas de sombreamento (F4)} e \textbf{princípios de visualização 3D (F1, F7)} resulta numa ferramenta poderosa para análise territorial. A abordagem é escalável, reprodutível e prontamente adaptável a outras regiões, constituindo uma contribuição prática e teórica no campo da cartografia digital.
+Em suma, este trabalho demonstra que a combinação rigorosa de \textbf{geodésia (WGS 84)}, \textbf{cartografia computacional (PyGMT)}, \textbf{algoritmos de contorno}, \textbf{técnicas de sombreamento} e \textbf{princípios de visualização 3D} resulta numa ferramenta poderosa para análise territorial. A abordagem é escalável, reprodutível e prontamente adaptável a outras regiões, constituindo uma contribuição prática e teórica no campo da cartografia digital.
 
 Futuras evoluções incluem:
 \begin{itemize}
