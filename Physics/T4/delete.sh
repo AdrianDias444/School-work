@@ -1,0 +1,1 @@
+rm a.aux a.bcf a.log a.out a.pdf a.pytxcode a.run.xml a.toc circuito.aux circuito.log Desafio02.aux Desafio02.bbl Desafio02.bcf Desafio02.blg Desafio02.log Desafio02.out Desafio02.pytxcode Desafio02.pdf Desafio02.run.xml Desafio02.toc teste.aux teste.log teste.pdf x.log

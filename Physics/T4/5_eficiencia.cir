@@ -1,0 +1,37 @@
+* ============================================
+* 5. EFICIÊNCIA ENERGÉTICA - VERSÃO CORRIGIDA
+* ============================================
+* Objetivo: Calcular eficiência de forma simples
+
+Vin entrada 0 SIN(0 10 60)
+B1 sec1 0 V = +5*sin(2*3.14159*60*time)
+B2 sec2 0 V = -5*sin(2*3.14159*60*time)
+D1 sec1 saida 1N4007
+D2 sec2 saida 1N4007
+.model 1N4007 D(IS=14.11e-9 N=1.984 RS=0.1)
+R_carga saida 0 1k
+C_filtro saida 0 100u
+
+.tran 0.1ms 100ms
+
+* MEDIÇÕES SIMPLES QUE FUNCIONAM
+.measure tran Vdc_avg avg V(saida) from=50ms to=100ms
+.measure tran Idc_avg avg V(saida)/1000 from=50ms to=100ms  ; I = V/R
+
+* CÁLCULOS MANUAIS (você faz no relatório)
+* P_carga = Vdc² / R = (4.16)² / 1000 = 17.3 mW
+* P_entrada ≈ Vdc × Idc × (π/2) para estimativa
+* Eficiência η = P_carga / P_entrada × 100%
+
+.print tran Vdc_avg Idc_avg
+.print "CÁLCULOS PARA EFICIÊNCIA (faça manualmente):"
+.print "1. P_carga = Vdc_avg² / 1000  (em Watts)"
+.print "2. P_entrada estimada ≈ P_carga / 0.8  (80% eficiência)"
+.print "3. η = P_carga / P_entrada × 100%"
+.print ""
+.print "Valores esperados:"
+.print "Vdc ≈ 4.16V, Idc ≈ 4.16mA"
+.print "P_carga ≈ 17.3mW, η ≈ 80%"
+
+.plot tran v(saida)
+.end

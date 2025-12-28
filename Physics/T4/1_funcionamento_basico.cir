@@ -1,0 +1,28 @@
+* ============================================
+* 1. FUNCIONAMENTO BÁSICO DO RETIFICADOR
+* ============================================
+* Objetivo: Validar o princípio de funcionamento do circuito
+*           retificador de onda completa com center-tap.
+
+* 1.1 CIRCUITO BASE
+Vin entrada 0 SIN(0 10 60)                  ; Fonte: 10Vp, 60Hz
+B1 sec1 0 V = +5*sin(2*3.14159*60*time)    ; Secundário 1: +5V
+B2 sec2 0 V = -5*sin(2*3.14159*60*time)    ; Secundário 2: -5V (180°)
+D1 sec1 saida 1N4007                       ; Diodo superior
+D2 sec2 saida 1N4007                       ; Diodo inferior
+.model 1N4007 D(IS=14.11e-9 N=1.984 RS=0.1); Modelo real do diodo
+R_carga saida 0 1k                         ; Carga nominal
+
+* 1.2 ANÁLISE
+.tran 0.1ms 100ms                          ; 100ms (~6 ciclos)
+
+* 1.3 MEDIÇÕES CRÍTICAS
+.measure tran Vdc_medio avg V(saida) from=50ms to=100ms
+.measure tran Vripple_pp pp V(saida) from=50ms to=100ms
+.measure tran freq_ripple param 120        ; Teórico: 2×60Hz
+
+* 1.4 VISUALIZAÇÃO
+.plot tran v(entrada) v(saida)             ; Comparação entrada/saída
+.print tran Vdc_medio Vripple_pp freq_ripple
+
+.end

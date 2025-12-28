@@ -1,0 +1,25 @@
+\documentclass[border=10pt]{standalone}
+\usepackage[siunitx, RPvoltages]{circuitikz}
+\ctikzsetstyle{romano}
+\begin{document}
+\begin{circuitikz}[scale=0.7, transform shape]
+    % totem pole
+    \draw (0,0) node[op amp, noinv input up](A1){\texttt{A1}}
+    (A1.+) to[short, -o] ++(-1,0) coordinate(ainst-) node[left]{$v^-$}
+    (A1.-) to [short, -o] ++(0,-1) coordinate (ra-up);
+    \draw (ra-up) to[vR, l_=$R_A$, name=RA0, o-o] ++(0,-2) coordinate (ra-down);
+    \draw (ra-down) to [short, o-] ++(0,-1) node[op amp, anchor=-](A2){\texttt{A2}}
+    (A2.+) to[short, -o] (A2.+ -| ainst-) coordinate(ainst+) node[left]{$v^+$}
+    (ra-up) to[R, l_=$R_B$, name=RB1, o-] (ra-up -| A1.out) coordinate(vup) -- (A1.out)
+    (ra-down) to[R=$R_B$, name=RB2] (ra-down -| A2.out) coordinate(vdn) -- (A2.out)
+    ;
+    % differential amplifier : position to avoid bends
+    \draw (vdn) to[R=$R$, name=R1] ++(2,0) node[op amp, anchor=+](A3){\texttt{A3}}
+    (A3.+) to[R=$R$, -o, name=R2] ++(0,-2)
+    to[battery2, l_=$V_\mathrm{ref}$, invert, o-] ++(0,-1) node[ground]{}
+    (vup) to[R=$R$, name=R3] (A3.- |- vup) coordinate(a3fb) --(A3.-)
+    (a3fb) to [R=$R$, name=R4] (A3.out |- a3fb) -- (A3.out)
+    to [short, -o] ++(.5,0) node[above]{$v_o$}
+    ;
+\end{circuitikz}
+\end{document}
