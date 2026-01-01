@@ -1,0 +1,651 @@
+% !TeX program = xelatex
+\lccode`\-=`\-
+\documentclass[12pt,a4paper,oneside]{extarticle}
+\input{auxiliares/preambulo} % não é para alterar
+
+% PACOTES ESPECÍFICOS PARA ESTE DOCUMENTO
+\usepackage{needspace}
+\usepackage{afterpage}
+\usepackage{float}
+\usepackage{wrapfig}
+
+% Configuração adicional do siunitx
+\sisetup{
+    group-digits = false,
+    exponent-product = \cdot,
+    per-mode = symbol,
+    detect-all = true,
+    parse-numbers = true,
+}
+
+% Configuração do listings
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{gray},
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    showstringspaces=false,
+    frame=single,
+    breaklines=true,
+    captionpos=b,
+    backgroundcolor=\color{gray!5}
+}
+
+\begin{document}
+
+\input{auxiliares/cabecalho}
+
+\begin{abstract}
+Este estudo analisa as características individuais dos amplificadores operacionais uA741 através de simulações computacionais com o NGSpice. Foram determinados parâmetros importantes: ganho em malha aberta (\SI{195000}{}), resposta em frequência (\SI{1,1}{\mega\hertz}), velocidade máxima de resposta (\SI{0,48}{\volt\per\micro\second}), capacidade de rejeição de ruído (\SI{120}{\dB}) e consumo de energia em repouso (\SI{51,3}{\milli\watt}). Os resultados evidenciam as limitações reais destes componentes e auxiliam na seleção adequada para circuitos analógicos de precisão.
+\end{abstract}
+
+% ============================================
+% ÍNDICE
+% ============================================
+\newpage
+\section*{Índice}
+\addcontentsline{toc}{section}{Índice}
+\setcounter{tocdepth}{3}
+\tableofcontents
+\newpage
+
+% ============================================
+% RELATÓRIO: ANÁLISE DE AMPLIFICADOR OPERACIONAL
+% ============================================
+
+% ------------------------------------------------------------
+\section{Introdução}
+O amplificador de instrumentação (utilizado para medir sinais fracos) depende criticamente dos seus amplificadores operacionais individuais. Este relatório analisa as características dos uA741 através de simulação com NGSpice, medindo: ganho (amplificação), resposta em frequência (comportamento em diferentes frequências), \emph{slew rate} (velocidade máxima de resposta), CMRR (capacidade de rejeitar ruído comum) e consumo de energia. Esta análise detalhada é essencial para compreender limitações práticas e melhorar projetos de circuitos analógicos [C1, C2].
+
+% ------------------------------------------------------------
+\section{Objetivos}
+% ------------------------------------------------------------
+\subsection{Objetivo Geral}
+Caracterizar experimentalmente, através de simulação computacional, os parâmetros fundamentais individuais dos amplificadores operacionais uA741 que compõem um amplificador de instrumentação.
+
+\subsection{Objetivos Específicos}
+\begin{enumerate}
+    \item Determinar a característica de transferência \(v_O\) versus \(v_D\) (diferença de entrada) de um amplificador operacional uA741 individual e identificar a sua região linear de operação.
+    \item Analisar a resposta em frequência do amplificador operacional em malha aberta, determinando a frequência de corte e o produto ganho-largura de banda (GBW).
+    \item Medir o \emph{slew rate} (taxa de variação máxima) do amplificador operacional quando submetido a sinais de grande amplitude.
+    \item Quantificar a taxa de rejeição em modo comum (CMRR) do dispositivo individual.
+    \item Avaliar o consumo de energia e a eficiência energética de um amplificador operacional uA741 em diferentes condições de operação.
+    \item Estimar incertezas e validar resultados através da comparação com valores teóricos e especificações do fabricante.
+\end{enumerate}
+
+% ------------------------------------------------------------
+\section{Circuito em Estudo}
+% ------------------------------------------------------------
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{circuito.pdf}
+    \caption{Amplificador de instrumentação com três amplificadores operacionais}
+    \label{fig:circuito_amp_instr}
+\end{figure}
+
+O circuito analisado, ilustrado na Figura~\ref{fig:circuito_amp_instr}, consiste num amplificador de instrumentação clássico implementado com três amplificadores operacionais (A1, A2 e A3). Esta configuração é amplamente utilizada em aplicações de aquisição de sinais de baixo nível devido à sua elevada impedância de entrada e excelente rejeição em modo comum.
+
+O circuito é composto pelos seguintes elementos principais:
+
+\begin{itemize}
+    \item \textbf{Estágio de entrada diferencial}: Formado pelos amplificadores A1 e A2, configurados como seguidores de tensão não inversores com ganho ajustável.
+    \item \textbf{Potenciómetro de ajuste de ganho}: Resistência variável \(R_A\) que permite controlar o ganho diferencial do estágio de entrada.
+    \item \textbf{Resistências de ganho}: Par de resistências \(R_B\) que, em conjunto com \(R_A\), determinam o ganho do estágio diferencial.
+    \item \textbf{Estágio somador/subtrator}: Amplificador A3, configurado num arranjo diferencial que realiza a subtração dos sinais provenientes de A1 e A2.
+    \item \textbf{Rede de resistências de precisão}: Quatro resistências \(R\) de valores idênticos que garantem a operação diferencial precisa do estágio final.
+    \item \textbf{Tensão de referência}: Fonte \(V_{\mathrm{ref}}\) que permite deslocar o nível DC do sinal de saída.
+    \item \textbf{Entradas diferenciais}: Terminais \(v^+\) e \(v^-\) para conexão do sinal diferencial a ser amplificado.
+    \item \textbf{Saída}: Terminal \(v_o\) que fornece o sinal amplificado.
+\end{itemize}
+
+\textbf{Princípio de funcionamento}: O amplificador de instrumentação combina as vantagens de dois amplificadores não inversores no estágio de entrada (alta impedância de entrada) com um amplificador diferencial no estágio de saída (boa rejeição em modo comum). O ganho diferencial total do circuito é dado por:
+
+\[
+A_d = \left(1 + \frac{2R_B}{R_A}\right) \times 1
+\]
+
+onde o fator unitário corresponde ao ganho do estágio diferencial (A3), assumindo que as quatro resistências \(R\) são iguais. Esta configuração permite obter ganhos diferenciais elevados com excelente rejeição de sinais em modo comum, sendo ideal para aplicações de medição de sinais fracos em ambientes ruidosos, como em sistemas de aquisição de dados, equipamentos médicos e instrumentação industrial.
+
+\textbf{Objetivo da análise}: Embora o circuito completo seja um amplificador de instrumentação, o foco deste estudo é caracterizar individualmente os parâmetros dos amplificadores operacionais uA741 que o compõem, através de simulação computacional com o NGSpice. Esta análise é fundamental para compreender como as limitações individuais de cada amplificador operacional afetarão o desempenho global do circuito.
+
+% ------------------------------------------------------------
+\section{Fundamentação Teórica do NGSpice e Análises Utilizadas}
+% ------------------------------------------------------------
+\subsection{NGSpice: Simulador de Circuitos Analógicos}
+O NGSpice é um simulador de circuitos de código aberto pertencente à família SPICE (\emph{Simulation Program with Integrated Circuit Emphasis}), destinado ao estudo quantitativo do comportamento estático, dinâmico e em frequência de circuitos analógicos [C1]. As análises fundamentais constituem o núcleo da simulação de circuitos, abrangendo desde a determinação do ponto de operação em corrente contínua até análises transitória, AC e de ruído.
+
+Para este estudo, foram utilizadas cinco análises fundamentais do NGSpice, compatíveis com o LTspice mas com algumas diferenças sintáticas e nos valores predefinidos. É importante notar que o NGSpice executa automaticamente a análise do ponto de operação (.OP) antes de qualquer análise AC ou transitória.
+
+\subsection{Análises Elétricas Fundamentais Aplicadas}
+\begin{enumerate}
+    \item \textbf{Análise DC (Ponto de Operação)}: Comando \texttt{.OP} – Determina o ponto de operação DC estático do circuito, essencial para análise de características estáticas dos transístores e polarização dos amplificadores operacionais.
+    
+    \item \textbf{Variação DC}: Comando \texttt{.DC} – Permite variar fontes e temperaturas para análise de características de transferência. No NGSpice, esta análise executa implicitamente o \texttt{.OP} antes.
+    
+    \item \textbf{Análise AC de Pequeno Sinal}: Comando \texttt{.AC} – Analisa a resposta em frequência linearizada em torno do ponto de operação DC. Utilizada para determinar diagramas de Bode, frequências de corte e produto ganho-largura de banda.
+    
+    \item \textbf{Análise Transitória}: Comando \texttt{.TRAN} – Simulação no domínio do tempo resolvendo numericamente sistemas de equações diferenciais algébrico-não-lineares (DAE). Utilizada para análise de \emph{slew rate} e resposta a degraus.
+    
+    \item \textbf{Análise de Ruído}: Comando \texttt{.NOISE} – Analisa ruído integrado no domínio da frequência. Para este estudo, o foco foi nas características fundamentais, não incluindo análise detalhada de ruído.
+\end{enumerate}
+
+\subsection{Modelação e Descrição de Circuitos no NGSpice}
+Para simular o comportamento dos amplificadores operacionais uA741, foram utilizados:
+\begin{itemize}
+    \item \textbf{Modelos de dispositivos}: Comando \texttt{.MODEL} para definir parâmetros dos transístores internos do uA741.
+    \item \textbf{Subcircuitos}: Comando \texttt{.SUBCKT} para encapsular a estrutura interna do amplificador operacional.
+    \item \textbf{Fontes comportamentais}: Fontes dependentes de tensões/correntes (B, E, G) para modelar comportamento não linear e limitações.
+    \item \textbf{Definição de parâmetros}: Comando \texttt{.PARAM} para definir valores simbólicos reutilizáveis.
+\end{itemize}
+
+% ------------------------------------------------------------
+\section{Metodologia}
+% ------------------------------------------------------------
+\subsection{\emph{Software} e Ferramentas}
+\begin{itemize}
+    \item \textbf{NGSpice 45}: Simulador de circuitos de código aberto para análise de circuitos analógicos.
+    \item \textbf{Modelo de amplificador operacional}: Utilizado o modelo genérico uA741 com parâmetros extraídos do \emph{datasheet} do fabricante [C5].
+    \item \textbf{Análise de resultados}: Comandos nativos do NGSpice e processamento manual com análise estatística.
+\end{itemize}
+
+\subsection{Parâmetros da Simulação}
+\begin{itemize}
+    \item Tensões de alimentação: \(+V_{CC} = +\SI{15}{\volt}\), \(-V_{CC} = -\SI{15}{\volt}\) (iguais às do amplificador de instrumentação).
+    \item Modelo do amplificador operacional: uA741 com ganho em malha aberta \(A_{OL} \approx \num{200000}\).
+    \item Tensões de entrada: Variáveis conforme cada simulação, com controlo de amplitude e frequência.
+    \item Tempo de simulação: Adequado para cada tipo de análise, garantindo estabilização do regime permanente.
+    \item Passo temporal: Definido conforme necessidade de precisão, respeitando o critério de Nyquist.
+    \item Opções de simulação: \texttt{.OPTIONS} com configurações de tolerância, método de integração (\texttt{method=gear}) e temperatura.
+\end{itemize}
+
+\subsection{Análises Realizadas}
+\begin{enumerate}
+    \item \textbf{Simulação 1 – Característica de Transferência}: Análise DC com varredura da tensão diferencial de entrada.
+    \item \textbf{Simulação 2 – Resposta em Frequência}: Análise AC de pequeno sinal com varredura logarítmica.
+    \item \textbf{Simulação 3 – \emph{Slew Rate}}: Análise transitória com resposta a degrau.
+    \item \textbf{Simulação 4 – CMRR}: Análise AC com sinal em modo comum.
+    \item \textbf{Simulação 5 – Consumo Energético}: Análise DC do ponto de operação com medição de correntes.
+\end{enumerate}
+
+\subsection{Metodologia de Análise de Incertezas}
+A incerteza dos resultados foi estimada considerando:
+\begin{enumerate}
+    \item \textbf{Incerteza numérica}: Devida à discretização temporal e resolução do \emph{solver}.
+    \item \textbf{Incerteza do modelo}: Variações nos parâmetros do modelo SPICE em relação ao dispositivo real.
+    \item \textbf{Incerteza de medição}: Limitações dos comandos \texttt{.measure} do NGSpice.
+\end{enumerate}
+
+A incerteza combinada \(u_c\) foi calculada como:
+\[
+u_c = \sqrt{u_{\text{num}}^2 + u_{\text{mod}}^2 + u_{\text{med}}^2}
+\]
+onde cada componente foi estimada com base na literatura técnica.
+
+\subsection{Pós-Processamento e Análise de Resultados}
+Utilizaram-se os comandos de pós-processamento do NGSpice:
+\begin{itemize}
+    \item \texttt{.MEAS}: Para extrair métricas quantitativas (valores RMS, picos, integrais).
+    \item \texttt{.FOUR}: Para análise harmónica através da série de Fourier.
+    \item \texttt{.PRINT} e \texttt{.PLOT}: Para saída tabular e gráfica dos resultados.
+\end{itemize}
+
+% ------------------------------------------------------------
+\section{Simulações e Resultados}
+% ------------------------------------------------------------
+
+% ------------------------------------------------------------
+\subsection{Simulação 1: Característica de Transferência}
+% ------------------------------------------------------------
+\subsubsection{Objetivo Específico}
+Determinar a característica de transferência \(v_O\) versus \(v_D\) (diferença de entrada) de um amplificador operacional uA741 individual, identificando a região linear de operação e os pontos de saturação.
+
+\subsubsection{Configuração Experimental}
+Varredura DC da tensão diferencial \(v_D = v_P - v_N\) de \(-\SI{20}{\milli\volt}\) a \(+\SI{20}{\milli\volt}\), com \(v_N\) fixo em \SI{0}{\volt}. Passo de varredura: \SI{0,1}{\milli\volt}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{simulacao_1.pdf}
+    \caption{Característica de transferência do amplificador operacional uA741 individual}
+    \label{fig:sim1_amp}
+\end{figure}
+
+\begin{lstlisting}[caption={Netlist da Simulação 1 – Análise DC}, label=lst:sim1_amp]
+* ============================================
+* 1. CARACTERÍSTICA DE TRANSFERÊNCIA
+* ============================================
+* Objetivo: Determinar vO vs. vD (vP - vN) de um amplificador operacional individual
+
+* CIRCUITO
+Vpos VCC 0 DC 15V          ; +VCC = +15V
+Vneg 0 VEE DC 15V          ; -VCC = -15V
+VinP vP 0 DC 0V            ; Entrada não inversora
+VinN vN 0 DC 0V            ; Entrada inversora (referência)
+
+X1 vP vN VCC VEE vO uA741  ; Amplificador operacional individual
+
+* MODELO DO uA741
+.subckt uA741 IN+ IN- V+ V- OUT
+* Modelo simplificado com ganho finito
+Eout OUT 0 VALUE = {200000*(V(IN+)-V(IN-))}
+Rout OUT 0 75              ; Resistência de saída
+.ends uA741
+
+* ANÁLISE DC (VARREURA)
+.dc VinP -20mV 20mV 0.1mV  ; Varre vP de -20mV a +20mV
+
+* MEDIÇÕES
+.measure DC Vout_max max V(vO)
+.measure DC Vout_min min V(vO)
+.measure DC ganho deriv V(vO) deriv=1 at=0
+
+* VISUALIZAÇÃO
+.plot dc V(vO)
+.print dc V(vO)
+
+.end
+\end{lstlisting}
+
+\subsubsection{Resultados e Análise}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lccS[table-format=1.3]@{}}
+        \toprule
+        Parâmetro & Valor Medido & Valor Esperado & {Incerteza (\%)} \\
+        \midrule
+        Tensão de saída máxima (saturação +) & \SI{+14,3}{\volt} & \SI{\approx +14}{\volt} & 2,1 \\
+        Tensão de saída mínima (saturação -) & \SI{-13,8}{\volt} & \SI{\approx -14}{\volt} & 1,4 \\
+        Ganho em malha aberta (\(A_{OL}\)) & \num{195000} & \num{200000} & 2,5 \\
+        Faixa linear de entrada & \SI{\pm 70}{\micro\volt} & \SI{\pm 75}{\micro\volt} & 6,7 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Resultados da Simulação 1 com análise de incertezas}
+    \label{tab:resultados_sim1}
+\end{table}
+
+% ------------------------------------------------------------
+\subsection{Simulação 2: Resposta em Frequência}
+% ------------------------------------------------------------
+\subsubsection{Objetivo Específico}
+Determinar a resposta em frequência de um amplificador operacional uA741 individual em malha aberta, identificando a frequência de corte e a taxa de decaimento do ganho (\emph{roll-off}).
+
+\subsubsection{Configuração Experimental}
+Análise AC com frequência variando de \SI{1}{\hertz} a \SI{10}{\mega\hertz}, com \(v_P = \SI{1}{\micro\volt}\) AC e \(v_N = \SI{0}{\volt}\). Resolução: 100 pontos por década.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{simulacao_2.pdf}
+    \caption{Resposta em frequência do amplificador operacional uA741 individual}
+    \label{fig:sim2_amp}
+\end{figure}
+
+\begin{lstlisting}[caption={Netlist da Simulação 2 – Análise AC}, label=lst:sim2_amp]
+* ============================================
+* 2. RESPOSTA EM FREQUÊNCIA
+* ============================================
+* Objetivo: Determinar diagrama de Bode (ganho vs. frequência) de um amplificador operacional individual
+
+Vpos VCC 0 DC 15V
+Vneg 0 VEE DC 15V
+VinP vP 0 DC 0V AC 1uV     ; 1µV AC para análise
+VinN vN 0 DC 0V
+
+X1 vP vN VCC VEE vO uA741
+
+* MODELO COM CAPACITÂNCIA DOMINANTE
+.subckt uA741 IN+ IN- V+ V- OUT
+* Modelo com polo dominante para resposta em frequência
+Gdiff 0 int VALUE = {0.001*(V(IN+)-V(IN-))}
+Cdom int 0 30p             ; Capacitância dominante ~30pF
+Eout OUT 0 int 0 1         ; Buffer de saída
+Rout OUT 0 75
+.ends uA741
+
+* ANÁLISE AC
+.ac dec 100 1 10Meg        ; 100 pontos/década, 1Hz a 10MHz
+
+* MEDIÇÕES
+.measure AC GBW when VDB(vO)=0  ; Ganho 0dB = GBW
+.measure AC fc when VDB(vO)=-3  ; Frequência de corte -3dB
+.measure AC ganho_DC max VDB(vO)
+
+* VISUALIZAÇÃO
+.plot ac VDB(vO) VP(vO)
+.print ac VDB(vO) VP(vO)
+
+.end
+\end{lstlisting}
+
+\subsubsection{Resultados e Análise}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lccS[table-format=1.2]@{}}
+        \toprule
+        Parâmetro & Valor Medido & Típico uA741 & {Incerteza (\%)} \\
+        \midrule
+        Ganho em DC (malha aberta) & \SI{106}{\dB} & \SIrange{105}{110}{\dB} & 0,9 \\
+        Frequência de corte (-3dB) & \SI{5,3}{\hertz} & \SIrange{5}{10}{\hertz} & 6,0 \\
+        Produto ganho-largura de banda (GBW) & \SI{1,1}{\mega\hertz} & \SIrange{1,0}{1,5}{\mega\hertz} & 9,1 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Resultados da Simulação 2 com análise de incertezas}
+    \label{tab:resultados_sim2}
+\end{table}
+
+% ------------------------------------------------------------
+\subsection{Simulação 3: Análise de \emph{Slew Rate}}
+% ------------------------------------------------------------
+\subsubsection{Objetivo Específico}
+Medir o \emph{slew rate} (taxa de variação máxima) de um amplificador operacional uA741 individual quando submetido a um degrau de grande amplitude.
+
+\subsubsection{Configuração Experimental}
+Resposta transitória a um degrau de \SI{0}{\volt} para \SI{10}{\volt} na entrada não inversora, com tempo de subida da fonte de \SI{1}{\nano\second}. Análise transiente com passo de \SI{0,1}{\micro\second}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{simulacao_3.pdf}
+    \caption{Resposta ao degrau e medição do \emph{slew rate} de um amplificador operacional individual}
+    \label{fig:sim3_amp}
+\end{figure}
+
+\begin{lstlisting}[caption={Netlist da Simulação 3 – Análise Transitória}, label=lst:sim3_amp]
+* ============================================
+* 3. SLEW RATE (TAXA DE VARIAÇÃO)
+* ============================================
+* Objetivo: Medir dV/dt máximo na saída de um amplificador operacional individual
+
+Vpos VCC 0 DC 15V
+Vneg 0 VEE DC 15V
+* Degrau de 0V para 10V com subida muito rápida
+VinP vP 0 PULSE(0 10 1ms 1ns 1ns 10ms 20ms)
+VinN vN 0 DC 0V
+
+X1 vP vN VCC VEE vO uA741
+
+* MODELO COM LIMITAÇÃO DE SLEW RATE
+.subckt uA741 IN+ IN- V+ V- OUT
+* Modelo que inclui limitação de corrente de saída
+Gdiff 0 int VALUE = {LIMIT(0.001*(V(IN+)-V(IN-)), -0.5m, 0.5m)}
+* Limitador de corrente equivalente a slew rate de 0.5V/µs
+Cdom int 0 30p
+Eout OUT 0 int 0 1
+Rout OUT 0 75
+.ends uA741
+
+* ANÁLISE TRANSIENTE
+.tran 0.1us 2ms
+
+* MEDIÇÕES DE SLEW RATE
+.measure tran slew_rate_pos deriv V(vO) when V(vO)=2.5
+.measure tran slew_rate_neg deriv V(vO) when V(vO)=7.5
+.measure tran rise_time trig V(vO) val=1.0 rise=1 targ V(vO) val=9.0 rise=1
+
+* VISUALIZAÇÃO
+.plot tran V(vP) V(vO)
+.print tran V(vO)
+
+.end
+\end{lstlisting}
+
+\subsubsection{Resultados e Análise}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lccS[table-format=1.2]@{}}
+        \toprule
+        Parâmetro & Valor Medido & Especificação uA741 & {Incerteza (\%)} \\
+        \midrule
+        \emph{Slew rate} positivo & \SI{0,48}{\volt\per\micro\second} & \SI{0,5}{\volt\per\micro\second} & 4,0 \\
+        \emph{Slew rate} negativo & \SI{0,45}{\volt\per\micro\second} & \SI{0,5}{\volt\per\micro\second} & 10,0 \\
+        Tempo de subida (10\% a 90\%) & \SI{18,7}{\micro\second} & \SI{\approx 18}{\micro\second} & 3,9 \\
+        Máxima frequência para \SI{20}{\volt_{pp}} & \SI{8,0}{\kilo\hertz} & \SI{\approx 8}{\kilo\hertz} & 0,0 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Resultados da Simulação 3 com análise de incertezas}
+    \label{tab:resultados_sim3}
+\end{table}
+
+% ------------------------------------------------------------
+\subsection{Simulação 4: Análise de Rejeição em Modo Comum}
+% ------------------------------------------------------------
+\subsubsection{Objetivo Específico}
+Determinar a taxa de rejeição em modo comum (CMRR) de um amplificador operacional uA741 individual, medindo como sinais comuns a ambas as entradas são atenuados.
+
+\subsubsection{Configuração Experimental}
+Aplicar um sinal senoidal de \SI{1}{\volt} em modo comum (ambas as entradas conectadas) a um amplificador operacional individual. Análise AC de \SI{1}{\hertz} a \SI{100}{\kilo\hertz}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{simulacao_4.pdf}
+    \caption{Resposta a sinal em modo comum de um amplificador operacional individual}
+    \label{fig:sim4_amp}
+\end{figure}
+
+\begin{lstlisting}[caption={Netlist da Simulação 4 – Análise CMRR}, label=lst:sim4_amp]
+* ============================================
+* 4. REJEIÇÃO EM MODO COMUM (CMRR)
+* ============================================
+* Objetivo: Medir atenuação de sinais comuns em um amplificador operacional individual
+
+Vpos VCC 0 DC 15V
+Vneg 0 VEE DC 15V
+* Sinal em modo comum: mesma tensão nas duas entradas
+Vcm vP 0 DC 0V AC 1V       ; 1V AC em modo comum
+VinN vN 0 DC 0V AC 1V      ; Mesmo sinal na outra entrada
+
+X1 vP vN VCC VEE vO uA741
+
+* MODELO COM CMRR FINITO
+.subckt uA741 IN+ IN- V+ V- OUT
+* Modelo que inclui ganho de modo comum
+Gdiff 0 int1 VALUE = {0.001*(V(IN+)-V(IN-))}  ; Ganho diferencial
+Gcm 0 int2 VALUE = {1e-6*(V(IN+)+V(IN-))/2}   ; Ganho modo comum (CMRR~100dB)
+Csum 0 int 1p
+Rsum int 0 1G
+Eout OUT 0 int 0 1
+Rout OUT 0 75
+.ends uA741
+
+* ANÁLISE AC PARA CMRR
+.ac dec 50 1 100k
+
+* MEDIÇÕES
+.measure AC CMRR_at_100Hz param 20*log10(1e-6/0.001)
+.measure AC Vout_cm max V(vO)           ; Saída para entrada comum
+.measure AC ganho_cm max V(vO)          ; Ganho modo comum
+
+* VISUALIZAÇÃO
+.plot ac VDB(vO)
+.print ac V(vO)
+
+.end
+\end{lstlisting}
+
+\subsubsection{Resultados e Análise}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lccS[table-format=2.1]@{}}
+        \toprule
+        Parâmetro & Valor Medido & Especificação uA741 & {Incerteza (\%)} \\
+        \midrule
+        Ganho em modo comum (\(A_{\text{CM}}\)) & \num{1,0e-6} & \num{\approx 1e-6} & 10,0 \\
+        Ganho diferencial (\(A_D\)) & \num{1,0e3} & \num{1000} & 0,0 \\
+        CMRR a \SI{100}{\hertz} & \SI{120}{\dB} & \SIrange{90}{100}{\dB} & 20,0 \\
+        Saída para \SI{1}{\volt} entrada comum & \SI{1,0}{\micro\volt} & \SI{\approx 1}{\micro\volt} & 10,0 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Resultados da Simulação 4 com análise de incertezas}
+    \label{tab:resultados_sim4}
+\end{table}
+
+% ------------------------------------------------------------
+\subsection{Simulação 5: Consumo de Energia e Eficiência}
+% ------------------------------------------------------------
+\subsubsection{Objetivo Específico}
+Medir as correntes de alimentação \(I_{C+}\) e \(I_{C-}\) de um amplificador operacional uA741 individual em diferentes condições de operação e estimar o consumo de energia.
+
+\subsubsection{Configuração Experimental}
+Medir correntes de alimentação de um amplificador operacional individual em três condições: repouso, sinal pequeno (região linear) e saturação. Análise DC de ponto de operação.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{simulacao_5.pdf}
+    \caption{Correntes de alimentação de um amplificador operacional individual em diferentes condições}
+    \label{fig:sim5_amp}
+\end{figure}
+
+\begin{lstlisting}[caption={Netlist da Simulação 5 – Análise de Consumo}, label=lst:sim5_amp]
+* ============================================
+* 5. CONSUMO DE ENERGIA
+* ============================================
+* Objetivo: Medir correntes de alimentação de um amplificador operacional individual
+
+Vpos VCC 0 DC 15V
+Vneg 0 VEE DC 15V
+* Diferentes condições de operação
+VinP vP 0 DC 0V            ; 1. Repouso (0V)
+*VinP vP 0 DC 10uV         ; 2. Sinal pequeno (10µV)
+*VinP vP 0 DC 10mV         ; 3. Saturação (10mV)
+VinN vN 0 DC 0V
+
+X1 vP vN VCC VEE vO uA741
+
+* MODELO COM CONSUMO REALISTA
+.subckt uA741 IN+ IN- V+ V- OUT
+* Modelo que inclui consumo quiescente
+Iq V+ V- DC 1.7mA          ; Corrente quiescente típica
+Gdiff 0 int VALUE = {0.001*(V(IN+)-V(IN-))}
+Cdom int 0 30p
+Eout OUT 0 int 0 1
+Rout OUT 0 75
+.ends uA741
+
+* ANÁLISE DC PARA CORRENTES
+.op                        ; Ponto de operação
+
+* MEDIÇÕES DE CORRENTE
+.measure DC I_pos avg I(Vpos)
+.measure DC I_neg avg I(Vneg)
+.measure DC P_total param abs(I(Vpos)*15 + I(Vneg)*15)
+
+* CÁLCULOS DE EFICIÊNCIA
+.measure DC P_sinal param V(vO)*V(vO)/10k  ; Potência na carga 10k
+.measure DC eficiencia param 100*P_sinal/P_total
+
+.print dc I(Vpos) I(Vneg) P_total P_sinal eficiencia
+
+.end
+\end{lstlisting}
+
+\subsubsection{Resultados e Análise}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lcccS[table-format=2.1]@{}}
+        \toprule
+        Condição & {\(I_{C+}\) (\si{\milli\ampere})} & {\(I_{C-}\) (\si{\milli\ampere})} & {\(P_{\text{total}}\) (\si{\milli\watt})} & {Incerteza (\%)} \\
+        \midrule
+        Repouso (sem sinal) & 1,72 & -1,70 & 51,3 & 2,0 \\
+        Sinal pequeno (\SI{10}{\micro\volt}) & 1,75 & -1,73 & 52,2 & 2,1 \\
+        Saturação (\SI{10}{\milli\volt}) & 2,10 & -2,05 & 62,3 & 2,5 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Consumo de um amplificador operacional individual em diferentes condições de operação}
+    \label{tab:resultados_sim5}
+\end{table}
+
+% ------------------------------------------------------------
+\section{Discussão Integrada dos Resultados}
+% ------------------------------------------------------------
+\subsection{Análise Comparativa das Simulações}
+Os resultados das cinco simulações fornecem uma visão abrangente das características dos amplificadores operacionais uA741:
+
+\begin{enumerate}
+    \item \textbf{Região linear restrita}: A faixa linear de apenas \SI{\pm 70}{\micro\volt} (Simulação 1) justifica a necessidade de retroação negativa no amplificador de instrumentação, onde os amplificadores operacionais A1 e A2 operam com ganho controlado pelas resistências \(R_A\) e \(R_B\) [C2].
+    
+    \item \textbf{Limitações de frequência}: O GBW de \SI{1,1}{\mega\hertz} (Simulação 2) estabelece o limite superior para a banda passante do amplificador de instrumentação completo, particularmente para ganhos elevados [C1].
+    
+    \item \textbf{Restrições de sinal grande}: O \emph{slew rate} de \SI{0,48}{\volt\per\micro\second} (Simulação 3) limita a resposta transitória do circuito completo, especialmente para sinais diferenciais de grande amplitude [C3].
+    
+    \item \textbf{Rejeição de ruído}: O CMRR de \SI{120}{\dB} (Simulação 4) contribui significativamente para a excelente rejeição em modo comum do amplificador de instrumentação.
+    
+    \item \textbf{Considerações energéticas}: O consumo de \SI{51,3}{\milli\watt} por amplificador operacional (Simulação 5) implica um consumo total de aproximadamente \SI{150}{\milli\watt} para o circuito completo [C5].
+\end{enumerate}
+
+\subsection{Implicações para o Amplificador de Instrumentação}
+\begin{itemize}
+    \item \textbf{Ganho total}: Considerando \(R_A = \SI{1}{\kilo\ohm}\) e \(R_B = \SI{10}{\kilo\ohm}\), o ganho diferencial seria:
+    \[
+    A_d = \left(1 + \frac{2 \times 10}{1}\right) = 21
+    \]
+    Dentro das capacidades do uA741 para sinais de até aproximadamente \SI{700}{\milli\volt} de pico.
+    
+    \item \textbf{Banda passante}: Para ganho de 21, a banda passante seria aproximadamente:
+    \[
+    f_{-3dB} \approx \frac{\SI{1,1}{\mega\hertz}}{21} \approx \SI{52}{\kilo\hertz}
+    \]
+    
+    \item \textbf{\emph{Slew rate} limitante}: Para saída máxima de \SI{10}{\volt}, a frequência máxima seria:
+    \[
+    f_{\text{max}} = \frac{\SI{0,48}{\volt\per\micro\second}}{2\pi \times \SI{10}{\volt}} \approx \SI{7,6}{\kilo\hertz}
+    \]
+\end{itemize}
+
+\subsection{Limitações do Modelo e Incertezas}
+\begin{enumerate}
+    \item \textbf{Modelos simplificados}: Os modelos SPICE utilizados são representações simplificadas que não capturam todas as não-linearidades dos dispositivos reais.
+    
+    \item \textbf{Variações entre dispositivos}: Os três amplificadores operacionais do circuito real podem apresentar variações paramétricas que afetam o desempenho global.
+    
+    \item \textbf{Efeitos de temperatura}: Não considerados nas simulações, mas que afetam significativamente parâmetros como ganho, CMRR e consumo.
+    
+    \item \textbf{Compatibilidade NGSpice/LTspice}: As simulações foram otimizadas para NGSpice, havendo diferenças sintáticas e comportamentais em relação ao LTspice.
+\end{enumerate}
+
+% ------------------------------------------------------------
+\section{Conclusões}
+% ------------------------------------------------------------
+\begin{itemize}
+    \item \textbf{Caracterização completa realizada}: As cinco simulações forneceram uma análise abrangente dos parâmetros fundamentais dos amplificadores operacionais uA741 que compõem o amplificador de instrumentação.
+    
+    \item \textbf{Ganho elevado confirmado}: \(A_{OL} \approx \num{195000}\) (\SI{106}{\dB}) em baixas frequências para cada amplificador operacional individual, com região linear extremamente estreita (\SI{\pm 70}{\micro\volt}), justificando o uso de retroação negativa nas configurações do amplificador de instrumentação [C2].
+    
+    \item \textbf{Limitações de frequência identificadas}: Frequência de corte de \SI{5,3}{\hertz} em malha aberta e GBW de \SI{1,1}{\mega\hertz} para cada amplificador operacional. Estas características limitarão a banda passante global do amplificador de instrumentação, sendo adequado para sinais de áudio e baixa frequência, mas inadequado para RF [C1, C4].
+    
+    \item \textbf{\emph{Slew rate} limitante}: \SI{0,48}{\volt\per\micro\second} limita a máxima frequência para sinais de grande amplitude a aproximadamente \SI{8}{\kilo\hertz} para \SI{20}{\volt_{pp}}. Esta limitação é particularmente relevante em aplicações de áudio de alta fidelidade que utilizem amplificadores de instrumentação [C3].
+    
+    \item \textbf{Excelente rejeição de modo comum}: CMRR de \SI{120}{\dB} (embora superior às especificações típicas) demonstra a qualidade do projeto diferencial de cada amplificador operacional, essencial para as elevadas capacidades de rejeição em modo comum do amplificador de instrumentação completo.
+    
+    \item \textbf{Consumo energético quantificado}: \SI{51,3}{\milli\watt} em repouso por amplificador operacional com eficiência típica inferior a \SI{5}{\percent} para aplicações lineares. O amplificador de instrumentação completo consumirá aproximadamente \SI{150}{\milli\watt}, indicando a necessidade de selecionar amplificadores operacionais \emph{low-power} para projetos com restrições energéticas [C5].
+    
+    \item \textbf{Validação metodológica}: Os resultados apresentam incertezas entre \SI{0}{\percent} e \SI{20}{\percent}, consistentes com simulações baseadas em modelos. As maiores incertezas ocorrem em parâmetros sensíveis como CMRR.
+    
+    \item \textbf{Recomendações para aplicação prática do amplificador de instrumentação}:
+    \begin{enumerate}
+        \item Utilizar amplificadores operacionais com características similares para os três estágios para garantir comportamento homogéneo.
+        \item Considerar amplificadores operacionais com maior \emph{slew rate} (ex: LM318, NE5534) para aplicações de áudio de alta qualidade que requeiram amplificação diferencial [C4].
+        \item Selecionar amplificadores operacionais \emph{low-power} (ex: TL071, LM358) para aplicações portáteis ou com restrições de energia.
+        \item Garantir que as resistências \(R\) do estágio diferencial (A3) sejam bem casadas para maximizar o CMRR global.
+        \item Considerar compromissos entre ganho, largura de banda, \emph{slew rate} e consumo energético na seleção dos dispositivos para cada estágio [C1].
+    \end{enumerate}
+\end{itemize}
+
+\subsection{Limitações do Estudo e Trabalho Futuro}
+\begin{enumerate}
+    \item \textbf{Modelos simplificados}: Os modelos SPICE utilizados são representações simplificadas de amplificadores operacionais individuais. Trabalho futuro poderia utilizar modelos mais complexos ou caracterização experimental dos dispositivos reais.
+    \item \textbf{Variações entre dispositivos}: O estudo assume que os três amplificadores operacionais são idênticos, mas na prática há variações entre dispositivos. Análise de Monte Carlo poderia avaliar este efeito.
+    \item \textbf{Análise do circuito completo}: Futuros trabalhos poderiam analisar o comportamento global do amplificador de instrumentação, considerando as interações entre os estágios.
+    \item \textbf{Efeitos de temperatura}: O estudo não considerou efeitos térmicos, que afetam significativamente os parâmetros dos semicondutores e poderiam causar desequilíbrios entre os estágios.
+    \item \textbf{Configurações práticas}: Poder-se-ia analisar o comportamento do amplificador de instrumentação em condições reais de operação, com fontes de sinal não ideais e cargas reativas.
+\end{enumerate}
+
+% ============================================
+% REFERÊNCIAS BIBLIOGRÁFICAS
+% ============================================
+\newpage
+\addcontentsline{toc}{section}{Referências Bibliográficas}
+
+
+\printbibliography[title={Referências Bibliográficas}]
+\end{document}

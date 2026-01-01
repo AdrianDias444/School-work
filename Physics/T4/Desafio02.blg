@@ -1,15 +1,5 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'Desafio02.blg'
-[31] biber:342> INFO - === dom dez 28, 2025, 19:36:05
-[38] Biber.pm:421> INFO - Reading 'Desafio02.bcf'
-[69] Biber.pm:1002> INFO - Found 2 citekeys in bib section 0
-[77] Biber.pm:4487> INFO - Processing section 0
-[82] Biber.pm:4678> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
-[82] bibtex.pm:1713> INFO - LaTeX decoding ...
-[85] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
-[104] UCollate.pm:68> INFO - Overriding locale 'pt-PT' defaults 'variable = shifted' with 'variable = non-ignorable'
-[104] UCollate.pm:68> INFO - Overriding locale 'pt-PT' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[104] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'pt-PT'
-[104] Biber.pm:4313> INFO - No sort tailoring available for locale 'pt-PT'
-[107] bbl.pm:676> INFO - Writing 'Desafio02.bbl' with encoding 'UTF-8'
-[107] bbl.pm:779> INFO - Output to Desafio02.bbl
+[75] biber:342> INFO - === qui jan  1, 2026, 14:55:51
+[150] Utils.pm:479> ERROR - Cannot find 'Desafio02.bcf'!
+[150] Biber.pm:137> INFO - ERRORS: 1

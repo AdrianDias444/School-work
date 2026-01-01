@@ -1,6 +1,6 @@
 =>PYTHONTEX:SETTINGS#
 version=0.18
-outputdir=pythontex-files-Desafio02
+outputdir=pythontex-files-main
 workingdir=.
 workingdirset=false
 gobble=none

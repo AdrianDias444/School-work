@@ -5,6 +5,38 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cores - PRIMEIRO carregar xcolor
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[xetex,dvipsnames,svgnames,table]{xcolor}
+
+% Cores definidas por CMYK (do pre.tex)
+\definecolor{fondpaille}{cmyk}{0, 0.0118, 0.1176, 0, 0.01} %cmyk(0%, 2.75%, 23.53%, 0%, 1%)
+\definecolor{ferrugem}{cmyk}{0, 0.4457, 0.75, 0.6392}
+
+% Cores definidas por hexadecimal (do pre.tex)
+\definecolor{moleskin}{HTML}{FFF8DC}
+\definecolor{laranja}{HTML}{F07241}
+\definecolor{marron}{HTML}{800000}
+\definecolor{lovely}{HTML}{C04848}
+\definecolor{click}{HTML}{480048}
+\definecolor{tinta-velha}{HTML}{4e4643}
+\definecolor{Browned_Cherry}{HTML}{910831}
+\definecolor{azul}{HTML}{000080}
+
+% Cores da capa
+\definecolor{BLACK}{HTML}{000000}
+\definecolor{ELECTRICRED}{HTML}{DD0000}
+\definecolor{TANGERINYELLOW}{HTML}{FFCE00}
+
+% Cor consolidada para texto principal
+\colorlet{cor-da-tinta}{ferrugem}
+\newif\ifferrugem
+\ferrugemfalse
+
+% Cor de fundo da página - ESTA LINHA TORNA O FUNDO BEGE!
+\pagecolor{fondpaille}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Língua e Tipografia
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{fontspec}          % Suporte a Unicode + fontes OpenType
@@ -22,6 +54,11 @@
 \linepenalty=100
 \widowpenalty=100
 \linespread{1.3}
+
+% Melhorar justificação e reduzir underfull hboxes
+\tolerance=2000
+\emergencystretch=2em
+\hbadness=5000
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % URL e Quebras
@@ -93,10 +130,10 @@
   linktoc=all,
   breaklinks=true,
   colorlinks=true,
-  citecolor=blue,  % Alterado para azul para destacar citações
+  citecolor=black,  % Alterado para preto para combinar com ferrugem
   filecolor=black,
-  linkcolor=black,
-  urlcolor=blue,
+  linkcolor=ferrugem,  % Links na cor ferrugem
+  urlcolor=azul,       % URLs em azul (definido acima)
   pdfpagelabels=true,
   plainpages=false,
   pdftitle={Desafios 12 ano},
@@ -145,7 +182,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{comment}
 \usepackage{siunitx}  % PRIMEIRO carregue siunitx
-\usepackage[x11names]{xcolor}
 \usepackage{relsize}
 
 % Comando CC++
@@ -166,7 +202,7 @@
 \renewcommand{\lstlistingname}{Listagem}
 \renewcommand{\lstlistlistingname}{Lista de Listagens}
 
-% Definição do estilo
+% Definição do estilo CORRIGIDA - sem LightYellow1
 \lstset{
   basicstyle=\ttfamily\small,
   keywordstyle=\color{blue},
@@ -186,14 +222,11 @@
   language=python,
   captionpos=t,
   xleftmargin=2em,
-  aboveskip=1em, belowskip=1em,
-  linebackgroundcolor={
-        \ifodd\value{lstnumber}
-            \color{LightYellow1}
-        \else
-            \color{DarkSeaGreen1}
-        \fi}
+  aboveskip=1em,
+  belowskip=1em
 }
+
+\usepackage{booktabs}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TikZ e gráficos
