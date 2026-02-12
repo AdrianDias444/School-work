@@ -1,0 +1,88 @@
+\documentclass[]{article}
+
+% Pacotes básicos
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\usepackage{unicode-math}
+
+% Configuração de fontes
+\setmainfont{Liberation Serif}
+\setmathfont{Liberation Serif}
+
+% Cores
+\usepackage[dvipsnames,svgnames,table]{xcolor}
+\definecolor{fondpaille}{cmyk}{0, 0.0118, 0.1176, 0}
+\pagecolor{fondpaille}
+
+% Línguas
+\usepackage{polyglossia}
+\setdefaultlanguage{portuguese}
+\setotherlanguages{english}
+
+% Layout - AUMENTEI a margem superior para o cabeçalho
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=3.5cm,bottom=2.5cm]{geometry}
+\linespread{1.3}
+
+% Gráficos
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc, positioning, arrows}
+
+% Tabelas
+\usepackage{booktabs}
+
+% Configuração de cabeçalhos e rodapés
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % Limpa cabeçalho e rodapé
+\renewcommand{\headrulewidth}{0pt} % Remove linha do cabeçalho
+\renewcommand{\footrulewidth}{0pt} % Remove linha do rodapé
+
+% Remove cabeçalho da primeira página de cada capítulo
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+% Citações
+\usepackage{csquotes}
+\usepackage[
+  backend=biber,
+  style=numeric,
+  language=auto
+]{biblatex}
+
+% ---------------------------------------------------------
+% Topo e rodapé de páginas (logos e texto) - CORRIGIDO
+% ---------------------------------------------------------
+\usepackage{eso-pic}
+
+\AddToShipoutPictureBG{%
+  \ifnum\value{page}>2
+    \AtPageUpperLeft{%
+      \begin{tikzpicture}[remember picture, overlay]
+        % Ajustei as posições para ficarem mais para cima
+        \draw[line width=0.5pt, color=black] (2.5cm, -2.5cm) -- (\paperwidth - 2.5cm, -2.5cm);
+        \draw[line width=0.5pt, color=black] (2.5cm, -\paperheight + 2.5cm) -- (\paperwidth - 2.5cm, -\paperheight + 2.5cm);
+
+        % Conteúdo página ímpar - posições ajustadas
+        \ifodd\value{page}
+          \node [anchor=west, text depth=0pt, font=\tiny] at (2.5cm, -2.2cm) {\href{mailto:13132@aluno.aebenfica.pt}{Grupo Disciplinar 510}};
+          % Logo menor e mais para cima
+          \node [anchor=north east] at (\paperwidth-2.5cm, -1.8cm) {\includegraphics[width=0.04\paperwidth]{logos/aeB05.pdf}};
+          \node [anchor=west, text height=0pt, font=\tiny] at (2.5cm, -\paperheight + 2.2cm) {\href{mailto:15803@aluno.aebenfica.pt}{Adrian Dias}};
+          \node [anchor=west, font=\tiny] at (2.5cm, -\paperheight + 2.0cm) {\jobname.tex \smash{\rule[-0.5ex]{0.6pt}{1ex}}};
+        % Conteúdo página par - posições ajustadas
+        \else
+          \node [anchor=west, text depth=0pt] at (2.5cm, -2.2cm) {\includegraphics[width=0.04\paperwidth]{logos/aeB05.pdf}};
+          \node [anchor=east, text depth=0pt, font=\tiny] at (\paperwidth - 2.5cm, -2.2cm) {\href{mailto:13137@aluno.aebenfica.pt}{Grupo Disciplinar 510}};
+          \node [anchor=east, text height=0pt, font=\tiny] at (\paperwidth - 2.5cm, -\paperheight + 2.2cm) {\href{mailto:13137@aluno.aebenfica.pt}{Adrian Dias}};
+          \node [anchor=east, font=\tiny] at (\paperwidth - 2.5cm, -\paperheight + 2.0cm) {\jobname.tex \smash{\rule[-0.5ex]{0.6pt}{1ex}}};
+        \fi
+      \end{tikzpicture}
+    }
+  \fi
+}
+
+% hyperref (último)
+\usepackage[colorlinks=true, linkcolor=black, urlcolor=blue]{hyperref}

@@ -1,0 +1,310 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{C8}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=1f2c736780ccebc7e162e6c48cd97f4a}{%
+           family={{NGSpice Development Team}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{1f2c736780ccebc7e162e6c48cd97f4a}
+      \strng{fullhash}{1f2c736780ccebc7e162e6c48cd97f4a}
+      \strng{fullhashraw}{1f2c736780ccebc7e162e6c48cd97f4a}
+      \strng{bibnamehash}{1f2c736780ccebc7e162e6c48cd97f4a}
+      \strng{authorbibnamehash}{1f2c736780ccebc7e162e6c48cd97f4a}
+      \strng{authornamehash}{1f2c736780ccebc7e162e6c48cd97f4a}
+      \strng{authorfullhash}{1f2c736780ccebc7e162e6c48cd97f4a}
+      \strng{authorfullhashraw}{1f2c736780ccebc7e162e6c48cd97f4a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{NGSpice User's Manual Version 45}
+      \field{urlday}{28}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://ngspice.sourceforge.net/docs/ngspice-manual.pdf
+      \endverb
+      \verb{url}
+      \verb http://ngspice.sourceforge.net/docs/ngspice-manual.pdf
+      \endverb
+    \endentry
+    \entry{C6}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=67e54b1ee931f3f4bddfefa5fbde5fd8}{%
+           family={{Texas Instruments}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{fullhash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{fullhashraw}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{bibnamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authorbibnamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authornamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authorfullhash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authorfullhashraw}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{uA741 General-Purpose Operational Amplifiers}
+      \field{urlday}{28}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.ti.com/lit/ds/symlink/ua741.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ti.com/lit/ds/symlink/ua741.pdf
+      \endverb
+    \endentry
+    \entry{C9}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=a4d5fd7ca3aef697b4481ac4e213adf9}{%
+           family={Karki},
+           familyi={K\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{a4d5fd7ca3aef697b4481ac4e213adf9}
+      \strng{fullhash}{a4d5fd7ca3aef697b4481ac4e213adf9}
+      \strng{fullhashraw}{a4d5fd7ca3aef697b4481ac4e213adf9}
+      \strng{bibnamehash}{a4d5fd7ca3aef697b4481ac4e213adf9}
+      \strng{authorbibnamehash}{a4d5fd7ca3aef697b4481ac4e213adf9}
+      \strng{authornamehash}{a4d5fd7ca3aef697b4481ac4e213adf9}
+      \strng{authorfullhash}{a4d5fd7ca3aef697b4481ac4e213adf9}
+      \strng{authorfullhashraw}{a4d5fd7ca3aef697b4481ac4e213adf9}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Texas Instruments Application Report SLOA034}
+      \field{title}{Understanding Instrumentation Amplifiers}
+      \field{urlday}{28}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{1999}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.ti.com/lit/an/sloa034/sloa034.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ti.com/lit/an/sloa034/sloa034.pdf
+      \endverb
+    \endentry
+    \entry{C1}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=6f760ca30acf637bd3ec08e61e594522}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Abhishek},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{6f760ca30acf637bd3ec08e61e594522}
+      \strng{fullhash}{6f760ca30acf637bd3ec08e61e594522}
+      \strng{fullhashraw}{6f760ca30acf637bd3ec08e61e594522}
+      \strng{bibnamehash}{6f760ca30acf637bd3ec08e61e594522}
+      \strng{authorbibnamehash}{6f760ca30acf637bd3ec08e61e594522}
+      \strng{authornamehash}{6f760ca30acf637bd3ec08e61e594522}
+      \strng{authorfullhash}{6f760ca30acf637bd3ec08e61e594522}
+      \strng{authorfullhashraw}{6f760ca30acf637bd3ec08e61e594522}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Explanation of Audio Amplifier Circuit}
+      \field{urlday}{28}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://electronics.stackexchange.com/questions/611212/explanation-of-audio-amplifier-circuit
+      \endverb
+      \verb{url}
+      \verb https://electronics.stackexchange.com/questions/611212/explanation-of-audio-amplifier-circuit
+      \endverb
+    \endentry
+    \entry{C2}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=9e05593adcd6fe60895ed0ec0f5e39fd}{%
+           family={HelpMe},
+           familyi={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e05593adcd6fe60895ed0ec0f5e39fd}
+      \strng{fullhash}{9e05593adcd6fe60895ed0ec0f5e39fd}
+      \strng{fullhashraw}{9e05593adcd6fe60895ed0ec0f5e39fd}
+      \strng{bibnamehash}{9e05593adcd6fe60895ed0ec0f5e39fd}
+      \strng{authorbibnamehash}{9e05593adcd6fe60895ed0ec0f5e39fd}
+      \strng{authornamehash}{9e05593adcd6fe60895ed0ec0f5e39fd}
+      \strng{authorfullhash}{9e05593adcd6fe60895ed0ec0f5e39fd}
+      \strng{authorfullhashraw}{9e05593adcd6fe60895ed0ec0f5e39fd}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{N-About Audio Amplifier Circuit}
+      \field{urlday}{28}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://electronics.stackexchange.com/questions/299591/n-about-audio-amplifier-circuit
+      \endverb
+      \verb{url}
+      \verb https://electronics.stackexchange.com/questions/299591/n-about-audio-amplifier-circuit
+      \endverb
+    \endentry
+    \entry{C5}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=a08372b70196c21a9229cf04db6b7ceb}{%
+           family={Alex},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a08372b70196c21a9229cf04db6b7ceb}
+      \strng{fullhash}{a08372b70196c21a9229cf04db6b7ceb}
+      \strng{fullhashraw}{a08372b70196c21a9229cf04db6b7ceb}
+      \strng{bibnamehash}{a08372b70196c21a9229cf04db6b7ceb}
+      \strng{authorbibnamehash}{a08372b70196c21a9229cf04db6b7ceb}
+      \strng{authornamehash}{a08372b70196c21a9229cf04db6b7ceb}
+      \strng{authorfullhash}{a08372b70196c21a9229cf04db6b7ceb}
+      \strng{authorfullhashraw}{a08372b70196c21a9229cf04db6b7ceb}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Question about bjt audio amplifier circuit}
+      \field{urlday}{28}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://electronics.stackexchange.com/questions/316839/question-about-bjt-audio-amplifier-circuit
+      \endverb
+      \verb{url}
+      \verb https://electronics.stackexchange.com/questions/316839/question-about-bjt-audio-amplifier-circuit
+      \endverb
+    \endentry
+    \entry{C3}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=a79bf49cc9667cc121bfb03faa7e4b27}{%
+           family={lemonlime},
+           familyi={l\bibinitperiod}}}%
+      }
+      \strng{namehash}{a79bf49cc9667cc121bfb03faa7e4b27}
+      \strng{fullhash}{a79bf49cc9667cc121bfb03faa7e4b27}
+      \strng{fullhashraw}{a79bf49cc9667cc121bfb03faa7e4b27}
+      \strng{bibnamehash}{a79bf49cc9667cc121bfb03faa7e4b27}
+      \strng{authorbibnamehash}{a79bf49cc9667cc121bfb03faa7e4b27}
+      \strng{authornamehash}{a79bf49cc9667cc121bfb03faa7e4b27}
+      \strng{authorfullhash}{a79bf49cc9667cc121bfb03faa7e4b27}
+      \strng{authorfullhashraw}{a79bf49cc9667cc121bfb03faa7e4b27}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Noisy BTL Audio Amplifier Circuit}
+      \field{urlday}{28}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://electronics.stackexchange.com/questions/322194/noisy-btl-audio-amplifier-circuit
+      \endverb
+      \verb{url}
+      \verb https://electronics.stackexchange.com/questions/322194/noisy-btl-audio-amplifier-circuit
+      \endverb
+    \endentry
+    \entry{C4}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=1b6e7bd033764b78ff36eb2eb08a1851}{%
+           family={Vishal},
+           familyi={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{1b6e7bd033764b78ff36eb2eb08a1851}
+      \strng{fullhash}{1b6e7bd033764b78ff36eb2eb08a1851}
+      \strng{fullhashraw}{1b6e7bd033764b78ff36eb2eb08a1851}
+      \strng{bibnamehash}{1b6e7bd033764b78ff36eb2eb08a1851}
+      \strng{authorbibnamehash}{1b6e7bd033764b78ff36eb2eb08a1851}
+      \strng{authornamehash}{1b6e7bd033764b78ff36eb2eb08a1851}
+      \strng{authorfullhash}{1b6e7bd033764b78ff36eb2eb08a1851}
+      \strng{authorfullhashraw}{1b6e7bd033764b78ff36eb2eb08a1851}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Audio amplifier circuit explanation}
+      \field{urlday}{28}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://electronics.stackexchange.com/questions/505804/audio-amplifier-circuit-explanation
+      \endverb
+      \verb{url}
+      \verb https://electronics.stackexchange.com/questions/505804/audio-amplifier-circuit-explanation
+      \endverb
+    \endentry
+    \entry{C7}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=a12ff886a2379a9ee6efaa9acfb54df4}{%
+           family={{Analog Devices}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{fullhash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{fullhashraw}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{bibnamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authorbibnamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authornamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authorfullhash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authorfullhashraw}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Application Note AN-581}
+      \field{title}{Designing with Op Amps: Single Supply Operation}
+      \field{urlday}{28}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2002}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.analog.com/media/en/technical-documentation/application-notes/AN-581.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.analog.com/media/en/technical-documentation/application-notes/AN-581.pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

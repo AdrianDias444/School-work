@@ -1,4 +1,15 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'main.blg'
-[68] biber:342> INFO - === qui jan  1, 2026, 15:04:29
-[82] Biber.pm:421> INFO - Reading 'main.bcf'
+[33] biber:342> INFO - === ter fev 10, 2026, 12:35:19
+[44] Biber.pm:421> INFO - Reading 'main.bcf'
+[76] Biber.pm:1002> INFO - Found 9 citekeys in bib section 0
+[84] Biber.pm:4487> INFO - Processing section 0
+[91] Biber.pm:4678> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
+[91] bibtex.pm:1713> INFO - LaTeX decoding ...
+[94] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
+[127] UCollate.pm:68> INFO - Overriding locale 'pt-PT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[127] UCollate.pm:68> INFO - Overriding locale 'pt-PT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[127] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'pt-PT'
+[127] Biber.pm:4313> INFO - No sort tailoring available for locale 'pt-PT'
+[133] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[135] bbl.pm:779> INFO - Output to main.bbl

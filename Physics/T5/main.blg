@@ -1,0 +1,24 @@
+[0] Config.pm:328> INFO - This is Biber 2.21
+[0] Config.pm:331> INFO - Logfile is 'main.blg'
+[32] biber:342> INFO - === qui fev 12, 2026, 16:01:53
+[42] Biber.pm:421> INFO - Reading 'main.bcf'
+[77] Biber.pm:1002> INFO - Found 31 citekeys in bib section 0
+[85] Biber.pm:4487> INFO - Processing section 0
+[91] Biber.pm:4678> INFO - Looking for bibtex file 'referencias.bib' for section 0
+[91] bibtex.pm:1713> INFO - LaTeX decoding ...
+[101] bibtex.pm:1519> INFO - Found BibTeX data source 'referencias.bib'
+[177] UCollate.pm:68> INFO - Overriding locale 'pt-PT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[177] UCollate.pm:68> INFO - Overriding locale 'pt-PT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[177] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'pt-PT'
+[177] Biber.pm:4313> INFO - No sort tailoring available for locale 'pt-PT'
+[190] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[193] bbl.pm:779> INFO - Output to main.bbl
+[194] Biber.pm:132> WARN - ISBN '978-0133561269' in entry 'norton2014machine' is invalid - run biber with '--validate_datamodel' for details.
+[194] Biber.pm:132> WARN - ISBN '978-0138414357' in entry 'spotts1998design' is invalid - run biber with '--validate_datamodel' for details.
+[194] Biber.pm:132> WARN - ISBN '978-0852429110' in entry 'white1979gears' is invalid - run biber with '--validate_datamodel' for details.
+[194] Biber.pm:132> WARN - ISBN '978-0768081918' in entry 'kolivand2013design' is invalid - run biber with '--validate_datamodel' for details.
+[194] Biber.pm:132> WARN - I didn't find a database entry for 'freecad2025' (section 0)
+[194] Biber.pm:132> WARN - I didn't find a database entry for 'freecadwiki' (section 0)
+[194] Biber.pm:132> WARN - I didn't find a database entry for 'freecadgears' (section 0)
+[194] Biber.pm:132> WARN - I didn't find a database entry for 'freecadassembly' (section 0)
+[194] Biber.pm:134> INFO - WARNINGS: 8

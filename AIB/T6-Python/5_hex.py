@@ -11,7 +11,7 @@ def int_para_hex():
     else:
         while numero > 0:
             resto = numero % 16
-            resultado = hex_digits[resto] + resultadonumero
+            resultado = hex_digits[resto] + resultado
             numero = numero // 16
 
     print(f"Hexadecimal: 0x{resultado}")

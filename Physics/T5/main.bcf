@@ -96,15 +96,15 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxbibnames</bcf:key>
-      <bcf:value>6</bcf:value>
+      <bcf:value>3</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxcitenames</bcf:key>
-      <bcf:value>6</bcf:value>
+      <bcf:value>3</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxsortnames</bcf:key>
-      <bcf:value>6</bcf:value>
+      <bcf:value>3</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxitems</bcf:key>
@@ -172,7 +172,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortingtemplatename</bcf:key>
-      <bcf:value>none</bcf:value>
+      <bcf:value>nty</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortsets</bcf:key>
@@ -331,15 +331,15 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxbibnames</bcf:key>
-      <bcf:value>6</bcf:value>
+      <bcf:value>3</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxcitenames</bcf:key>
-      <bcf:value>6</bcf:value>
+      <bcf:value>3</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxsortnames</bcf:key>
-      <bcf:value>6</bcf:value>
+      <bcf:value>3</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxitems</bcf:key>
@@ -643,7 +643,6 @@
     <bcf:option datatype="boolean">eprint</bcf:option>
     <bcf:option datatype="boolean">related</bcf:option>
     <bcf:option datatype="boolean">subentry</bcf:option>
-    <bcf:option datatype="boolean">subentrycomp</bcf:option>
     <bcf:option datatype="boolean">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="integer">mincrossrefs</bcf:option>
     <bcf:option datatype="integer">minxrefs</bcf:option>
@@ -726,7 +725,6 @@
     <bcf:option datatype="boolean">eprint</bcf:option>
     <bcf:option datatype="boolean">related</bcf:option>
     <bcf:option datatype="boolean">subentry</bcf:option>
-    <bcf:option datatype="boolean">subentrycomp</bcf:option>
     <bcf:option datatype="boolean">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="xml">labelalphatemplate</bcf:option>
     <bcf:option datatype="xml">translit</bcf:option>
@@ -816,7 +814,6 @@
     <bcf:option datatype="boolean" backendout="1">eprint</bcf:option>
     <bcf:option datatype="boolean" backendout="1">related</bcf:option>
     <bcf:option datatype="boolean" backendout="1">subentry</bcf:option>
-    <bcf:option datatype="boolean" backendout="1">subentrycomp</bcf:option>
     <bcf:option datatype="boolean" backendout="1">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="integer" backendin="maxcitenames,maxbibnames,maxsortnames">maxnames</bcf:option>
     <bcf:option datatype="integer" backendin="mincitenames,minbibnames,minsortnames">minnames</bcf:option>
@@ -2372,108 +2369,165 @@
   <!-- CITATION DATA -->
   <!-- SECTION 0 -->
   <bcf:bibdata section="0">
-    <bcf:datasource type="file" datatype="bibtex" glob="false">bibliografia.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">referencias.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">C6</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">C9</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">C9</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">C1</bcf:citekey>
-    <bcf:citekey order="6" intorder="2">C2</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">C9</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">C5</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">C1</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">C3</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">C4</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">C5</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">C6</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">C9</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">C9</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">C6</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">C6</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">C6</bcf:citekey>
-    <bcf:citekey order="30" intorder="1">C6</bcf:citekey>
-    <bcf:citekey order="31" intorder="1">C7</bcf:citekey>
-    <bcf:citekey order="32" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="33" intorder="1">C5</bcf:citekey>
-    <bcf:citekey order="34" intorder="1">C1</bcf:citekey>
-    <bcf:citekey order="35" intorder="1">C3</bcf:citekey>
-    <bcf:citekey order="36" intorder="1">C4</bcf:citekey>
-    <bcf:citekey order="37" intorder="1">C5</bcf:citekey>
-    <bcf:citekey order="38" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="39" intorder="1">C6</bcf:citekey>
-    <bcf:citekey order="40" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="41" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="42" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="43" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="44" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="45" intorder="1">C5</bcf:citekey>
-    <bcf:citekey order="46" intorder="1">C1</bcf:citekey>
-    <bcf:citekey order="47" intorder="1">C3</bcf:citekey>
-    <bcf:citekey order="48" intorder="1">C4</bcf:citekey>
-    <bcf:citekey order="49" intorder="1">C5</bcf:citekey>
-    <bcf:citekey order="50" intorder="1">C6</bcf:citekey>
-    <bcf:citekey order="51" intorder="1">C9</bcf:citekey>
-    <bcf:citekey order="52" intorder="1">C2</bcf:citekey>
-    <bcf:citekey order="53" intorder="1">C9</bcf:citekey>
-    <bcf:citekey order="54" intorder="1">C1</bcf:citekey>
-    <bcf:citekey order="55" intorder="1">C3</bcf:citekey>
-    <bcf:citekey order="56" intorder="1">C9</bcf:citekey>
-    <bcf:citekey order="57" intorder="1">C5</bcf:citekey>
-    <bcf:citekey order="58" intorder="1">C2</bcf:citekey>
-    <bcf:citekey order="59" intorder="1">C6</bcf:citekey>
-    <bcf:citekey order="60" intorder="1">C6</bcf:citekey>
-    <bcf:citekey order="61" intorder="1">C7</bcf:citekey>
-    <bcf:citekey order="62" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="63" intorder="1">C9</bcf:citekey>
-    <bcf:citekey order="64" intorder="1">C2</bcf:citekey>
-    <bcf:citekey order="65" intorder="1">C9</bcf:citekey>
-    <bcf:citekey order="66" intorder="1">C1</bcf:citekey>
-    <bcf:citekey order="66" intorder="2">C4</bcf:citekey>
-    <bcf:citekey order="67" intorder="1">C3</bcf:citekey>
-    <bcf:citekey order="68" intorder="1">C6</bcf:citekey>
-    <bcf:citekey order="69" intorder="1">C9</bcf:citekey>
-    <bcf:citekey order="70" intorder="1">C5</bcf:citekey>
-    <bcf:citekey order="71" intorder="1">C7</bcf:citekey>
-    <bcf:citekey order="72" intorder="1">C8</bcf:citekey>
-    <bcf:citekey order="73" intorder="1">C6</bcf:citekey>
-    <bcf:citekey order="74" intorder="1">C4</bcf:citekey>
-    <bcf:citekey order="75" intorder="1">C7</bcf:citekey>
-    <bcf:citekey order="76" intorder="1">C9</bcf:citekey>
-    <bcf:citekey order="77" intorder="1">C1</bcf:citekey>
-    <bcf:citekey order="78" intorder="1">C6</bcf:citekey>
-    <bcf:citekey order="79" intorder="1">C6</bcf:citekey>
-    <bcf:citekey order="80" intorder="1">C9</bcf:citekey>
-    <bcf:citekey order="81" intorder="1">C7</bcf:citekey>
-    <bcf:citekey order="82" intorder="1">C9</bcf:citekey>
+    <bcf:citekey order="1" intorder="1">mitchell1970evolution</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">willis1841principles</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">norton2014machine</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">dudley1994handbook</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">shigley2011shigleys</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">juvinall2012fundamentals</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">mott2004machine</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">spotts1998design</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">levai1968structure</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">iso21771</bcf:citekey>
+    <bcf:citekey order="10" intorder="2">henriot1979treatise</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">dudley1994handbook</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">white1979gears</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">americangear</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">norton2014machine</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">iso54</bcf:citekey>
+    <bcf:citekey order="15" intorder="2">dudley1994handbook</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">iso54</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">levai1968structure</bcf:citekey>
+    <bcf:citekey order="17" intorder="2">muller1975planetary</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">levai1968structure</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">kolivand2013design</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">muller1975planetary</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">kim2006efficiency</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">wang2017design</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">silva2020planetary</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">chen2015dynamic</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">levai1968structure</bcf:citekey>
+    <bcf:citekey order="25" intorder="2">kolivand2013design</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">willis1841principles</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">willis1841principles</bcf:citekey>
+    <bcf:citekey order="27" intorder="2">muller1975planetary</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">kolivand2013design</bcf:citekey>
+    <bcf:citekey order="28" intorder="2">chen2015dynamic</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">kim2006efficiency</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">dudley1994handbook</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">levai1968structure</bcf:citekey>
+    <bcf:citekey order="31" intorder="2">kim2006efficiency</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">kim2006efficiency</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">dudley1994handbook</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">nasa1996gears</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">kim2006efficiency</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">kim2006efficiency</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">kim2006efficiency</bcf:citekey>
+    <bcf:citekey order="37" intorder="2">kolivand2013design</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">freecad2025</bcf:citekey>
+    <bcf:citekey order="38" intorder="2">freecadwiki</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">freecadgears</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">freecadassembly</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">freecad2025</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">freecadassembly</bcf:citekey>
+    <bcf:citekey order="43" intorder="1">freecadassembly</bcf:citekey>
+    <bcf:citekey order="43" intorder="2">freecad2025</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">johnson2009urban</bcf:citekey>
+    <bcf:citekey order="45" intorder="1">silva2020planetary</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">carroll2018bicycle</bcf:citekey>
+    <bcf:citekey order="47" intorder="1">carroll2018bicycle</bcf:citekey>
+    <bcf:citekey order="48" intorder="1">silva2020planetary</bcf:citekey>
+    <bcf:citekey order="49" intorder="1">silva2020planetary</bcf:citekey>
+    <bcf:citekey order="50" intorder="1">silva2020planetary</bcf:citekey>
+    <bcf:citekey order="50" intorder="2">carroll2018bicycle</bcf:citekey>
+    <bcf:citekey order="51" intorder="1">willis1841principles</bcf:citekey>
+    <bcf:citekey order="52" intorder="1">levai1968structure</bcf:citekey>
+    <bcf:citekey order="53" intorder="1">kolivand2013design</bcf:citekey>
+    <bcf:citekey order="54" intorder="1">kim2006efficiency</bcf:citekey>
+    <bcf:citekey order="55" intorder="1">silva2020planetary</bcf:citekey>
+    <bcf:citekey order="55" intorder="2">carroll2018bicycle</bcf:citekey>
+    <bcf:citekey order="56" intorder="1">silva2020planetary</bcf:citekey>
+    <bcf:citekey order="57" intorder="1">kim2006efficiency</bcf:citekey>
+    <bcf:citekey order="58" intorder="1">norton2014machine</bcf:citekey>
+    <bcf:citekey order="59" intorder="1">kim2006efficiency</bcf:citekey>
+    <bcf:citekey order="60" intorder="1">silva2020planetary</bcf:citekey>
+    <bcf:citekey order="61" intorder="1">carroll2018bicycle</bcf:citekey>
+    <bcf:citekey order="62" intorder="1">kim2006efficiency</bcf:citekey>
+    <bcf:citekey order="63" intorder="1">silva2020planetary</bcf:citekey>
+    <bcf:citekey order="64" intorder="1">carroll2018bicycle</bcf:citekey>
+    <bcf:citekey order="65" intorder="1">dudley1994handbook</bcf:citekey>
+    <bcf:citekey order="66" intorder="1">mott2004machine</bcf:citekey>
+    <bcf:citekey order="66" intorder="2">juvinall2012fundamentals</bcf:citekey>
+    <bcf:citekey order="67" intorder="1">spotts1998design</bcf:citekey>
+    <bcf:citekey order="68" intorder="1">shigley2011shigleys</bcf:citekey>
+    <bcf:citekey order="68" intorder="2">iso6336</bcf:citekey>
+    <bcf:citekey order="69" intorder="1">dudley1994handbook</bcf:citekey>
+    <bcf:citekey order="70" intorder="1">iso54</bcf:citekey>
+    <bcf:citekey order="71" intorder="1">shigley2011shigleys</bcf:citekey>
+    <bcf:citekey order="72" intorder="1">americangear</bcf:citekey>
+    <bcf:citekey order="73" intorder="1">iso6336</bcf:citekey>
+    <bcf:citekey order="74" intorder="1">kim2006efficiency</bcf:citekey>
+    <bcf:citekey order="75" intorder="1">juvinall2012fundamentals</bcf:citekey>
+    <bcf:citekey order="76" intorder="1">iso1328</bcf:citekey>
+    <bcf:citekey order="77" intorder="1">iso6336</bcf:citekey>
+    <bcf:citekey order="78" intorder="1">iso1328</bcf:citekey>
+    <bcf:citekey order="79" intorder="1">iso54</bcf:citekey>
+    <bcf:citekey order="80" intorder="1">dudley1994handbook</bcf:citekey>
+    <bcf:citekey order="80" intorder="2">iso21771</bcf:citekey>
+    <bcf:citekey order="81" intorder="1">kolivand2013design</bcf:citekey>
+    <bcf:citekey order="82" intorder="1">willis1841principles</bcf:citekey>
+    <bcf:citekey order="83" intorder="1">silva2020planetary</bcf:citekey>
+    <bcf:citekey order="83" intorder="2">carroll2018bicycle</bcf:citekey>
+    <bcf:citekey order="84" intorder="1">dudley1994handbook</bcf:citekey>
+    <bcf:citekey order="84" intorder="2">levai1968structure</bcf:citekey>
+    <bcf:citekey order="85" intorder="1">silva2020planetary</bcf:citekey>
+    <bcf:citekey order="86" intorder="1">kim2006efficiency</bcf:citekey>
+    <bcf:citekey order="86" intorder="2">chen2015dynamic</bcf:citekey>
+    <bcf:citekey order="87" intorder="1">iso54</bcf:citekey>
+    <bcf:citekey order="87" intorder="2">iso21771</bcf:citekey>
+    <bcf:citekey order="88" intorder="1">freecad2025</bcf:citekey>
+    <bcf:citekey order="88" intorder="2">freecadwiki</bcf:citekey>
+    <bcf:citekey order="88" intorder="3">freecadgears</bcf:citekey>
+    <bcf:citekey order="88" intorder="4">freecadassembly</bcf:citekey>
+    <bcf:citekey order="89" intorder="1">johnson2009urban</bcf:citekey>
+    <bcf:citekey order="90" intorder="1">dudley1994handbook</bcf:citekey>
+    <bcf:citekey order="91" intorder="1">ansysgears</bcf:citekey>
+    <bcf:citekey order="91" intorder="2">martins2019planetary</bcf:citekey>
+    <bcf:citekey order="92" intorder="1">shigley2011shigleys</bcf:citekey>
+    <bcf:citekey order="92" intorder="2">dudley1994handbook</bcf:citekey>
+    <bcf:citekey order="93" intorder="1">iso54</bcf:citekey>
+    <bcf:citekey order="93" intorder="2">iso21771</bcf:citekey>
+    <bcf:citekey order="93" intorder="3">dudley1994handbook</bcf:citekey>
+    <bcf:citekey order="94" intorder="1">kolivand2013design</bcf:citekey>
+    <bcf:citekey order="94" intorder="2">kim2006efficiency</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
-  <bcf:sortingtemplate name="none">
+  <bcf:sortingtemplate name="nty">
     <bcf:sort order="1">
-      <bcf:sortitem order="1">citeorder</bcf:sortitem>
+      <bcf:sortitem order="1">presort</bcf:sortitem>
     </bcf:sort>
-    <bcf:sort order="2">
-      <bcf:sortitem order="1">intciteorder</bcf:sortitem>
+    <bcf:sort order="2" final="1">
+      <bcf:sortitem order="1">sortkey</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="3">
+      <bcf:sortitem order="1">sortname</bcf:sortitem>
+      <bcf:sortitem order="2">author</bcf:sortitem>
+      <bcf:sortitem order="3">editor</bcf:sortitem>
+      <bcf:sortitem order="4">translator</bcf:sortitem>
+      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="6">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="4">
+      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="2">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="5">
+      <bcf:sortitem order="1">sortyear</bcf:sortitem>
+      <bcf:sortitem order="2">year</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="6">
+      <bcf:sortitem order="1">volume</bcf:sortitem>
+      <bcf:sortitem literal="1" order="2">0</bcf:sortitem>
     </bcf:sort>
   </bcf:sortingtemplate>
   <!-- DATALISTS -->
   <bcf:datalist section="0"
-                name="none/global//global/global/global"
+                name="nty/global//global/global/global"
                 type="entry"
-                sortingtemplatename="none"
+                sortingtemplatename="nty"
                 sortingnamekeytemplatename="global"
                 labelprefix=""
                 uniquenametemplatename="global"

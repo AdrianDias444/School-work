@@ -1,0 +1,41 @@
+\xpg@aux {}{portuguese}
+\contentsline {section}{\numberline {1}Introdução Teórica: Engenharia de Transmissões Mecânicas}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Contexto Histórico e Evolução das Engrenagens}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Fundamentos Cinemáticos dos Sistemas de Engrenagens}{3}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Classificação dos Sistemas de Engrenagens}{3}{subsubsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.3}Princípios Geométricos dos Dentes com perfil Evolvente}{3}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Parâmetros Fundamentais das Engrenagens Cilíndricas}{4}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Teoria dos Trens de Engrenagens Planetárias}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Classificação dos Trens Epicíclicos}{4}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Segundo a Arquitetura (Classificação de Levai)}{4}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Segundo a Disposição das Engrenagens}{5}{subsubsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Anatomia de um Trem Planetário 2K-H}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Dedução da Equação Fundamental de Willis}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Condições de Montagem e Compatibilidade}{6}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Condição de Engrenamento (Compatibilidade de Diâmetros)}{6}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Condição de Montagem (Compatibilidade Angular)}{6}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Condição de Vizinhança (Não Interferência entre Planetárias)}{6}{subsubsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.5}Relações de Transmissão para Configurações Típicas}{6}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Eficiência dos Trens Planetários}{6}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Modelagem e Implementação no FreeCAD}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Fluxo de Trabalho Paramétrico}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Modelagem da Engrenagem Solar e Planetária}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Montagem do Primeiro Estágio Planetário}{7}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Sistema Completo com Dois Estágios em Série}{9}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Aplicação ao Projeto Prático: Sistema Duplo para Bicicleta}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Contextualização da Necessidade de Projeto}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Descrição do Mecanismo Proposto}{10}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Análise Cinemática Detalhada}{10}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Cálculo da Relação de Transmissão Global}{10}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Exemplo Numérico com Dados Reais e Interpretação Física}{11}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Análise de Torques e Potência}{11}{subsubsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.4}Vantagens do Sistema Proposto}{12}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Considerações de Projeto Detalhado}{12}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Seleção de Materiais}{12}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Análise de Tensões}{13}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Tolerâncias e Folgas}{13}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Dimensionamento Geométrico Completo}{13}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Conclusão}{14}{section.6}%
+\contentsline {section}{Apêndice A: Código para Cálculo das Relações de Transmissão}{17}{section*.3}%
+\contentsline {section}{Apêndice B: Tabela de Fatores de Forma de Lewis}{18}{section*.4}%
+\contentsline {section}{Apêndice C: Dimensionamento Geométrico Completo}{18}{section*.5}%
